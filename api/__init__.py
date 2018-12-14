@@ -6,7 +6,7 @@ from flask import Flask
 from flask_cors import CORS
 
 from config import config_dict
-from start_project.models import *
+from api.models.models import *
 
 from flask_caching import Cache
 from flask_wtf.csrf import CSRFProtect
@@ -52,7 +52,7 @@ def create_app(config_type):
     # 配置日志文件
     setup_log(config_class.LOGLEVEL)
 
-    from start_project.models import db
+    from api.models.models import db
     db.init_app(app)
 
     # CSRFProtect(app)

@@ -1,10 +1,12 @@
+import re
+
 from flask import jsonify, request, current_app, g, render_template, abort, session, redirect, url_for
 from flask_security import roles_required, current_user, forms, auth_token_required, login_required
 from flask_security.utils import login_user, logout_user
 
-from start_project.common_func.get_role import get_user_role
-from start_project.models import *
-from start_project.modules.user import user_blu
+from api.common_func.get_role import get_user_role
+from api.models.models import *
+from api.modules.user import user_blu
 
 
 # 主界面的显示
@@ -75,8 +77,8 @@ def login():
     if user.password == password:
         token = user.get_auth_token()
         login_user(user)
-        print(token)
-        print(user.roles)
+        # print(token)
+        # print(user.roles)
         data = {
             "token": token,
             'username': user.username,
@@ -93,7 +95,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return '退出登陆'
+    return jsonify(message='user logout')
 
 
 # 添加新用户
@@ -113,6 +115,33 @@ def add_user():
     return jsonify({'status': 'add success'})
 
 
+# 修改并更新用户资料
+@user_blu.route('/update_info', methods=['POST'])
+@login_required
+def update_info():
+    # 获取需要的参数
+    name = request.json.get('name')
+    email = request.json.get('email')
+    mobile = request.json.get('mobile')
+    # 校验参数的完整性
+    if not all([mobile, name, email]):
+        return jsonify(error='please check your parameters')
+    # 校验邮箱格式
+    if not re.match('[0-9a-zA-Z_]{0,19}@[0-9a-zA-Z]{1,13}\.[com,cn,net]{1,3}$',email):
+        return jsonify(error='wrong email')
+    # 校验手机号格式
+    if not re.match(r"1[35678]\d{9}$", mobile):
+        return jsonify(error='illegal mobile')
+
+    # 修改用户信息
+    current_user.name = name
+    current_user.email = email
+    current_user.mobile = mobile
+    db.session.commit()
+
+    return jsonify(row2dict(current_user))
+
+
 # 修改密码/需要手机号短信验证
 @user_blu.route('/change_pwd', methods=['GET', 'POST'])
 @login_required  # 只有登录的人才能修改密码
@@ -125,7 +154,7 @@ def change_password():
         # 修改密码
         db.session.add(current_user)
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('user.index'))
     else:
         return jsonify({"error": "error password"})
 
