@@ -1,10 +1,10 @@
 # from flask import Blueprint, render_template, jsonify
 # from flask import current_app, redirect, request, url_for
-# from role_allocate.models import db, row2dict, user_datastore
-# from role_allocate.models import User
+# from start_project.models import db, row2dict, user_datastore
+# from start_project.models import User
 # from flask_security import roles_required, login_required, current_user, login_user, auth_token_required
 #
-# from role_allocate.modules.admin import admin_blu
+# from start_project.modules.admin import admin_blu
 #
 #
 # @admin_blu.route('/')

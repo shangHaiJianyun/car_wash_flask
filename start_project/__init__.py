@@ -2,11 +2,11 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 from flask import Flask
-from flask_login import LoginManager
+# from flask_login import LoginManager
 from flask_cors import CORS
 
 from config import config_dict
-from role_allocate.models import *
+from start_project.models import *
 
 from flask_caching import Cache
 from flask_wtf.csrf import CSRFProtect
@@ -52,7 +52,7 @@ def create_app(config_type):
     # 配置日志文件
     setup_log(config_class.LOGLEVEL)
 
-    from role_allocate.models import db
+    from start_project.models import db
     db.init_app(app)
 
     # CSRFProtect(app)

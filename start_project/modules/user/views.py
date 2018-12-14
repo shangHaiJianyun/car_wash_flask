@@ -2,16 +2,16 @@ from flask import jsonify, request, current_app, g, render_template, abort, sess
 from flask_security import roles_required, current_user, forms, auth_token_required, login_required
 from flask_security.utils import login_user, logout_user
 
-from role_allocate.common_func.get_role import get_user_role
-from role_allocate.models import *
-from role_allocate.modules.user import user_blu
+from start_project.common_func.get_role import get_user_role
+from start_project.models import *
+from start_project.modules.user import user_blu
 
 
 # 主界面的显示
 @user_blu.route("/")
 @user_blu.route("/index")
-# @login_required
-@auth_token_required
+@login_required
+# @auth_token_required
 @roles_required('Admin')
 def index():
     token = request.args.get('auth_token')

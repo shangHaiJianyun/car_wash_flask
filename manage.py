@@ -7,10 +7,10 @@ manage.py
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
-from role_allocate.common_func.get_role import get_user_role
-from role_allocate.models import db, Role, User, roles_users, user_datastore
+from start_project.common_func.get_role import get_user_role
+from start_project.models import db, Role, User, roles_users, user_datastore
 
-from role_allocate import create_app
+from start_project import create_app
 app = create_app("dev")
 
 migrate = Migrate(app, db)

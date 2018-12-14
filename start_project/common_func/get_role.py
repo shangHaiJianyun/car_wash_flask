@@ -1,4 +1,4 @@
-from role_allocate import Role
+from start_project import Role
 
 
 def get_user_role(name):
