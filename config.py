@@ -1,0 +1,50 @@
+import logging
+from datetime import timedelta
+
+from redis import StrictRedis
+
+
+class Config:
+    ENV = 'develop'
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_sch'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    # used for encryption and session management
+    SECRET_KEY = 'mysecretkey'
+    # 安全配置
+    WTF_CSRF_ENABLED = False
+    UPLOAD_FOLDER = '/uploads'
+
+    # SECURITY_TOKEN_AUTHENTICATION_KEY = 'auth_token'
+    # SECURITY_TOKEN_AUTHENTICATION_HEADER = 'auth_token'
+    LOGGING_LEVEL = logging.DEBUG
+    SECURITY_PASSWORD_HASH = 'pbkdf2_sha512'
+    SECURITY_TRACKABLE = False
+    SECURITY_PASSWORD_SALT = 'upctech'
+    SECURITY_USER_IDENTITY_ATTRIBUTES = 'username'
+    # SECURITY_LOGIN_URL = '/user/login'  # 默认登陆模板
+    SECURITY_TOKEN_MAX_AGE = 'None'  # never expired
+    # REDIS_HOST = "127.0.0.1"  # redis的ip
+    # REDIS_PORT = 6379  # redis的端口
+    # SESSION_TYPE = "redis"  # session存储的数据库类型
+    # SESSION_REDIS = StrictRedis(host=REDIS_HOST, port=REDIS_PORT)  # 设置session存储使用的redis连接对象
+    # SESSION_USE_SIGNER = True  # 对cookie中保存的sessionid进行加密(需要使用app的秘钥)
+    # PERMANENT_SESSION_LIFETIME = timedelta(days=7)  # 设置session存储时间(session默认会进行持久化)
+
+
+class DevelopConfig(Config):  # 定义开发环境的配置
+    DEBUG = True
+    LOGLEVEL = logging.DEBUG
+
+
+class ProductConfig(Config):  # 定义生产环境的配置
+    DEBUG = False
+    LOGLEVEL = logging.ERROR
+
+
+
+# 设置配置字典
+config_dict = {
+    "dev": DevelopConfig,
+    "pro": ProductConfig
+}
