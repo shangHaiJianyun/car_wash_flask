@@ -8,7 +8,6 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 from api.common_func.get_role import get_user_role
-from api.models.models import db, Role, User, roles_users, user_datastore
 from api.modules.admin.views import *
 
 from api import create_app
