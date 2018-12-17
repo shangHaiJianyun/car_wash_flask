@@ -19,7 +19,7 @@ def index():
     token = request.args.get('auth_token')
     print(token)
     u = row2dict(current_user)
-    # return render_templaxte('user/index.html', user=u)
+    # return render_template('user/index.html', user=u)
     return jsonify(u)
 
 
