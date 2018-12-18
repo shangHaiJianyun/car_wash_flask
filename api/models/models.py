@@ -4,14 +4,13 @@ models.py
 - Data classes for the surveyapi application
 """
 import json
+
+from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-from passlib.apps import custom_app_context as pwd_context
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, SignatureExpired, BadSignature
 from flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required
 from flask import current_app
-from werkzeug.security import check_password_hash, generate_password_hash
-from flask_security.utils import hash_password, verify_password
 
 app = current_app
 db = SQLAlchemy()
@@ -69,37 +68,11 @@ class User(Base, db.Model, UserMixin):
     def __repr__(self):
         return '<User %r>' % self.username
 
-    # def verify_pwd(self, pwd):
-    #     if self.password == pwd:
-    #         return True
-    #     return False
+    def set_password(self):
+        self.password = generate_password_hash(self.password).decode('utf-8')
 
-    # @property
-    # def password_hash(self):
-    #     raise AttributeError('password is not a readable attribute')
-    #
-    # @password_hash.setter
-    # def password_hash(self, password):
-    #     self.password = generate_password_hash(password)
-    #
-    # def verify_password(self, password):
-    #     return check_password_hash(self.password, password)
-
-    # def generate_auth_token(self, expiration=600):
-    #     s = Serializer(app.config['SECRET_KEY'], expires_in=expiration)
-    #     return s.dumps({'id': self.id})  # 返回一个token
-
-    # @staticmethod
-    # def verify_auth_token(token):
-    #     s = Serializer(app.config['SECRET_KEY'])
-    #     try:
-    #         data = s.loads(token)
-    #     except SignatureExpired:
-    #         return None  # valid token, but expired
-    #     except BadSignature:
-    #         return None  # invalid token
-    #     user = User.query.get(data['id'])
-    #     return user
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
 
 class Role(Base, db.Model, RoleMixin):

@@ -9,11 +9,11 @@ class Config:
     ENV = 'develop'
     DEBUG = True
     # if os.path == '/home/ubuntu/projects':
-        # 服务器端数据库链接
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2 :UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/carWash'
+    # 服务器端数据库链接
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/carWash'
     # else:
-    #     # 本地测试用例数据库
-    #     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_sch'
+    # # 本地测试用例数据库
+    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_sch'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     # used for encryption and session management
@@ -21,6 +21,11 @@ class Config:
     # 安全配置
     WTF_CSRF_ENABLED = False
     UPLOAD_FOLDER = '/uploads'
+
+    # 设置jwt秘钥
+    JWT_SECRET_KEY = 'super_key'
+    PROPAGATE_EXCEPTIONS = True
+    JWT_ACCESS_TOKEN_EXPIRES=False
 
     # SECURITY_TOKEN_AUTHENTICATION_KEY = 'auth_token'
     # SECURITY_TOKEN_AUTHENTICATION_HEADER = 'auth_token'
@@ -47,7 +52,6 @@ class DevelopConfig(Config):  # 定义开发环境的配置
 class ProductConfig(Config):  # 定义生产环境的配置
     DEBUG = False
     LOGLEVEL = logging.ERROR
-
 
 
 # 设置配置字典

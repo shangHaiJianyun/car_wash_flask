@@ -6,11 +6,11 @@ manage.py
 """
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
-
+from api.models.models import User, user_datastore
 from api.common_func.get_role import get_user_role
-from api.modules.admin.views import *
 
-from api import create_app
+from api import create_app, db
+
 app = create_app("dev")
 
 migrate = Migrate(app, db)
@@ -30,8 +30,34 @@ def shell_ctx():
                 )
 
 
-if __name__ == '__main__':
+@ manager.command
+def initrole():
+    user_datastore.create_role(name='User', description='Generic user role')
+    user_datastore.create_role(name='Admin', description='Admin user role')
+    user_datastore.create_role(name='Operate', description='Generic operate role')
+    db.session.commit()
+    # print('insert success')
 
+
+@manager.command
+def add_test_user():
+    user = user_datastore.create_user(username='18355096166',password='1234567')
+    user.set_password()
+    user_role = get_user_role('User')
+    user_datastore.add_role_to_user(user, user_role)
+    db.session.commit()
+    # print('user generate')
+
+
+@manager.command
+def add_test_admin():
+    user = user_datastore.create_user(username='18355090212', password='1234567')
+    user.set_password()
+    admin_role = get_user_role('Admin')
+    user_datastore.add_role_to_user(user, admin_role)
+    db.session.commit()
+    # print('admin generate')
+
+
+if __name__ == '__main__':
     manager.run()
-    # initrole()
-    # add_test_user()

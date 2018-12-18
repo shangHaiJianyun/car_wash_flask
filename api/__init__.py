@@ -4,6 +4,8 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask
 # from flask_login import LoginManager
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager
+from flask_bcrypt import Bcrypt
 
 from config import config_dict
 from api.models.models import *
@@ -42,6 +44,14 @@ def create_app(config_type):
     security = Security(app, datastore=user_datastore)
     cache.init_app(app)
     # session.init_app(app)
+
+    # 调用flask_jwt_extended模块
+    jwt = JWTManager(app)
+    jwt.init_app(app)
+
+    # 对用户密码进行加解密的模块
+    bcrypt = Bcrypt()
+    bcrypt.init_app(app)
 
     from .modules.user import user_blu
     app.register_blueprint(user_blu, url_prefix="/user")
