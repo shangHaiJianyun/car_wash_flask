@@ -46,7 +46,8 @@ def create_app(config_type):
     # session.init_app(app)
 
     # 调用flask_jwt_extended模块
-    jwt = JWTManager(app)
+    from api.common_func.decorators import jwt
+    # jwt = JWTManager(app)
     jwt.init_app(app)
 
     # 对用户密码进行加解密的模块
@@ -54,10 +55,10 @@ def create_app(config_type):
     bcrypt.init_app(app)
 
     from .modules.user import user_blu
-    app.register_blueprint(user_blu, url_prefix="/user")
+    app.register_blueprint(user_blu, url_prefix="/api/user")
 
     # from .modules.admin import admin_blu
-    # app.register_blueprint(admin_blu, url_prefix="/admin")
+    # app.register_blueprint(admin_blu, url_prefix="/api/admin")
 
     # 配置日志文件
     setup_log(config_class.LOGLEVEL)

@@ -2,10 +2,11 @@ import re
 import random
 
 from flask import jsonify, request, current_app, g, render_template, abort, session, redirect, url_for
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token
 from flask_security import roles_required, current_user, forms, auth_token_required, login_required
 from flask_security.utils import login_user, logout_user
 
+from api.common_func.decorators import admin_required
 from api.common_func.get_role import get_user_role
 from api.models.models import *
 from api.modules.user import user_blu
@@ -76,7 +77,7 @@ def login():
     if not user:
         return jsonify({'error': 'Not found this user'})
     if user.check_password(password):
-        token = user.get_auth_token()
+        token = create_access_token(identity=username)
         login_user(user)
         # print(token)
         # print(user.roles)
@@ -102,8 +103,9 @@ def logout():
 # 添加新用户，只有Admin角色才可进行操作
 @user_blu.route('/add_user', methods=['POST'])
 @login_required
+@admin_required
 def add_user():
-    # TODO：定义装饰器admin_required管理操作权限
+    # 定义装饰器admin_required管理操作权限
     username = request.json.get('username')
     password = request.json.get('password')
     user = user_datastore.create_user(username=username, password=password)
@@ -180,6 +182,7 @@ def get_sms_code():
     # 将短信发送结果使用json返回
     return jsonify(erro='OK')
 
+
 # 修改密码/需要手机号短信验证
 @user_blu.route('/change_pwd', methods=['GET', 'POST'])
 @login_required  # 只有登录的人才能修改密码
@@ -209,7 +212,8 @@ def change_password():
 
 # token携带后验证
 @user_blu.route('/protected', methods=['GET'])
-@jwt_required
+# @jwt_required
+@admin_required
 def token_protected():
     this_user = get_jwt_identity()
     return jsonify(logged_in_as=this_user), 200

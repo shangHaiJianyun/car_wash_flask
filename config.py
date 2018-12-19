@@ -10,10 +10,10 @@ class Config:
     DEBUG = True
     # if os.path == '/home/ubuntu/projects':
     # 服务器端数据库链接
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/carWash'
+    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/carWash'
     # else:
     # # 本地测试用例数据库
-    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_sch'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_sch'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     # used for encryption and session management
