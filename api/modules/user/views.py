@@ -3,10 +3,10 @@ import random
 
 from flask import jsonify, request, current_app, g, render_template, abort, session, redirect, url_for
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token
-from flask_security import roles_required, current_user, forms, auth_token_required, login_required
+from flask_security import current_user, forms, auth_token_required, login_required
 from flask_security.utils import login_user, logout_user
 
-from api.common_func.decorators import admin_required
+from api.common_func.decorators import admin_required, roles_required
 from api.common_func.get_role import get_user_role
 from api.models.models import *
 from api.modules.user import user_blu
@@ -179,7 +179,8 @@ def change_password():
 # token携带后验证
 @user_blu.route('/protected', methods=['GET'])
 # @jwt_required
-@admin_required
+# @admin_required
+@roles_required('User')
 def token_protected():
     this_user = get_jwt_identity()
     return jsonify(logged_in_as=this_user), 200

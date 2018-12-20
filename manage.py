@@ -50,6 +50,16 @@ def add_test_user():
 
 
 @manager.command
+def add_test_operate():
+    user = user_datastore.create_user(username='3',password='123')
+    user.set_password()
+    user_role = get_user_role('Operate')
+    user_datastore.add_role_to_user(user, user_role)
+    db.session.commit()
+    # print('operate generate')
+
+
+@manager.command
 def add_test_admin():
     user = user_datastore.create_user(username='18355090212', password='1234567')
     user.set_password()
