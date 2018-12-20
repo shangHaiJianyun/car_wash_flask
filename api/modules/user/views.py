@@ -25,45 +25,6 @@ def index():
     return jsonify(u)
 
 
-# @app.route('/user/register', methods=['GET', 'POST'])
-# def register():
-#     form = forms.RegisterForm()
-#     if form.validate_on_submit():
-#         if form.password.data != form.password_again.data:
-#             errors = '两次输入的密码不同'
-#             return render_template('register.html', form=form, errors=errors)
-#         new_user = user_datastore.create_user(email=form.email.data, password=form.password.data)
-#         normal_role = user_datastore.find_role('User')
-#         db.session.add(new_user)
-#         user_datastore.add_role_to_user(new_user, normal_role)
-#         login_user(new_user)
-#         return redirect(url_for('index'))
-#     return render_template('register.html', form=form)
-
-
-# # 用户注册
-# @user_blu.route('/user/register', methods=['POST'])
-# def register():
-#     username = request.json.get('username')
-#     password = request.json.get('password')
-#     if username is None or password is None:
-#         # abort(400)  # missing arguments
-#         return jsonify({'error': 'Request not Json or miss name/pwd'})
-#     if User.query.filter_by(username=username).first() is not None:
-#         return jsonify({'error': 'User is already existed.'})
-#     user = User(username=username)
-#     user.hash_password(password)
-#     try:
-#         db.session.add(user)
-#         db.session.commit()
-#         login_user(user)
-#     except BaseException as e:
-#         current_app.logger.error(e)
-#         db.session.rollback()  # 设置回滚
-#         return jsonify({"error": "Database error"})
-#     return jsonify({'username': user.username})
-
-
 # 用户登陆
 @user_blu.route('/login', methods=['POST'])
 def login():
@@ -73,9 +34,9 @@ def login():
         user = User.query.filter_by(username=username).first()
     except BaseException as e:
         current_app.logger.error(e)
-        return jsonify({"error": "Database error"})
+        return jsonify(msg="db error")
     if not user:
-        return jsonify({'error': 'Not found this user'})
+        return jsonify(msg='Not found this user')
     if user.check_password(password):
         token = create_access_token(identity=username)
         login_user(user)
@@ -89,7 +50,7 @@ def login():
         # print("密码成功")
         return jsonify(data)
     else:
-        return jsonify({"error": "Password error"})
+        return jsonify(msg="Password error")
 
 
 # 用户登出
@@ -97,7 +58,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return jsonify(message='user logout')
+    return jsonify(msg='user logout')
 
 
 # 添加新用户，只有Admin角色才可进行操作
@@ -115,7 +76,7 @@ def add_user():
     user.mobile = username
     db.session.commit()
 
-    return jsonify({'status': 'add success'})
+    return jsonify(msg='add success')
 
 
 # 修改并更新用户资料
@@ -128,13 +89,13 @@ def update_info():
     mobile = request.json.get('mobile')
     # 校验参数的完整性
     if not all([mobile, name, email]):
-        return jsonify(error='please check your parameters')
+        return jsonify(msg='please check your parameters')
     # 校验邮箱格式
     if not re.match('[0-9a-zA-Z_]{0,19}@[0-9a-zA-Z]{1,13}\.[com,cn,net]{1,3}$',email):
-        return jsonify(error='wrong email')
+        return jsonify(msg='wrong email')
     # 校验手机号格式
     if not re.match(r"1[35678]\d{9}$", mobile):
-        return jsonify(error='illegal mobile')
+        return jsonify(msg='illegal mobile')
 
     # 修改用户信息
     current_user.name = name
@@ -152,18 +113,18 @@ def get_sms_code():
     mobile = request.json.get("mobile")
     # 校验参数
     if not mobile:
-        return jsonify(errno='PARAMERR error')
+        return jsonify(msg='parameter error')
 
     # 校验手机号格式
     if not re.match(r"1[35678]\d{9}$", mobile):
-        return jsonify(errno='error')
+        return jsonify(msg='pattern error')
 
     # 根据图片key取出验证码文字
     # try:
     #     real_img_code = sr.get("img_code_id_" + img_code_id)
     # except BaseException as e:
     #     current_app.logger.error(e)
-    #     return jsonify(errno='DBERROR')
+    #     return jsonify(msg='db error)
 
     # 如果校验成功, 发送短信
     # 生成4位随机数字
@@ -171,16 +132,16 @@ def get_sms_code():
     current_app.logger.info("短信验证码为: %s" % sms_code)
     # res_code = CCP().send_template_sms(mobile, [sms_code, 5], 1)
     # if res_code == -1:  # 短信发送失败
-    #     return jsonify(errno=RET.THIRDERR, errmsg=error_map[RET.THIRDERR])
+    #     return jsonify(msg='send failed')
 
     # # 将短信验证码保存到redis
     # try:
     #     sr.set("sms_code_id_" + mobile, sms_code, ex=60)
     # except BaseException as e:
     #     current_app.logger.error(e)
-    #     return jsonify(errno=' DBERROR')
+    #     return jsonify(msg=' db error')
     # 将短信发送结果使用json返回
-    return jsonify(erro='OK')
+    return jsonify(msg='ok')
 
 
 # 修改密码/需要手机号短信验证
@@ -198,16 +159,16 @@ def change_password():
         current_app.logger.info("短信验证码为: %s" % sms_code)
         # res_code = CCP().send_template_sms(mobile, [sms_code, 5], 1)
         # if res_code == -1:  # 短信发送失败
-        #     return jsonify(erro='THIRDERR')
+        #     return jsonify(msg=' third party error')
 
         # 将短信验证码保存到redis
         # try:
         #     sr.set("sms_code_id_" + mobile, sms_code, ex=60)
         # except BaseException as e:
         #     current_app.logger.error(e)
-        #     return jsonify(erro='DB ERROR')
+        #     return jsonify(msg='db error')
         # 将短信发送结果使用json返回
-        return jsonify(error='did it')
+        return jsonify(msg='success')
 
 
 # token携带后验证
