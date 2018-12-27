@@ -1,6 +1,6 @@
 # Here is a custom decorator that verifies the JWT is present in
 # the request, as well as insuring that this user has a role of
-# `admin` in the access token
+# `map` in the access token
 from functools import wraps
 
 from flask import jsonify
@@ -13,7 +13,7 @@ jwt = JWTManager()
 
 # Here is a custom decorator that verifies the JWT is present in
 # the request, as well as insuring that this user has a role of
-# `admin` in the access token
+# `map` in the access token
 
 
 def admin_required(fn):

@@ -66,7 +66,7 @@ def add_test_admin():
     admin_role = get_user_role('Admin')
     user_datastore.add_role_to_user(user, admin_role)
     db.session.commit()
-    # print('admin generate')
+    # print('map generate')
 
 
 if __name__ == '__main__':

@@ -57,8 +57,12 @@ def create_app(config_type):
     from .modules.user import user_blu
     app.register_blueprint(user_blu, url_prefix="/api/user")
 
-    # from .modules.admin import admin_blu
-    # app.register_blueprint(admin_blu, url_prefix="/api/admin")
+    from .modules.map import map_blu
+    app.register_blueprint(map_blu, url_prefix="/api/map")
+
+    from .modules.common import common_blu
+    app.register_blueprint(common_blu, url_prefix="/api/common")
+
 
     # 配置日志文件
     setup_log(config_class.LOGLEVEL)
