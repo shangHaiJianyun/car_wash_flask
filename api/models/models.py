@@ -85,8 +85,35 @@ class Role(Base, db.Model, RoleMixin):
         # return '<role %r>' % self.name
         return self.name
 
+
 # for flask-security
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 
 
+class Area(Base, db.Model):
+    """
+    Area 包括：City 城市, City Code (考虑用城市的邮编）, 坐标（ 4个角，经纬度），区域中心点坐标（经纬度），区域代码，区域名称，区域说明，区域价格表（多个区域可以对应 一个价格表）
+    """
+    __tablename__ = 'areas'
+    id = db.Column(db.Integer, primary_key=True)
+    city_name = db.Column(db.String(80), nullable=False, unique=True)
+    city_code = db.Column(db.Integer, unique=True)
+    locations = db.Column(db.Text())
+    center_axis = db.Column(db.String(80))
+    area_num = db.Column(db.Integer, unique=True)
+    area_description = db.Column(db.String(80))
+    rate_id = db.Column(db.Integer, db.ForeignKey('rates.id'), nullable=False)
 
+    def __repr__(self):
+        return self.name
+
+
+class Rate(db.Model):
+    __tablename__ = 'rates'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), numllable=False, unique=True)
+    rate_level = db.Column(db.Float(80))
+    area = db.relationship('Area', lazy='dynamic')
+
+    def __repr__(self):
+        return self.rate_level
