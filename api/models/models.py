@@ -11,6 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, SignatureExpired, BadSignature
 from flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required
 from flask import current_app
+from sqlalchemy import JSON
 
 app = current_app
 db = SQLAlchemy()
@@ -90,30 +91,30 @@ class Role(Base, db.Model, RoleMixin):
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 
 
-class Area(Base, db.Model):
+class Area(db.Model):
     """
     Area 包括：City 城市, City Code (考虑用城市的邮编）, 坐标（ 4个角，经纬度），区域中心点坐标（经纬度），区域代码，区域名称，区域说明，区域价格表（多个区域可以对应 一个价格表）
     """
     __tablename__ = 'areas'
     id = db.Column(db.Integer, primary_key=True)
     city_name = db.Column(db.String(80), nullable=False, unique=True)
-    city_code = db.Column(db.Integer, unique=True)
-    locations = db.Column(db.Text())
-    center_axis = db.Column(db.String(80))
+    city_code = db.Column(db.String(10), unique=True)
+    locations = db.Column(JSON())
+    # center_axis = db.Column(db.String(80))
     area_num = db.Column(db.Integer, unique=True)
     area_description = db.Column(db.String(80))
-    rate_id = db.Column(db.Integer, db.ForeignKey('rates.id'), nullable=False)
+    rate_id = db.Column(db.Integer, db.ForeignKey('rates.id'))
 
     def __repr__(self):
         return self.name
 
 
-class Rate(db.Model):
-    __tablename__ = 'rates'
+class Area_rate(Base, db.Model):
+    __tablename__ = 'area_rates'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), numllable=False, unique=True)
-    rate_level = db.Column(db.Float(80))
-    area = db.relationship('Area', lazy='dynamic')
+    name = db.Column(db.String(80))
+    rate_level = db.Column(db.Float())
+    area = db.relationship('Area', backref='rate', lazy='dynamic')
 
     def __repr__(self):
         return self.rate_level
