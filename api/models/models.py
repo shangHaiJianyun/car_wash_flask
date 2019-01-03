@@ -97,11 +97,11 @@ class Area(db.Model):
     """
     __tablename__ = 'areas'
     id = db.Column(db.Integer, primary_key=True)
-    city_name = db.Column(db.String(80), nullable=False, unique=True)
-    city_code = db.Column(db.String(10), unique=True)
+    city_name = db.Column(db.String(80))
+    city_code = db.Column(db.String(10))
     locations = db.Column(JSON())
     # center_axis = db.Column(db.String(80))
-    area_num = db.Column(db.Integer, unique=True)
+    area_num = db.Column(db.Integer)
     area_description = db.Column(db.String(80))
     rate_id = db.Column(db.Integer, db.ForeignKey('area_rates.id'))
     surrounds = db.Column(JSON())

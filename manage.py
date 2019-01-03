@@ -7,7 +7,7 @@ manage.py
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
-from api.common_func.area import AreaRateM
+from api.common_func.area import AreaRateM, AreaM
 from api.models.models import User, user_datastore
 from api.common_func.get_role import get_user_role
 
@@ -78,6 +78,11 @@ def set_Arate():
     Area_rates.add_new(name='二等', rate_level=2.0)
     Area_rates.add_new(name='三等', rate_level=3.0)
     print('over')
+
+
+@manager.command
+def setArea():
+    AreaM.set_area()
 
 
 if __name__ == '__main__':
