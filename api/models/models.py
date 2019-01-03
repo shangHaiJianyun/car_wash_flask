@@ -103,7 +103,10 @@ class Area(db.Model):
     # center_axis = db.Column(db.String(80))
     area_num = db.Column(db.Integer, unique=True)
     area_description = db.Column(db.String(80))
-    rate_id = db.Column(db.Integer, db.ForeignKey('rates.id'))
+    rate_id = db.Column(db.Integer, db.ForeignKey('area_rates.id'))
+    surrounds = db.Column(JSON())
+    sur_count = db.Column(db.Integer)
+
 
     def __repr__(self):
         return self.name
