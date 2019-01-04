@@ -26,5 +26,5 @@ def get_rate():
                 'rate_level': rate['rate_level']
             }
             return jsonify(data)
-        else:
-            return jsonify({'error': 'please input right axis'})
+
+    return jsonify({'error': 'please input right axis'})
