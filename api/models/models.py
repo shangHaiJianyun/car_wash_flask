@@ -108,16 +108,9 @@ class Area(db.Model):
     sur_count = db.Column(db.Integer)
 
 
-    def __repr__(self):
-        return self.name
-
-
 class Area_rate(Base, db.Model):
     __tablename__ = 'area_rates'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     rate_level = db.Column(db.Float())
     area = db.relationship('Area', backref='rate', lazy='dynamic')
-
-    def __repr__(self):
-        return self.rate_level

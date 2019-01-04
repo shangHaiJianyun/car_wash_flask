@@ -11,16 +11,13 @@ from api.models.models import Area, row2dict, db, Area_rate
 
 
 class AreaM(object):
-    def list_all(self, name):
+    def list_all(self):
         areas = Area.query.all()
-        res = []
-        for d in areas:
-            res.append(row2dict(d))
-        return res
+        return areas
 
     def get(self, id):
         res = Area.query.filter(Area.id == id).one_or_none()
-        return row2dict(res)
+        return res
 
     def add_new(self, **args):
         new_co = Area(**args)
@@ -90,14 +87,11 @@ class AreaRateM(object):
         pass
 
     def get(self, id):
-        pass
+        res = Area_rate.query.filter(Area_rate.id == id).one_or_none()
+        return row2dict(res)
 
     def add_new(self, **args):
         new_co = Area_rate(**args)
         db.session.add(new_co)
         db.session.commit()
         return self.get(new_co.id)
-
-
-
-

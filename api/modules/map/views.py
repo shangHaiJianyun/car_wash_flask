@@ -2,7 +2,7 @@
 
 from flask import request, jsonify
 
-from api.models.models import Area, Area_rate
+from api.common_func.area import AreaM, AreaRateM
 from api.modules.map import map_blu
 
 
@@ -11,13 +11,20 @@ def get_rate():
     # 获取指定坐标后根据中心点坐标确定其所属的区域及价格系数
     # lng:经度  lat:纬度
     location = request.json.get('location')
-    lng = location['lng']
-    lat = location['lat']
-    # print(locations)
-    areas = Area.query.all()
-    # area_axis = request.json.get('area_axis')
-    for i in areas:
-        if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['lt']['lat'] <= lat <= i['lt']['lat']):
-            area = Area.query.filter_by()
-            rate = Area_rate.query.filter_by(id=area.rate_id)
-            return jsonify(rate_level=rate.rate_level)
+    # 从数据库中提取数据
+    for j in AreaM().list_all():
+        lng = location['lng']
+        lat = location['lat']
+        # 获取该区域的区域坐标
+        i = j.locations
+        # 判断指定坐标属于哪个区域
+        if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
+            rate = AreaRateM().get(j.rate_id)
+            # 根据需求返回该坐标所属的价格系数
+            data = {
+                'rate_name': rate['name'],
+                'rate_level': rate['rate_level']
+            }
+            return jsonify(data)
+        else:
+            return jsonify({'error': 'please input right axis'})
