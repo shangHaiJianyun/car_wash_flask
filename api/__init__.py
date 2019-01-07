@@ -63,6 +63,8 @@ def create_app(config_type):
     from .modules.common import common_blu
     app.register_blueprint(common_blu, url_prefix="/api/common")
 
+    from .modules.lpr import lpr_blu
+    app.register_blueprint(lpr_blu, url_prefix="/api/lpr")
 
     # 配置日志文件
     setup_log(config_class.LOGLEVEL)
