@@ -5,6 +5,6 @@
 
 from flask import Blueprint
 
-common_blu = Blueprint('common', __name__)
+utils_blu = Blueprint('utils', __name__)
 
 from .views import *

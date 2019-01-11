@@ -106,70 +106,13 @@ def update_info():
     return jsonify(row2dict(current_user))
 
 
-# 获取短信验证码
-@user_blu.route('/get_sms_code', methods=['POST'])
-@login_required
-def get_sms_code():
-    # 获取参数
-    mobile = request.json.get("mobile")
-    # 校验参数
-    if mobile != current_user.mobile:
-        return jsonify(msg='parameter error')
-
-    # 校验手机号格式
-    if not re.match(r"1[35678]\d{9}$", mobile):
-        return jsonify(msg='pattern error')
-
-    # 根据图片key取出验证码文字
-    # try:
-    #     real_img_code = sr.get("img_code_id_" + img_code_id)
-    # except BaseException as e:
-    #     current_app.logger.error(e)
-    #     return jsonify(msg='db error)
-
-    # 如果校验成功, 发送短信
-    # 生成4位随机数字
-    sms_code = "%04d" % random.randint(0, 9999)
-    current_app.logger.info("短信验证码为: %s" % sms_code)
-    # res_code = CCP().send_template_sms(mobile, [sms_code, 5], 1)
-    # if res_code == -1:  # 短信发送失败
-    #     return jsonify(msg='send failed')
-
-    # # 将短信验证码保存到redis
-    # try:
-    #     sr.set("sms_code_id_" + mobile, sms_code, ex=60)
-    # except BaseException as e:
-    #     current_app.logger.error(e)
-    #     return jsonify(msg=' db error')
-    # 将短信发送结果使用json返回
-    return jsonify(msg='ok')
-
-
 # 修改密码/需要手机号短信验证
 @user_blu.route('/change_pwd', methods=['GET', 'POST'])
 @login_required  # 只有登录的人才能修改密码
 def change_password():
     # 获取参数
-    mobile = request.json.get('mobile')
-    sms_code = request.json.get('sms_code')
     new_password = request.json.get('password')
 
-    # 校验手机号格式
-    if not re.match(r"1[35678]\d{9}$", mobile):
-        return jsonify(msg='error mobile')
-
-    # 根据手机号取出短信验证码文字
-    # try:
-    #     real_sms_code = sr.get("sms_code_id_" + mobile)
-    # except BaseException as e:
-    #     current_app.logger.error(e)
-    #     return jsonify(msg='db error')
-    # # 校验图片验证码
-    # if not real_sms_code:  # 校验是否已过期
-    #     return jsonify(msg='sms_coe expired')
-    #
-    # if sms_code != real_sms_code:  # 校验验证码是否正确
-    #     return jsonify(msg='error sms_code')
     current_user.password = new_password
     current_user.set_password()
     db.session.commit()

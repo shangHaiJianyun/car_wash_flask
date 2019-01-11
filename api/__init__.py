@@ -60,11 +60,11 @@ def create_app(config_type):
     from .modules.map import map_blu
     app.register_blueprint(map_blu, url_prefix="/api/map")
 
-    from .modules.common import common_blu
-    app.register_blueprint(common_blu, url_prefix="/api/common")
-    #
-    # from .modules.lpr import lpr_blu
-    # app.register_blueprint(lpr_blu, url_prefix="/api/lpr")
+    from .modules.utils import utils_blu
+    app.register_blueprint(utils_blu, url_prefix="/api/utils")
+
+    from .modules.lpr import lpr_blu
+    app.register_blueprint(lpr_blu, url_prefix="/api/lpr")
 
     # 配置日志文件
     setup_log(config_class.LOGLEVEL)
