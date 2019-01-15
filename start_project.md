@@ -10,15 +10,7 @@
   | ---------------- | ------------------------------------------------------------ | :--: | -------------- |
   | 输入参数         | username                                                     | str  | 用户名         |
   |                  | password                                                     | str  | 密码           |
-  | 传入参数json示例 | {"username":"1",
-	"password":"123"}                        |      |                |
-  | 输出参数         | token                                                        | str  | 身份及验证标记 |
-  |                  | user_role                                                    | str  | 用户身份       |
-  |                  | username                                                     | str  | 用户名         |
-  | 传出参数示例     | {"token":"dkleej",
-  "user_role": "[Admin]",
-   "username": "1"
-} |      |                |
+  
 
 
 2.
@@ -94,56 +86,28 @@
 5.
 
 - [ ] 获取用户地址价格系数接口： dev.upctech.com.cn/api/map/get_rate
+
 - [ ] 请求方式：POST
+
 - [ ] 请求参数及返回值说明：
 
-<table>
-   <tr>
-      <td></td>
-      <td>参数名</td>
-      <td>类型</td>
-      <td>是否必须</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>输入参数</td>
-      <td>location</td>
-      <td>json</td>
-      <td>是</td>
-      <td>用户经纬度坐标</td>
-   </tr>
-   <tr>
-      <td>传入json参数示例</td>
-      <td>{ "location" :{"lng":120.572, "lat":30.620843} }</td>
-      <td></td>
-      <td></td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>输出参数</td>
-      <td>rate_name</td>
-      <td>float</td>
-      <td>是</td>
-      <td>该地址的价格系数 </td>
-   </tr>
-   <tr>
-      <td></td>
-      <td>rate_level</td>
-      <td>string</td>
-      <td>是</td>
-      <td>该地址的价格组名称</td>
-   </tr>
-   <tr>
-      <td>json返回值示例</td>
-      <td>{"rate_level": 3.0，"rate_name": "三等"}</td>
-      <td></td>
-      <td></td>
-      <td></td>
-   </tr>
-   <tr>
-      <td></td>
-   </tr>
-</table>
+  |                  | 参数名                                                       | 类型    | 说明             |
+  | ---------------- | ------------------------------------------------------------ | ------- | ---------------- |
+  | 传入参数（json） | lng                                                          | 字符串  | 经度             |
+  |                  | lat                                                          | 字符串  | 纬度             |
+  | 传入参数示例     | {"lng": 120.572,
+    "lat": 30.620843}                        | json    |                  |
+  | 输出参数         | rate_name                                                    | string  | 该地区的价格组   |
+  |                  | rate_level                                                   | float   | 该地区的价格系数 |
+  |                  | area_name                                                    | striing | 该地区所属城市   |
+  |                  | city_code                                                    | string  | 该地区的区域     |
+  | 输出参数示例     | {
+<br/>    "area_name": "上海市",
+    "city_code": "200000",
+    "rate_level": 3,
+    "rate_name": "三等"
+} |         |                  |
+
 
 
 6.
@@ -159,9 +123,15 @@
 | ---------- | ---------------------- | --------- | -------------- |
 | 输入参数   | file                   | form-data | 带有车牌的照片 |
 | 输出参数   | lp                     | str       | 车牌号         |
-| 返回值示例 | {
-    "lp": "京EL0662"
-} |           |                |
+- [ ]  返回值示例 
+
+  ```python
+  {
+      "lp": "京EL0662"
+  } 
+  ```
+
+  
 
 
 

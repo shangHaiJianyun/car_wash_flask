@@ -10,12 +10,9 @@ from api.modules.map import map_blu
 def get_rate():
     # 获取指定坐标后根据中心点坐标确定其所属的区域及价格系数
     # lng:经度  lat:纬度
-    # location = request.json.get('location')
-    location = request.values
-    # print(location)
-    lng = float(location['lng'])
-    lat = float(location['lat'])
-    # print(lng,lat)
+    lng = float(request.json.get('lng'))
+    lat = float(request.json.get('lat'))
+    # print(lng, lat)
     # 从数据库中获取所有的坐标数据
     for j in AreaM().list_all():
         # 获取该区域的区域坐标
@@ -26,7 +23,7 @@ def get_rate():
             # 根据需求返回该坐标所属的价格系数
             data = {
                 'rate_name': rate['name'],
-                'rate_level': rate['rate_level'],
+                # 'rate_level': rate['rate_level'],
                 'area_name': j.city_name,
                 'city_code': j.city_code
             }
