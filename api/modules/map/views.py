@@ -23,7 +23,7 @@ def get_rate():
             # 根据需求返回该坐标所属的价格系数
             data = {
                 'rate_name': rate['name'],
-                # 'rate_level': rate['rate_level'],
+                'rate_level': rate['rate_level'],
                 'area_name': j.city_name,
                 'city_code': j.city_code
             }
