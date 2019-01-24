@@ -44,6 +44,12 @@ class Config:
     # PERMANENT_SESSION_LIFETIME = timedelta(days=7)  # 设置session存储时间(session默认会进行持久化)
 
 
+class CeleryConfig(object):
+    CELERY_BROKER_URL = 'redis://localhost:6379/0'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+    CELERY_TASK_SERIALIZER = 'json'
+
+
 class DevelopConfig(Config):  # 定义开发环境的配置
     DEBUG = True
     LOGLEVEL = logging.DEBUG

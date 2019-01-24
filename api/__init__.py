@@ -7,17 +7,22 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_bcrypt import Bcrypt
 
+import config
 from config import config_dict
 from api.models.models import *
 
 from flask_caching import Cache
-from flask_wtf.csrf import CSRFProtect
+from celery import Celery
+from config import CeleryConfig
 
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 
 # login_manager = LoginManager()
 # login_manager.session_protection = 'strong'
 # login_manager.login_view = 'login'
+
+# 设置celery配置
+celery = Celery(__name__, broker=CeleryConfig.CELERY_BROKER_URL)
 
 
 def setup_log(level):
@@ -37,6 +42,10 @@ def create_app(config_type):
     # 根据配置类型取出配置类
     config_class = config_dict[config_type]
     app = Flask(__name__)
+
+    # 更新celery配置
+    celery.conf.update(config)
+
     # 根据配置类来加载应用配置
     app.config.from_object(config_class)
 
