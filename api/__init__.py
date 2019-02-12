@@ -13,7 +13,7 @@ from api.models.models import *
 
 from flask_caching import Cache
 from celery import Celery
-from config import CeleryConfig
+# from config import CeleryConfig
 
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 
@@ -21,9 +21,9 @@ cache = Cache(config={'CACHE_TYPE': 'simple'})
 # login_manager.session_protection = 'strong'
 # login_manager.login_view = 'login'
 
-# 设置celery配置
-celery = Celery(__name__, broker=CeleryConfig.CELERY_BROKER_URL)
-
+# # 设置celery配置
+# celery = Celery(__name__, broker=CeleryConfig.CELERY_BROKER_URL)
+#
 
 def setup_log(level):
     # 设置日志的记录等级
@@ -44,10 +44,10 @@ def create_app(config_type):
     app = Flask(__name__)
 
     # 更新celery配置
-    celery.conf.update(config)
+    # celery.conf.update(config)
 
     # 根据配置类来加载应用配置
-    app.config.from_object(config_class)
+    # app.config.from_object(config_class)
 
     from flask_security import Security
     security = Security(app, datastore=user_datastore)
