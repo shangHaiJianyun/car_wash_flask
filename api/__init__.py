@@ -47,7 +47,7 @@ def create_app(config_type):
     # celery.conf.update(config)
 
     # 根据配置类来加载应用配置
-    # app.config.from_object(config_class)
+    app.config.from_object(config_class)
 
     from flask_security import Security
     security = Security(app, datastore=user_datastore)
