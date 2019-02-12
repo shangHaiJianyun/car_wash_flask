@@ -21,9 +21,17 @@ def get_rate():
         if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
             rate = AreaRateM().get(j.rate_id)
             # 根据需求返回该坐标所属的价格系数
+            level = int(rate['rate_level'])
+            if level == 1:
+                rate_level = 1
+            elif level == 2:
+                rate_level = 0.85
+            else:
+                rate_level = 0.7
+
             data = {
                 'rate_name': rate['name'],
-                'rate_level': rate['rate_level'],
+                'rate_level': rate_level,
                 'area_id': j.id,
                 'area_name': j.city_name,
                 'city_code': j.city_code

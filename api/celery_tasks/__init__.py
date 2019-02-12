@@ -6,6 +6,6 @@
 1.配置celery
 2.定义异步任务
 3.装饰器装饰所用位置
-4.在终端运行celery worker -A celery_worker.celery -l INFO  /--loglevel=info 命令
+4.在终端运行celery worker -A celery_worker.celery --loglevel=info 命令
 
 """

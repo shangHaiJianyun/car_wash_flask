@@ -1337,3 +1337,1006 @@ INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_inte
 INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
 WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
 INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 10:37:46] "POST /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 10:38:59] "POST /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:09:26] "GET /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:09:45] "GET /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:10:12] "GET /api/common/set_data HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:11:06] "GET /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:11:29] "GET /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:11:56] "GET /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:12:32] "GET /api/common/set_data HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:13:53] "GET /api/common/set_data HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:14:34] "GET /api/common/set_data HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:22:40] "GET /api/common/set_data HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 13:47:58] "GET /api/common/set_data HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 14:05:53] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 14:06:56] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 14:13:04] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 14:13:58] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/manage.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/models/models.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/manage.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [02/Jan/2019 14:27:59] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+ERROR /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask_migrate/__init__.py:97 Error: Directory migrations already exists
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:18:19] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:20:05] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:20:33] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:22:05] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:22:11] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:24:43] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:33:57] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:34:13] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:37:57] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:41:00] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:41:50] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:44:55] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:45:08] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:45:20] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:45:36] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:48:46] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:51:31] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:51:57] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:52:25] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 14:53:28] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:26:23] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:36:24] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/models/models.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/models/models.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:41:53] "GET /api/common/set_area HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:42:49] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:45:16] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:46:36] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:48:04] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 15:53:46] "GET /api/common/set_area HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/common/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/manage.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:36:42] "GET /api/map/get_rate HTTP/1.1" 400 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:37:19] "GET /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:38:06] "GET /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:38:29] "GET /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:42:33] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:42:50] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:45:11] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:46:01] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:46:28] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:46:54] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:48:15] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:48:46] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:48:54] "GET / HTTP/1.1" 404 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:49:10] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:49:45] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:50:17] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:51:03] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 16:51:30] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:06:43] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:07:03] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:08:05] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:08:38] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:09:17] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/common_func/area.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:13:37] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:14:00] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:14:25] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:14:52] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:16:44] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/models/models.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:19:57] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:21:17] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [03/Jan/2019 17:21:38] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:36:46] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:37:05] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/common_func/area.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:38:40] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:46:22] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:47:44] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/common_func/area.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:48:26] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/common_func/area.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:48:56] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:50:15] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:53:57] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:55:20] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:56:37] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:56:59] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 09:57:58] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/config.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/config.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/config.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/config.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:19:56] "POST /api/map/get_area HTTP/1.1" 404 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:20:06] "POST /api/map/get_area HTTP/1.1" 404 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:20:32] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:20:49] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:21:10] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:22:18] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:29:58] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:34:08] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:34:39] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:36:42] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:37:03] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:37:43] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:38:53] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:39:43] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:40:40] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/common_func/area.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:46:05] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:46:18] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:46:25] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:46:37] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [04/Jan/2019 11:47:01] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:22:54] "POST /api/lpr/lprM HTTP/1.1" 404 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:23:13] "POST /api/lpr/lpr HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:24:34] "POST /api/lpr/lpr HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/lpr/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:25:50] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/lpr/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:36:00] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:39:21] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:40:56] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:43:06] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:43:18] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:55:08] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 15:57:14] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/lpr/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/lpr/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/lpr/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/lpr/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 16:04:41] "POST /api/lpr/lpr HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 16:05:14] "POST /api/lpr/lpr HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 16:05:37] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [08/Jan/2019 16:05:51] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/lpr/__init__.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [09/Jan/2019 15:08:35] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [09/Jan/2019 15:09:25] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [09/Jan/2019 16:18:50] "POST /api/lpr/lpr HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [11/Jan/2019 09:30:12] "GET /api/utils/verify_mobile/18502123095/ HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/user/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:30:44] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:31:38] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:33:22] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:34:45] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:35:42] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:37:37] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:40:24] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:40:27] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:50:05] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 11:50:05] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 12:04:27] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 12:07:05] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/common_func/area.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:10:12] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:10:51] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:13:07] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:13:51] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:18:01] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:18:48] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:19:41] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:21:39] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [14/Jan/2019 14:24:42] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [15/Jan/2019 12:31:00] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Detected change in '/home/python/Desktop/start_project/api/modules/map/views.py', reloading
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 204-486-354
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [15/Jan/2019 14:19:44] "POST /api/map/get_rate HTTP/1.1" 200 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py:1761 Exception on /api/map/get_rate [POST]
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: areas
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/python/Desktop/start_project/api/modules/map/views.py", line 17, in get_rate
+    for j in AreaM().list_all():
+  File "/home/python/Desktop/start_project/api/common_func/area.py", line 15, in list_all
+    areas = Area.query.all()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2843, in all
+    return list(self)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2995, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 3018, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: areas [SQL: 'SELECT areas.id AS areas_id, areas.city_name AS areas_city_name, areas.city_code AS areas_city_code, areas.locations AS areas_locations, areas.area_num AS areas_area_num, areas.area_description AS areas_area_description, areas.rate_id AS areas_rate_id, areas.surrounds AS areas_surrounds, areas.sur_count AS areas_sur_count \nFROM areas'] (Background on this error at: http://sqlalche.me/e/e3q8)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [30/Jan/2019 15:50:51] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py:1761 Exception on /api/map/get_rate [POST]
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: areas
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/python/Desktop/start_project/api/modules/map/views.py", line 17, in get_rate
+    for j in AreaM().list_all():
+  File "/home/python/Desktop/start_project/api/common_func/area.py", line 15, in list_all
+    areas = Area.query.all()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2843, in all
+    return list(self)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2995, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 3018, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: areas [SQL: 'SELECT areas.id AS areas_id, areas.city_name AS areas_city_name, areas.city_code AS areas_city_code, areas.locations AS areas_locations, areas.area_num AS areas_area_num, areas.area_description AS areas_area_description, areas.rate_id AS areas_rate_id, areas.surrounds AS areas_surrounds, areas.sur_count AS areas_sur_count \nFROM areas'] (Background on this error at: http://sqlalche.me/e/e3q8)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [30/Jan/2019 15:51:49] "POST /api/map/get_rate HTTP/1.1" 500 -
+ERROR /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py:1761 Exception on /api/map/get_rate [POST]
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: areas
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/python/Desktop/start_project/api/modules/map/views.py", line 17, in get_rate
+    for j in AreaM().list_all():
+  File "/home/python/Desktop/start_project/api/common_func/area.py", line 15, in list_all
+    areas = Area.query.all()
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2843, in all
+    return list(self)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2995, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 3018, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: areas [SQL: 'SELECT areas.id AS areas_id, areas.city_name AS areas_city_name, areas.city_code AS areas_city_code, areas.locations AS areas_locations, areas.area_num AS areas_area_num, areas.area_description AS areas_area_description, areas.rate_id AS areas_rate_id, areas.surrounds AS areas_surrounds, areas.sur_count AS areas_sur_count \nFROM areas'] (Background on this error at: http://sqlalche.me/e/e3q8)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [30/Jan/2019 15:51:49] "POST /api/map/get_rate HTTP/1.1" 500 -
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
