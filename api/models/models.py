@@ -113,4 +113,4 @@ class Area_rate(Base, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     rate_level = db.Column(db.Float())
-    area = db.relationship('Area', backref='rate', lazy='dynamic')
+    area = db.relationship('Area', backref='area_rates', lazy='dynamic')
