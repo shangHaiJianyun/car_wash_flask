@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 # @Time    : 19-3-5 上午10:04
 import requests
-from flask import jsonify
+from flask import jsonify, request
+import time
 
 from api.modules.dispatch import dis_blu
 
@@ -27,7 +28,7 @@ def get_worklist():
         }
     )
     # print(res.json())
-    return jsonify(res.json()['data'])
+    return jsonify(res.json()['data']['data'])
 
 
 @dis_blu.route('getorderlist', methods=['GET', 'POST'])
@@ -48,11 +49,31 @@ def get_orderlist():
             'page_size': page_size
         }
     )
-    return jsonify(res.json()['data'])
+    return jsonify(res.json()['data']['data'])
+
 
 @dis_blu.route('dispatchorder', methods=['GET', 'POST'])
 def dispatch():
     """派单内容"""
-    pass
+    passwd = 'xunjiepf'
+    uid = request.json.get('uid')
+    order_ids = request.json.get('order_ids')
 
+    # 获得当前时间时间戳
+    now = int(time.time())
+    # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
+    timeStruct = time.localtime(now)
+    dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", timeStruct)
+    # print(dispatch_date)
 
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
+        params={
+            'passwd': passwd,
+            'uid': uid,
+            'order_ids': order_ids,
+            'dispatch_date': dispatch_date,
+        }
+    )
+
+    return jsonify(res)
