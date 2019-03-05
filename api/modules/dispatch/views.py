@@ -58,22 +58,22 @@ def dispatch():
     passwd = 'xunjiepf'
     uid = request.json.get('uid')
     order_ids = request.json.get('order_ids')
+    # print(order_ids, uid)
 
     # 获得当前时间时间戳
     now = int(time.time())
     # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
     timeStruct = time.localtime(now)
     dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", timeStruct)
-    # print(dispatch_date)
 
     res = requests.post(
         url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
         params={
-            'passwd': passwd,
-            'uid': uid,
-            'order_ids': order_ids,
-            'dispatch_date': dispatch_date,
+            "passwd": passwd,
+            "uid": uid,
+            "order_ids": order_ids,
+            "dispatch_date": dispatch_date
         }
     )
-
-    return jsonify(res)
+    # print(res)
+    return jsonify({'msg': str(res)})
