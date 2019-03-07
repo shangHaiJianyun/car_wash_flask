@@ -6,14 +6,24 @@
 import json
 import sys
 
-from api.common_func.CityCode import city_codes
+from api.common_func.CityCode import city_codes,level_code
 from api.models.models import Area, row2dict, db, Area_rate
 
 
 class AreaM(object):
     def list_all(self):
         areas = Area.query.all()
-        return areas
+        json_list=[]
+        for i in areas:
+            json_dict = {}
+            json_dict["area_id"] = i.id
+            json_dict["rate_id"] = i.rate_id
+            json_dict["cen_loc"] = i.locations['cen']
+            json_dict["rate_level"] = level_code[str(i.rate_id)] if i.rate_id else " "
+
+            json_list.append(json_dict)
+
+        return json_list
 
     def get(self, id):
         res = Area.query.filter(Area.id == id).one_or_none()

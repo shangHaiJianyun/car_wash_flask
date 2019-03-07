@@ -43,7 +43,7 @@ def initrole():
 
 @manager.command
 def add_user():
-    user = user_datastore.create_user(username='1', password='123')
+    user = user_datastore.create_user(username='1', password='upctech')
     user.set_password()
     user_role = get_user_role('User')
     user_datastore.add_role_to_user(user, user_role)
@@ -53,7 +53,7 @@ def add_user():
 
 @manager.command
 def add_operate():
-    user = user_datastore.create_user(username='2', password='123')
+    user = user_datastore.create_user(username='2', password='upctech')
     user.set_password()
     user_role = get_user_role('Operate')
     user_datastore.add_role_to_user(user, user_role)
@@ -63,7 +63,7 @@ def add_operate():
 
 @manager.command
 def add_admin():
-    user = user_datastore.create_user(username='3', password='123')
+    user = user_datastore.create_user(username='3', password='upctech')
     user.set_password()
     admin_role = get_user_role('Admin')
     user_datastore.add_role_to_user(user, admin_role)

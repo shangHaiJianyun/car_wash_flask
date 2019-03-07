@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import json
 
 from flask import request, jsonify
 
@@ -39,3 +40,10 @@ def get_rate():
             return jsonify(data)
 
     return jsonify({'error': 'please input right axis'})
+
+
+@map_blu.route('/list_area', methods=['GET'])
+def list_area():
+    result = AreaM().list_all()
+    res = json.dumps(result)
+    return jsonify(res)
