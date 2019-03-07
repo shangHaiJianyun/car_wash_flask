@@ -60,13 +60,14 @@ def dispatch():
     passwd = 'xunjiepf'
     uid = request.json.get('uid')
     order_ids = request.json.get('order_ids')
+    dispatch_date = request.json.get('dispatch_date')
     # print(order_ids, uid)
 
-    # 获得当前时间时间戳
-    now = int(time.time())
-    # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
-    timeStruct = time.localtime(now)
-    dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", timeStruct)
+    # # 获得当前时间时间戳
+    # now = int(time.time())
+    # # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
+    # timeStruct = time.localtime(now)
+    # dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", timeStruct)
     params = {
         "passwd": passwd,
         "uid": uid,

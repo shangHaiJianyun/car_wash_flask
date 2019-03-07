@@ -4,6 +4,7 @@ import urllib.request
 
 from flask import jsonify
 
+from api import app
 from api.modules.utils import utils_blu
 
 
@@ -40,3 +41,20 @@ def get_verify_code(phone):
         return jsonify(dict(code=code))
     else:
         return jsonify(dict(code='0', error=rst['Code']))
+
+@utils_blu.route('/help/', methods=['GET'])
+def helps():
+    """Print available route and functions."""
+    func_list = []
+    for rule in app.url_map.iter_rules():
+        # print type(app.url_map.iter_rules()), app.url_map.iter_rules()
+        if rule.endpoint != 'static':
+            options = {}
+            methods = [m for m in rule.methods]
+            for arg in rule.arguments:
+                options[arg] = "[{0}]".format(arg)
+            func_list.append(dict(
+                route=rule.rule, route_docs=app.view_functions[rule.endpoint].__doc__, route_methods=methods, route_args=options))
+    func_list = sorted(func_list, key=lambda k: k['route'])
+    # print func_list
+    return jsonify(func_list)
