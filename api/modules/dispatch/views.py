@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 19-3-5 上午10:04
+import json
+
 import requests
 from flask import jsonify, request
 import time
@@ -65,34 +67,42 @@ def dispatch():
     # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
     timeStruct = time.localtime(now)
     dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", timeStruct)
-
+    params = {
+        "passwd": passwd,
+        "uid": uid,
+        "order_ids": order_ids,
+        "dispatch_date": dispatch_date
+    }
     res = requests.post(
         url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
-        params={
-            "passwd": passwd,
-            "uid": uid,
-            "order_ids": order_ids,
-            "dispatch_date": dispatch_date
-        }
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps(params)
     )
-    # print(res)
-    return jsonify({'msg': str(res)})
+    # print(res.json())
+    return jsonify(res.json())
 
 
-@dis_blu.route('updateOrderStatus',methods=['GET', 'POST'])
+@dis_blu.route('updateOrderStatus', methods=['GET', 'POST'])
 def updateStatus():
     """更新订单状态"""
-    acess_key = 'xunjiepf'
+    access_key = 'xunjiepf'
     order_ids = request.json.get("order_ids")
     order_status = request.json.get("order_status")
-
+    print(order_ids, type(order_ids))
+    print(order_status, type(order_status))
+    params = {
+                 "access_key": access_key,
+                 "order_ids": order_ids,
+                 "order_status": order_status
+             }
     res = requests.post(
         url='https://banana.xunjiepf.cn/api/extend/updateOrderStatus',
-        params={
-            "access_key": acess_key,
-            "order_ids": order_ids,
-            "order_status": order_status
-        }
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps(params)
     )
-    # print(res)
-    return jsonify({'msg': str(res)})
+    # print(res.json())
+    return jsonify(res.json())
