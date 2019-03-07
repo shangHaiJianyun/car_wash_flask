@@ -45,5 +45,5 @@ def get_rate():
 @map_blu.route('/list_area', methods=['GET'])
 def list_area():
     result = AreaM().list_all()
-    res = json.dumps(result)
-    return jsonify(res)
+    # res = json.dumps(result)
+    return jsonify(result)
