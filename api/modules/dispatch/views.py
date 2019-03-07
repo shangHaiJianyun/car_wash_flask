@@ -77,3 +77,22 @@ def dispatch():
     )
     # print(res)
     return jsonify({'msg': str(res)})
+
+
+@dis_blu.route('updateOrderStatus',methods=['GET', 'POST'])
+def updateStatus():
+    """更新订单状态"""
+    acess_key = 'xunjiepf'
+    order_ids = request.json.get("order_ids")
+    order_status = request.json.get("order_status")
+
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/updateOrderStatus',
+        params={
+            "access_key": acess_key,
+            "order_ids": order_ids,
+            "order_status": order_status
+        }
+    )
+    # print(res)
+    return jsonify({'msg': str(res)})
