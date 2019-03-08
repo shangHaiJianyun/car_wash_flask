@@ -58,10 +58,14 @@ def get_orderlist():
 def dispatch():
     """派单内容"""
     passwd = 'xunjiepf'
-    uid = request.json.get('uid')
-    order_ids = request.json.get('order_ids')
-    dispatch_date = request.json.get('dispatch_date')
+    # uid = request.json.get('uid')
+    # order_ids = request.json.get('order_ids')
+    # dispatch_date = request.json.get('dispatch_date')
     # print(order_ids, uid)
+    # start_time = request.json.get("start_time")
+    # end_time = request.json.get("end_time")
+    # print(start_time,end_time)
+    data = request.json.get("data")
 
     # # 获得当前时间时间戳
     # now = int(time.time())
@@ -70,9 +74,13 @@ def dispatch():
     # dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", timeStruct)
     params = {
         "passwd": passwd,
-        "uid": uid,
-        "order_ids": order_ids,
-        "dispatch_date": dispatch_date
+        # "uid": uid,
+        # "order_ids": order_ids,
+        # # "dispatch_date": dispatch_date
+        # "start_time": start_time,
+        # "end_time": end_time
+        "data": data
+
     }
     res = requests.post(
         url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
@@ -94,10 +102,10 @@ def updateStatus():
     print(order_ids, type(order_ids))
     print(order_status, type(order_status))
     params = {
-                 "access_key": access_key,
-                 "order_ids": order_ids,
-                 "order_status": order_status
-             }
+        "access_key": access_key,
+        "order_ids": order_ids,
+        "order_status": order_status
+    }
     res = requests.post(
         url='https://banana.xunjiepf.cn/api/extend/updateOrderStatus',
         headers={
