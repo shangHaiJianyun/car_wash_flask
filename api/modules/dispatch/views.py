@@ -79,9 +79,8 @@ def dispatch():
         # # "dispatch_date": dispatch_date
         # "start_time": start_time,
         # "end_time": end_time
-        "dispatch_info": data,
+        "dispatch_info": {"data": data},
         "dispatch_date": dispatch_date
-
 
     }
     res = requests.post(
@@ -101,8 +100,8 @@ def updateStatus():
     access_key = 'xunjiepf'
     order_ids = request.json.get("order_ids")
     order_status = request.json.get("order_status")
-    print(order_ids, type(order_ids))
-    print(order_status, type(order_status))
+    # print(order_ids, type(order_ids))
+    # print(order_status, type(order_status))
     params = {
         "access_key": access_key,
         "order_ids": order_ids,
