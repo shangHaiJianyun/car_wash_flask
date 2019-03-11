@@ -3,6 +3,7 @@ import json
 
 from flask import request, jsonify
 
+from api import db
 from api.common_func.area import AreaM, AreaRateM
 from api.modules.map import map_blu
 
@@ -15,7 +16,7 @@ def get_rate():
     lat = float(request.json.get('lat'))
     # print(lng, lat)
     # 从数据库中获取所有的坐标数据
-    for j in AreaM().list_all():
+    for j in AreaM().get_all():
         # 获取该区域的区域坐标
         i = j.locations
         # 判断指定坐标属于哪个区域
@@ -47,3 +48,21 @@ def list_area():
     result = AreaM().list_all()
     # res = json.dumps(result)
     return jsonify(result)
+
+
+@map_blu.route('/change_rate', methods=['GET', 'POST'])
+def change_rate():
+    rate = request.json.get('rate')
+    cen_loc = request.json.get('cen_loc')
+    lng, lat = cen_loc['lng'], cen_loc['lat']
+    for j in AreaM().list_all():
+        # 获取该区域的区域坐标
+        i = j.locations
+        # 判断指定坐标属于哪个区域
+        if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
+            j.rate_id = rate
+            db.session.commit()
+        else:
+            return jsonify('error area')
+
+    return jsonify('set successfully.')
