@@ -25,7 +25,8 @@ class AreaM(object):
             json_dict["cen_loc"] = i.locations['cen']
             level = AreaRateM().get(i.id)['rate_level']
             json_dict["rate_level"] = level_code[str(level)] if level else " "
-
+            json_dict["surrounds"] = i.surrounds
+            json_dict["business"] = i.business
             json_list.append(json_dict)
 
         return json_list
@@ -79,6 +80,7 @@ class AreaM(object):
             count = len(surs['surrounds'])
             business = i['detail']['business']
             city_name = i['detail']['addressComponents']['city']
+            address = i['detail']['address']
             if city_name:
                 city_code = city_codes[city_name] if city_name else ""
             else:
@@ -88,10 +90,10 @@ class AreaM(object):
             areas = AreaM()
             if count < 1:
                 areas.add_new(city_name=city_name, city_code=city_code, locations=locations, surrounds=surs,
-                              sur_count=count, business=business, rate_id=2)
+                              sur_count=count, business=business, address=address, rate_id=2)
             else:
                 areas.add_new(city_name=city_name, city_code=city_code, locations=locations, surrounds=surs,
-                              sur_count=count, business=business, rate_id=1)
+                              sur_count=count, address=address, business=business, rate_id=1)
 
         return 'set data successfully!'
 
@@ -109,3 +111,7 @@ class AreaRateM(object):
         db.session.add(new_co)
         db.session.commit()
         return self.get(new_co.id)
+
+    def get_obj(self, id):
+        res = Area_rate.query.filter(Area_rate.id == id).one_or_none()
+        return res

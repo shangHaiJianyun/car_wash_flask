@@ -107,6 +107,7 @@ class Area(db.Model):
     surrounds = db.Column(JSON())
     business = db.Column(db.String(80))
     sur_count = db.Column(db.Integer)
+    address = db.Column(db.String(80))
 
 
 class Area_rate(Base, db.Model):

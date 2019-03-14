@@ -48,18 +48,20 @@ def list_area():
 
 @map_blu.route('/change_rate', methods=['GET', 'POST'])
 def change_rate():
-    # TODO:该接口需要修改逻辑
-    rate = request.json.get('rate')
-    cen_loc = request.json.get('cen_loc')
-    lng, lat = cen_loc['lng'], cen_loc['lat']
-    for j in AreaM().list_all():
-        # 获取该区域的区域坐标
-        i = j.locations
-        # 判断指定坐标属于哪个区域
-        if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
-            j.rate_id = rate
-            db.session.commit()
-        else:
-            return jsonify('error area')
+    # 判断操作的方式 若是修改数据
+    if request.method == 'POST':
 
-    return jsonify('set successfully.')
+        id = request.json.get('id')
+        level = request.json.get('level')
+
+        try:
+            res = AreaRateM().get_obj(id)
+            res.rate_level = level
+            db.session.commit()
+            return jsonify({"msg": "modify successfully"})
+        except Exception as e:
+            return jsonify({"msg": e})
+    else:
+        # 地图上显示数据
+        result = AreaM().list_all()
+        return jsonify(result)
