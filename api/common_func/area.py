@@ -6,7 +6,7 @@
 import json
 import sys
 
-from api.common_func.city_code import city_codes, level_code
+from api.common_func.city_code import city_codes
 from api.models.models import Area, row2dict, db, Area_rate
 
 
@@ -21,12 +21,14 @@ class AreaM(object):
         for i in areas:
             json_dict = {}
             json_dict["area_id"] = i.id
-            json_dict["rate_id"] = i.rate_id
+            # json_dict["rate_id"] = i.rate_id
             json_dict["cen_loc"] = i.locations['cen']
-            level = AreaRateM().get(i.id)['rate_level']
-            json_dict["rate_level"] = level_code[str(level)] if level else " "
+            level = AreaRateM().get(i.rate_id)['rate_level']
+            # print(level)
+            json_dict["level"] = level
             json_dict["surrounds"] = i.surrounds
             json_dict["business"] = i.business
+            json_dict["address"] = i.address
             json_list.append(json_dict)
 
         return json_list
