@@ -5,6 +5,7 @@ from flask import request, jsonify
 
 from api import db
 from api.common_func.area import AreaM, AreaRateM
+from api.common_func.city_code import level_code
 from api.modules.map import map_blu
 
 
@@ -24,13 +25,8 @@ def get_rate():
             rate = AreaRateM().get(j.rate_id)
             # 根据需求返回该坐标所属的价格系数
             level = str(rate['rate_level'])
-            if level == 'A':
-                rate_level = 1
-            elif level == 'B':
-                rate_level = 0.85
-            else:
-                rate_level = 0.7
 
+            rate_level = level_code[str(level)] if level else " "
             data = {
                 'rate_name': rate['name'],
                 'rate_level': rate_level,
