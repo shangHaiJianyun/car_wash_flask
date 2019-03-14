@@ -51,37 +51,59 @@ def get_orderlist():
             'page_size': page_size
         }
     )
-    return jsonify(res.json()['data']['data'])
+    result = res.json()['data']['data']
+    data = []
+    for i in result:
+        service_date = i['service_date']
+        # print(service_date)
+        if service_date:
+            timeArray = time.strptime(service_date, "%Y-%m-%d")
+            service_time = time.mktime(timeArray)
+
+            now = int(time.time())
+
+            # print(service_time, now)
+            if now < service_time:
+                data.append(i)
+                # print(data)
+    # print(res.json())
+    # return jsonify(res.json()['data']['data'])
+    return jsonify(data)
 
 
 @dis_blu.route('dispatchorder', methods=['GET', 'POST'])
 def dispatch():
     """派单内容"""
     passwd = 'xunjiepf'
-    # uid = request.json.get('uid')
-    # order_ids = request.json.get('order_ids')
-    # dispatch_date = request.json.get('dispatch_date')
-    # print(order_ids, uid)
-    # start_time = request.json.get("start_time")
-    # end_time = request.json.get("end_time")
-    # print(start_time,end_time)
+    # 获取传输参数
     data = request.json.get("data")
 
-    # 获得当前时间时间戳
-    now = int(time.time())
-    # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
-    timeStruct = time.localtime(now)
-    dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", timeStruct)
+    # # 获得当前时间时间戳
+    # now = int(time.time())
+    # # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
+    # timeStruct = time.localtime(int(time.time()))
+    dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(time.time())))
+    # 获取服务时间的时间戳
+    service_date = data['start_time']
+    timeArray = time.strptime(service_date, "%Y-%m-%d %H:%M:%S")
+
+    timeD = 86400.0  # 隔天的时间戳差值
+
+    # 获取当天零点的时间戳
+    t = time.localtime(time.time())
+    timeE = time.mktime(time.strptime(time.strftime('%Y-%m-%d 00:00:00', t), '%Y-%m-%d %H:%M:%S'))
+
+    if time.mktime(timeArray)-timeE < timeD:
+        deadline = 15
+    else:
+        deadline = 60
+
+    # print(deadline)
     params = {
         "passwd": passwd,
-        # "uid": uid,
-        # "order_ids": order_ids,
-        # # "dispatch_date": dispatch_date
-        # "start_time": start_time,
-        # "end_time": end_time
         "dispatch_info": {"data": data},
-        "dispatch_date": dispatch_date
-
+        "dispatch_date": dispatch_date,
+        "deadline": deadline
     }
     res = requests.post(
         url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',

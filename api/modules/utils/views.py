@@ -42,6 +42,7 @@ def get_verify_code(phone):
     else:
         return jsonify(dict(code='0', error=rst['Code']))
 
+
 @utils_blu.route('/help/', methods=['GET'])
 def helps():
     """Print available route and functions."""
@@ -54,7 +55,8 @@ def helps():
             for arg in rule.arguments:
                 options[arg] = "[{0}]".format(arg)
             func_list.append(dict(
-                route=rule.rule, route_docs=app.view_functions[rule.endpoint].__doc__, route_methods=methods, route_args=options))
+                route=rule.rule, route_docs=app.view_functions[rule.endpoint].__doc__, route_methods=methods,
+                route_args=options))
     func_list = sorted(func_list, key=lambda k: k['route'])
     # print func_list
     return jsonify(func_list)
