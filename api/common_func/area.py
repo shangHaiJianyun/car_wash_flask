@@ -25,8 +25,11 @@ class AreaM(object):
             json_dict["cen_loc"] = i.locations['cen']
             level = AreaRateM().get(i.rate_id)['rate_level']
             # print(level)
+            sur = i.surrounds['surrounds'][0]['title'] if i.surrounds['surrounds'] else " "
+            # print(sur)
             json_dict["level"] = level
-            json_dict["surrounds"] = i.surrounds
+            json_dict["surrounds"] = sur
+
             json_dict["business"] = i.business
             json_dict["address"] = i.address
             json_list.append(json_dict)
