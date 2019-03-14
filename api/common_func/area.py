@@ -6,7 +6,7 @@
 import json
 import sys
 
-from api.common_func.CityCode import city_codes, level_code
+from api.common_func.city_code import city_codes, level_code
 from api.models.models import Area, row2dict, db, Area_rate
 
 
@@ -57,8 +57,10 @@ class AreaM(object):
     @staticmethod
     def set_area():
         temp = sys.path[0]
-        f = open(temp + '/map.json', encoding='utf-8')
-        res = json.load(f)
+        with open(temp + '/mapAll.json', encoding='utf-8') as f:
+            res = json.load(f)
+            # print(res)
+            f.close()
         for i in res:
             # lng:经度,lat:纬度
             # 区域坐标：
@@ -74,7 +76,7 @@ class AreaM(object):
                 'surrounds': i['detail']['surroundingPois']
             }
             count = len(surs['surrounds'])
-
+            business = i['detail']['business']
             city_name = i['detail']['addressComponents']['city']
             if city_name:
                 city_code = city_codes[city_name] if city_name else ""
@@ -85,13 +87,10 @@ class AreaM(object):
             areas = AreaM()
             if count < 1:
                 areas.add_new(city_name=city_name, city_code=city_code, locations=locations, surrounds=surs,
-                              sur_count=count, rate_id=3)
-            elif count < 2:
-                areas.add_new(city_name=city_name, city_code=city_code, locations=locations, surrounds=surs,
-                              sur_count=count, rate_id=2)
+                              sur_count=count, business=business, rate_id=2)
             else:
                 areas.add_new(city_name=city_name, city_code=city_code, locations=locations, surrounds=surs,
-                              sur_count=count, rate_id=1)
+                              sur_count=count, business=business, rate_id=1)
 
         return 'set data successfully!'
 

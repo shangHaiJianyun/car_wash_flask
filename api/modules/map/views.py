@@ -23,10 +23,10 @@ def get_rate():
         if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
             rate = AreaRateM().get(j.rate_id)
             # 根据需求返回该坐标所属的价格系数
-            level = int(rate['rate_level'])
-            if level == 1:
+            level = str(rate['rate_level'])
+            if level == 'A':
                 rate_level = 1
-            elif level == 2:
+            elif level == 'B':
                 rate_level = 0.85
             else:
                 rate_level = 0.7
@@ -52,6 +52,7 @@ def list_area():
 
 @map_blu.route('/change_rate', methods=['GET', 'POST'])
 def change_rate():
+    # TODO:该接口需要修改逻辑
     rate = request.json.get('rate')
     cen_loc = request.json.get('cen_loc')
     lng, lat = cen_loc['lng'], cen_loc['lat']

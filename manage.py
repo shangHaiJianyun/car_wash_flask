@@ -63,7 +63,7 @@ def add_operate():
 
 @manager.command
 def add_admin():
-    user = user_datastore.create_user(username='3', password='123')
+    user = user_datastore.create_user(username='admin', password='123')
     user.set_password()
     admin_role = get_user_role('Admin')
     user_datastore.add_role_to_user(user, admin_role)
@@ -74,9 +74,10 @@ def add_admin():
 @manager.command
 def set_Arate():
     Area_rates = AreaRateM()
-    Area_rates.add_new(name='一等', rate_level=1.0)
-    Area_rates.add_new(name='二等', rate_level=2.0)
-    Area_rates.add_new(name='三等', rate_level=3.0)
+    Area_rates.add_new(name='一等', rate_level="A")
+    Area_rates.add_new(name='二等', rate_level="B")
+    Area_rates.add_new(name='三等', rate_level="C")
+    Area_rates.add_new(name='交界处', rate_level="D")
     print('over')
 
 

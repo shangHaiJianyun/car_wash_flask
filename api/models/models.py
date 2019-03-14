@@ -105,6 +105,7 @@ class Area(db.Model):
     area_description = db.Column(db.String(80))
     rate_id = db.Column(db.Integer, db.ForeignKey('area_rates.id'))
     surrounds = db.Column(JSON())
+    business = db.Column(db.String(80))
     sur_count = db.Column(db.Integer)
 
 
@@ -112,5 +113,5 @@ class Area_rate(Base, db.Model):
     __tablename__ = 'area_rates'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
-    rate_level = db.Column(db.Float())
+    rate_level = db.Column(db.String(20))
     area = db.relationship('Area', backref='area_rates', lazy='dynamic')
