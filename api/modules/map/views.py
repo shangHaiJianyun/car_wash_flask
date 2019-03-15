@@ -46,8 +46,8 @@ def list_area():
     return jsonify(result)
 
 
-@map_blu.route('/change_rate', methods=['GET', 'POST'])
-def change_rate():
+@map_blu.route('/map_data', methods=['GET', 'POST'])
+def map_data():
     # 判断操作的方式 若是修改数据
     if request.method == 'POST':
 
@@ -55,12 +55,16 @@ def change_rate():
         level = request.json.get('level')
 
         try:
-            res = AreaRateM().get_obj(id)
-            res.rate_level = level
+            rate_res = AreaRateM().get_obj(level)
+            # print(rate_res['id'])
+            rate_id = rate_res['id']
+            res = AreaM().get(id)
+            res.rate_id = rate_id
             db.session.commit()
+            # print(res)
             return jsonify({"msg": "modify successfully"})
-        except Exception as e:
-            return jsonify({"msg": e})
+        except Exception:
+            return jsonify({"msg": "please give right data"})
     else:
         # 地图上显示数据
         result = AreaM().list_all()

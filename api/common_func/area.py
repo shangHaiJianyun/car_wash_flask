@@ -37,8 +37,12 @@ class AreaM(object):
         return json_list
 
     def get(self, id):
-        res = Area.query.filter(Area.id == id).one_or_none()
-        return res
+        res = Area.query.get(id)
+
+        if res:
+            return res
+        else:
+            return None
 
     def add_new(self, **args):
         new_co = Area(**args)
@@ -117,6 +121,6 @@ class AreaRateM(object):
         db.session.commit()
         return self.get(new_co.id)
 
-    def get_obj(self, id):
-        res = Area_rate.query.filter(Area_rate.id == id).one_or_none()
-        return res
+    def get_obj(self, level):
+        res = Area_rate.query.filter(Area_rate.rate_level == level).one_or_none()
+        return row2dict(res)
