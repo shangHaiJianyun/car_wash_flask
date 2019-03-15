@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Time    : 19-3-5 上午10:04
+import datetime
 import json
 
 import requests
@@ -59,11 +60,12 @@ def get_orderlist():
         if service_date:
             timeArray = time.strptime(service_date, "%Y-%m-%d")
             service_time = time.mktime(timeArray)
-
+            acquire = datetime.date.today() + datetime.timedelta(days=2)
+            tomorrow_end_time = int(time.mktime(time.strptime(str(acquire), '%Y-%m-%d'))) - 1
             now = int(time.time())
 
             # print(service_time, now)
-            if now < service_time:
+            if now < service_time < tomorrow_end_time:
                 data.append(i)
                 # print(data)
     # print(res.json())
