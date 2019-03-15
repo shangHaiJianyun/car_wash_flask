@@ -86,36 +86,35 @@ def dispatch():
     # timeStruct = time.localtime(int(time.time()))
     dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(time.time())))
     # 获取服务时间的时间戳
-    service_date = data['start_time']
-    timeArray = time.strptime(service_date, "%Y-%m-%d %H:%M:%S")
+    for i in data[0]['orders']:
+        service_date = i['start_time']
+        timeArray = time.strptime(service_date, "%Y-%m-%d %H:%M")
 
-    timeD = 86400.0  # 隔天的时间戳差值
+        # timeD = 86400.0  # 隔天的时间戳差值
+        tomorrow = datetime.date.today() + datetime.timedelta(days=1)
+        tomorrow_start_time = int(time.mktime(tomorrow.timetuple()))
 
-    # 获取当天零点的时间戳
-    t = time.localtime(time.time())
-    timeE = time.mktime(time.strptime(time.strftime('%Y-%m-%d 00:00:00', t), '%Y-%m-%d %H:%M:%S'))
+        if time.mktime(timeArray) < tomorrow_start_time:
+            deadline = 15
+        else:
+            deadline = 60
 
-    if time.mktime(timeArray)-timeE < timeD:
-        deadline = 15
-    else:
-        deadline = 60
-
-    # print(deadline)
-    params = {
-        "passwd": passwd,
-        "dispatch_info": {"data": data},
-        "dispatch_date": dispatch_date,
-        "deadline": deadline
-    }
-    res = requests.post(
-        url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
-        headers={
-            "Content-Type": "application/json"
-        },
-        data=json.dumps(params)
-    )
-    # print(res.json())
-    return jsonify(res.json())
+        # print(deadline)
+        params = {
+            "passwd": passwd,
+            "dispatch_info": {"data": data},
+            "dispatch_date": dispatch_date,
+            "deadline": deadline
+        }
+        res = requests.post(
+            url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
+            headers={
+                "Content-Type": "application/json"
+            },
+            data=json.dumps(params)
+        )
+        # print(res.json())
+        return jsonify(res.json())
 
 
 @dis_blu.route('updateOrderStatus', methods=['GET', 'POST'])
