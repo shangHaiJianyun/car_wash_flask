@@ -62,10 +62,12 @@ def get_orderlist():
             service_time = time.mktime(timeArray)
             acquire = datetime.date.today() + datetime.timedelta(days=2)
             tomorrow_end_time = int(time.mktime(time.strptime(str(acquire), '%Y-%m-%d'))) - 1
-            now = int(time.time())
+            today = datetime.date.today()
+            today_time = int(time.mktime(today.timetuple()))
+
 
             # print(service_time, now)
-            if now < service_time < tomorrow_end_time:
+            if today_time <= service_time < tomorrow_end_time:
                 data.append(i)
                 # print(data)
     # print(res.json())
