@@ -31,7 +31,7 @@ def get_rate():
                 'rate_name': rate['name'],
                 'rate_level': rate_level,
                 'area_id': j.id,
-                'area_name': j.city_name,
+                'city': j.city_name,
                 'city_code': j.city_code
             }
             return jsonify(data)
