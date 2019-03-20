@@ -14,10 +14,12 @@ from api.modules.dispatch import dis_blu
 def get_worklist():
     """获取技师列表"""
     access_key = 'xunjiepf'
+    city = request.json.get('city')
     results = requests.post(
         url="https://banana.xunjiepf.cn/api/extend/getworkerlist",
         params={
-            'access_key': access_key
+            'access_key': access_key,
+            'city': city
         }
     )
     page_size = results.json()['data']['total_count']
@@ -27,7 +29,8 @@ def get_worklist():
         url="https://banana.xunjiepf.cn/api/extend/getworkerlist",
         params={
             'access_key': access_key,
-            'page_size': page_size
+            'page_size': page_size,
+            'city': city
         }
     )
     # print(res.json())
@@ -37,6 +40,7 @@ def get_worklist():
 @dis_blu.route('getorderlist', methods=['GET', 'POST'])
 def get_orderlist():
     """获取订单列表"""
+    # TODO:修改传递的订单
     access_key = 'xunjiepf'
     results = requests.post(
         url="https://banana.xunjiepf.cn/api/extend/getorderlist",
@@ -64,7 +68,6 @@ def get_orderlist():
             tomorrow_end_time = int(time.mktime(time.strptime(str(acquire), '%Y-%m-%d'))) - 1
             today = datetime.date.today()
             today_time = int(time.mktime(today.timetuple()))
-
 
             # print(service_time, now)
             if today_time <= service_time < tomorrow_end_time:
@@ -141,3 +144,72 @@ def updateStatus():
     )
     # print(res.json())
     return jsonify(res.json())
+
+
+@dis_blu.route('getItemlist', methods=['GET', 'POST'])
+def getItemlist():
+    """获取项目列表"""
+    access_key = 'xunjiepf'
+    city = request.json.get("city")
+    params = {
+        "access_key": access_key,
+        "city": city
+    }
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/getItemlist',
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps(params)
+    )
+    return jsonify(res.json()['data'])
+
+
+@dis_blu.route('getOrderDetail', methods=['GET', 'POST'])
+def getOrderDetail():
+    """获取订单详情"""
+    access_key = 'xunjiepf'
+    order_no = request.json.get("order_no")
+    params = {
+        "access_key": access_key,
+        "order_no": order_no
+    }
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/orderDetail',
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps(params)
+    )
+    return jsonify(res.json()['data'])
+
+
+@dis_blu.route('getMemberList', methods=['GET', 'POST'])
+def getMemberList():
+    """获取用户列表"""
+    access_key = 'xunjiepf'
+    city = request.json.get('city')
+
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/getMemberList',
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps({
+            'access_key': access_key,
+            'city': city
+        })
+    )
+    page_size = res.json()['data']['total_count']
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/getMemberList',
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps({
+            'access_key': access_key,
+            'page_size': page_size,
+            'city': city
+        })
+    )
+    return jsonify(res.json()['data']['data'])
