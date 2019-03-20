@@ -69,3 +69,15 @@ def map_data():
         # 地图上显示数据
         result = AreaM().list_all()
         return jsonify(result)
+
+
+@map_blu.route('/rate', methods=['GET', 'POST'])
+def return_rate():
+    area_id = request.json.get('area_id')
+    try:
+        area = AreaM().get(area_id)
+        res = AreaRateM().get(area.rate_id)
+        area_rate = level_code[str(res['rate_level'])] if res['rate_level'] else " "
+    except Exception:
+        return jsonify({'erro': 'wrong area_id'})
+    return jsonify({'area_rate': area_rate})
