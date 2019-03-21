@@ -6,7 +6,7 @@
 import json
 import sys
 
-from api.common_func.city_code import city_codes
+from api.common_func.city_code import city_codes, level_code
 from api.models.models import Area, row2dict, db, Area_rate
 
 
@@ -27,9 +27,10 @@ class AreaM(object):
             # print(level)
             sur = i.surrounds['surrounds'][0]['title'] if i.surrounds['surrounds'] else " "
             # print(sur)
+            rate_level = level_code[str(level)] if level else " "
             json_dict["level"] = level
             json_dict["surrounds"] = sur
-
+            json_dict["area_rate"] = rate_level
             json_dict["business"] = i.business
             json_dict["address"] = i.address
             json_list.append(json_dict)
