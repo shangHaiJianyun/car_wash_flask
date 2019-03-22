@@ -62,7 +62,7 @@ def map_data():
             res.rate_id = rate_id
             db.session.commit()
             # print(res)
-            return jsonify({"msg": "modify successfully"})
+            return jsonify({"area_rate": level_code[str(level)] if level else " "})
         except Exception:
             return jsonify({"msg": "please give right data"})
     else:
