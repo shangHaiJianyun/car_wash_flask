@@ -7,7 +7,6 @@ import requests
 from flask import jsonify, request
 import time
 
-from api.common_func.utils import compareTime
 from api.modules.dispatch import dis_blu
 
 
@@ -16,6 +15,7 @@ def get_worklist():
     """获取技师列表"""
     access_key = 'xunjiepf'
     city = request.json.get('city')
+    date = request.json.get('date', None)
     results = requests.post(
         url="https://banana.xunjiepf.cn/api/extend/getworkerlist",
         params={
@@ -28,11 +28,15 @@ def get_worklist():
 
     res = requests.post(
         url="https://banana.xunjiepf.cn/api/extend/getworkerlist",
-        params={
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps({
             'access_key': access_key,
             'page_size': page_size,
-            'city': city
-        }
+            'city': city,
+            "date": date
+        })
     )
     # print(res.json())
     return jsonify(res.json()['data']['data'])
@@ -42,6 +46,9 @@ def get_worklist():
 def get_orderlist():
     """获取订单列表"""
     access_key = 'xunjiepf'
+    order_status = request.json.get('order_status', 2)
+    start_service_date = request.json.get('start_service_date', "")
+    end_service_date = request.json.get('end_service_date', "")
     results = requests.post(
         url="https://banana.xunjiepf.cn/api/extend/getorderlist",
         params={
@@ -53,63 +60,15 @@ def get_orderlist():
         url="https://banana.xunjiepf.cn/api/extend/getorderlist",
         params={
             'access_key': access_key,
-            'page_size': page_size
+            'page_size': page_size,
+            'order_status': order_status,
+            'start_service_date': start_service_date,
+            'end_service_date': end_service_date
         }
     )
     result = res.json()['data']['data']
-    data = []
-    for i in result:
-        service_date = i['service_date']
-        # print(service_date)
-        if service_date:
-            if compareTime(service_date):
-                data.append(i)
-        #         # print(data)
-        # order_no = i["order_no"]
-        # res = requests.post(
-        #     url='https://banana.xunjiepf.cn/api/extend/orderDetail',
-        #     headers={
-        #         "Content-Type": "application/json"
-        #     },
-        #     data=json.dumps({
-        #         "access_key": access_key,
-        #         "order_no": order_no
-        #     })
-        # ).json()['data']
-        # order_common_info = res['order_common_info']
-        # child_list = res['child_list']
-        # if len(child_list) > 1:
-        #     for i in child_list:
-        #         order_dic = {}
-        #         service_date = i["service_date"]
-        #         if compareTime(service_date):
-        #             order_dic['order_no'] = i['order_no']
-        #             order_dic['order_id'] = i['parent_id']
-        #             order_dic['order_status'] = i['order_status']
-        #             order_dic['service_date'] = i['service_date']
-        #             order_dic['start_time'] = i['start_time']
-        #             order_dic['end_time'] = i['end_time']
-        #             order_dic['nick_name'] = order_common_info['nick_name']
-        #             order_dic['item_title'] = order_common_info['item_title']
-        #             order_dic['address_detail'] = order_common_info['address_detail']
-        #             data.append(order_dic)
-        # else:
-        #     service_date = child_list[0]["service_date"]
-        #     order_dic = {}
-        #     if compareTime(service_date):
-        #         order_dic['order_no'] = child_list[0]['order_no']
-        #         order_dic['order_id'] = i["order_id"]
-        #         order_dic['order_status'] = child_list[0]['order_status']
-        #         order_dic['service_date'] = child_list[0]['service_date']
-        #         order_dic['start_time'] = child_list[0]['start_time']
-        #         order_dic['end_time'] = child_list[0]['end_time']
-        #         order_dic['nick_name'] = order_common_info['nick_name']
-        #         order_dic['item_title'] = order_common_info['item_title']
-        #         order_dic['address_detail'] = order_common_info['address_detail']
-        #         data.append(order_dic)
-    # print(res.json())
     # return jsonify(res.json()['data']['data'])
-    return jsonify(data)
+    return jsonify(result)
 
 
 @dis_blu.route('dispatchorder', methods=['GET', 'POST'])
