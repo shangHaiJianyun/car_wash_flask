@@ -7,6 +7,7 @@ import requests
 from flask import jsonify, request
 import time
 
+from api.common_func.utils import compareTime
 from api.modules.dispatch import dis_blu
 
 
@@ -40,7 +41,6 @@ def get_worklist():
 @dis_blu.route('getorderlist', methods=['GET', 'POST'])
 def get_orderlist():
     """获取订单列表"""
-    # TODO:修改传递的订单
     access_key = 'xunjiepf'
     results = requests.post(
         url="https://banana.xunjiepf.cn/api/extend/getorderlist",
@@ -59,20 +59,54 @@ def get_orderlist():
     result = res.json()['data']['data']
     data = []
     for i in result:
-        service_date = i['service_date']
-        # print(service_date)
-        if service_date:
-            timeArray = time.strptime(service_date, "%Y-%m-%d")
-            service_time = time.mktime(timeArray)
-            acquire = datetime.date.today() + datetime.timedelta(days=2)
-            tomorrow_end_time = int(time.mktime(time.strptime(str(acquire), '%Y-%m-%d'))) - 1
-            today = datetime.date.today()
-            today_time = int(time.mktime(today.timetuple()))
-
-            # print(service_time, now)
-            if today_time <= service_time < tomorrow_end_time:
-                data.append(i)
-                # print(data)
+        # service_date = i['service_date']
+        # # print(service_date)
+        # if service_date:
+        #     if compareTime(service_date):
+        #         data.append(i)
+        #         # print(data)
+        order_no = i["order_no"]
+        res = requests.post(
+            url='https://banana.xunjiepf.cn/api/extend/orderDetail',
+            headers={
+                "Content-Type": "application/json"
+            },
+            data=json.dumps({
+                "access_key": access_key,
+                "order_no": order_no
+            })
+        ).json()['data']
+        order_common_info = res['order_common_info']
+        child_list = res['child_list']
+        if len(child_list) > 1:
+            for i in child_list:
+                order_dic = {}
+                service_date = i["service_date"]
+                if compareTime(service_date):
+                    order_dic['order_no'] = i['order_no']
+                    order_dic['order_id'] = i['parent_id']
+                    order_dic['order_status'] = i['order_status']
+                    order_dic['service_date'] = i['service_date']
+                    order_dic['start_time'] = i['start_time']
+                    order_dic['end_time'] = i['end_time']
+                    order_dic['nick_name'] = order_common_info['nick_name']
+                    order_dic['item_title'] = order_common_info['item_title']
+                    order_dic['address_detail'] = order_common_info['address_detail']
+                    data.append(order_dic)
+        else:
+            service_date = child_list[0]["service_date"]
+            order_dic = {}
+            if compareTime(service_date):
+                order_dic['order_no'] = child_list[0]['order_no']
+                order_dic['order_id'] = i["order_id"]
+                order_dic['order_status'] = child_list[0]['order_status']
+                order_dic['service_date'] = child_list[0]['service_date']
+                order_dic['start_time'] = child_list[0]['start_time']
+                order_dic['end_time'] = child_list[0]['end_time']
+                order_dic['nick_name'] = order_common_info['nick_name']
+                order_dic['item_title'] = order_common_info['item_title']
+                order_dic['address_detail'] = order_common_info['address_detail']
+                data.append(order_dic)
     # print(res.json())
     # return jsonify(res.json()['data']['data'])
     return jsonify(data)
