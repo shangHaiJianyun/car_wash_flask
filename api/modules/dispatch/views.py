@@ -73,13 +73,10 @@ def get_orderlist():
     else:
         res = requests.post(
             url="https://banana.xunjiepf.cn/api/extend/getorderlist",
-            headers={
-                "Content-Type": "application/json"
-            },
-            data=json.dumps({
+            params={
                 'access_key': access_key,
                 'page_size': page_size,
-            })
+            }
         )
     result = res.json()['data']['data']
     # return jsonify(res.json()['data']['data'])
