@@ -46,9 +46,6 @@ def get_worklist():
 def get_orderlist():
     """获取订单列表"""
     access_key = 'xunjiepf'
-    order_status = request.json.get('order_status', 2)
-    start_service_date = request.json.get('start_service_date', "")
-    end_service_date = request.json.get('end_service_date', "")
     results = requests.post(
         url="https://banana.xunjiepf.cn/api/extend/getorderlist",
         params={
@@ -56,16 +53,34 @@ def get_orderlist():
         }
     )
     page_size = results.json()['data']['total_count']
-    res = requests.post(
-        url="https://banana.xunjiepf.cn/api/extend/getorderlist",
-        params={
-            'access_key': access_key,
-            'page_size': page_size,
-            'order_status': order_status,
-            'start_service_date': start_service_date,
-            'end_service_date': end_service_date
-        }
-    )
+    if request.method == 'POST':
+        order_status = request.json.get('order_status')
+        start_service_date = request.json.get('start_service_date')
+        end_service_date = request.json.get('end_service_date')
+        res = requests.post(
+            url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+            headers={
+                "Content-Type": "application/json"
+            },
+            data=json.dumps({
+                'access_key': access_key,
+                'page_size': page_size,
+                'order_status': order_status,
+                'start_service_date': start_service_date,
+                'end_service_date': end_service_date
+            })
+        )
+    else:
+        res = requests.post(
+            url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+            headers={
+                "Content-Type": "application/json"
+            },
+            data=json.dumps({
+                'access_key': access_key,
+                'page_size': page_size,
+            })
+        )
     result = res.json()['data']['data']
     # return jsonify(res.json()['data']['data'])
     return jsonify(result)
