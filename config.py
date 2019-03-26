@@ -8,9 +8,9 @@ from redis import StrictRedis
 class Config:
     ENV = 'develop'
     DEBUG = True
-    if sys.path[0] == '/home/python/Desktop/car_wash_flask':
+    if sys.path[0] == '/home/chendebo/Desktop/car_wash_flask':
         # 本地测试用例数据库
-        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/carData'
+        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_wash'
     else:
         # 服务器端数据库链接
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/car_wash'
