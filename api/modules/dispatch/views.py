@@ -10,7 +10,7 @@ import time
 from api.modules.dispatch import dis_blu
 
 
-@dis_blu.route('getworklist', methods=['GET', 'POST'])
+@dis_blu.route('/getworklist', methods=['GET', 'POST'])
 def get_worklist():
     """获取技师列表"""
     access_key = 'xunjiepf'
@@ -42,7 +42,7 @@ def get_worklist():
     return jsonify(res.json()['data']['data'])
 
 
-@dis_blu.route('getorderlist', methods=['GET', 'POST'])
+@dis_blu.route('/getorderlist', methods=['GET', 'POST'])
 def get_orderlist():
     """获取订单列表"""
     access_key = 'xunjiepf'
@@ -83,7 +83,7 @@ def get_orderlist():
     return jsonify(result)
 
 
-@dis_blu.route('dispatchorder', methods=['GET', 'POST'])
+@dis_blu.route('/dispatchorder', methods=['GET', 'POST'])
 def dispatch():
     """派单内容"""
     passwd = 'xunjiepf'
@@ -127,7 +127,7 @@ def dispatch():
         return jsonify(res.json())
 
 
-@dis_blu.route('updateOrderStatus', methods=['GET', 'POST'])
+@dis_blu.route('/updateOrderStatus', methods=['GET', 'POST'])
 def updateStatus():
     """更新订单状态"""
     access_key = 'xunjiepf'
@@ -151,7 +151,7 @@ def updateStatus():
     return jsonify(res.json())
 
 
-@dis_blu.route('getItemlist', methods=['GET', 'POST'])
+@dis_blu.route('/getItemlist', methods=['GET', 'POST'])
 def getItemlist():
     """获取项目列表"""
     access_key = 'xunjiepf'
@@ -170,7 +170,7 @@ def getItemlist():
     return jsonify(res.json()['data'])
 
 
-@dis_blu.route('getOrderDetail', methods=['GET', 'POST'])
+@dis_blu.route('/getOrderDetail', methods=['GET', 'POST'])
 def getOrderDetail():
     """获取订单详情"""
     access_key = 'xunjiepf'
@@ -189,7 +189,7 @@ def getOrderDetail():
     return jsonify(res.json()['data'])
 
 
-@dis_blu.route('getMemberList', methods=['GET', 'POST'])
+@dis_blu.route('/getMemberList', methods=['GET', 'POST'])
 def getMemberList():
     """获取用户列表"""
     access_key = 'xunjiepf'
@@ -220,7 +220,7 @@ def getMemberList():
     return jsonify(res.json()['data']['data'])
 
 
-@dis_blu.route('getParentOrderList', methods=['GET', 'POST'])
+@dis_blu.route('/getParentOrderList', methods=['GET', 'POST'])
 def getParentOrderList():
     """获取父订单信息"""
     access_key = 'xunjiepf'
