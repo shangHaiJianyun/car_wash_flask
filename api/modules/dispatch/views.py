@@ -218,3 +218,35 @@ def getMemberList():
         })
     )
     return jsonify(res.json()['data']['data'])
+
+
+@dis_blu.route('getParentOrderList', methods=['GET', 'POST'])
+def getParentOrderList():
+    """获取父订单信息"""
+    access_key = 'xunjiepf'
+    city = request.json.get('city')
+    start_date = request.json.get('start_date', '')
+    end_date = request.json.get('end_date', '')
+    order_status = request.json.get('order_status', 1)
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/getParentOrderList',
+        params={
+            'access_key': access_key,
+            'city': city
+        })
+    page_size = res.json()['data']['total_count']
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/getParentOrderList',
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps({
+            'access_key': access_key,
+            'page_size': page_size,
+            'city': city,
+            'start_date': start_date,
+            'end_date': end_date,
+            'order_status': order_status
+        })
+    )
+    return jsonify(res.json()['data']['data'])
