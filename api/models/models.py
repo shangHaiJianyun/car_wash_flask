@@ -101,7 +101,6 @@ class Area(db.Model):
     city_code = db.Column(db.String(10))
     locations = db.Column(JSON())
     # center_axis = db.Column(db.String(80))
-    area_num = db.Column(db.Integer)
     area_description = db.Column(db.String(80))
     rate_id = db.Column(db.Integer, db.ForeignKey('area_rates.id'))
     surrounds = db.Column(JSON())
@@ -116,3 +115,11 @@ class Area_rate(Base, db.Model):
     name = db.Column(db.String(80))
     rate_level = db.Column(db.String(20))
     area = db.relationship('Area', backref='area_rates', lazy='dynamic')
+
+
+class NearbyArea(Base,db.Model):
+    """获取中心点附近五公里的区域信息,以json格式存储在数据库中,包括八个点所属的区域id/中心点坐标/距离中心点的骑行时间/"""
+    __tablename__ = 'nearby_area'
+    id = db.Column(db.Integer, primary_key=True)
+    area_id = db.Column(db.Integer)
+    nearby = db.Column(JSON())

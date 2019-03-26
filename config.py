@@ -8,7 +8,7 @@ from redis import StrictRedis
 class Config:
     ENV = 'develop'
     DEBUG = True
-    if sys.path[0] == '/home/python/Desktop/start_project':
+    if sys.path[0] == '/home/python/Desktop/car_wash_flask':
         # 本地测试用例数据库
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/carData'
     else:
