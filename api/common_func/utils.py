@@ -20,6 +20,8 @@
 
 from math import cos, sin, sqrt, pi, tan, atan2
 
+import requests
+
 
 class GetLocation(object):
     """
@@ -92,7 +94,23 @@ class GetLocation(object):
         return self.lon + self.deg(L), self.deg(lat2)
 
 
-if __name__ == '__main__':
-    loc = GetLocation(121.62486, 29.87816, 90, 5000)
-    s = loc.calculate_loc()
-    print(s[0], s[1])
+def get_ride(origin, destination):
+    """
+    根据两地的经纬度获取骑行路线及骑行时间
+    {'data': {'destination': '121.62486,29.92326568537871',
+        'origin': '121.62486, 29.87816',
+        'paths': [{'distance': 7986, 'duration': 1917}]}'errcode': 0, 'errdetail': None, 'errmsg': 'OK', 'ext': None}
+
+    :return:
+    """
+    res = requests.get(
+        url="https://restapi.amap.com/v4/direction/bicycling",
+        params={
+            "origin": origin,
+            "destination": destination,
+            "key": "1307e088b2362d9d10bb5a3a26a4c29e"
+        }
+    )
+    dis = res.json()['data']['paths'][0]['distance']
+    time = res.json()['data']['paths'][0]['duration']
+    return dis, time
