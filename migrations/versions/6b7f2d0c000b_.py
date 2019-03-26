@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 24c52372af7b
+Revision ID: 6b7f2d0c000b
 Revises: 
-Create Date: 2019-01-03 14:03:39.058917
+Create Date: 2019-03-26 19:30:54.914505
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '24c52372af7b'
+revision = '6b7f2d0c000b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,7 +23,15 @@ def upgrade():
     sa.Column('modified_on', sa.DateTime(), nullable=True),
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=80), nullable=True),
-    sa.Column('rate_level', sa.Float(), nullable=True),
+    sa.Column('rate_level', sa.String(length=20), nullable=True),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('nearby_area',
+    sa.Column('created_on', sa.DateTime(), nullable=True),
+    sa.Column('modified_on', sa.DateTime(), nullable=True),
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('area_id', sa.Integer(), nullable=True),
+    sa.Column('nearby', sa.JSON(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('roles',
@@ -56,19 +64,17 @@ def upgrade():
     op.create_index(op.f('ix_users_username'), 'users', ['username'], unique=False)
     op.create_table('areas',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('city_name', sa.String(length=80), nullable=False),
+    sa.Column('city_name', sa.String(length=80), nullable=True),
     sa.Column('city_code', sa.String(length=10), nullable=True),
     sa.Column('locations', sa.JSON(), nullable=True),
-    sa.Column('area_num', sa.Integer(), nullable=True),
     sa.Column('area_description', sa.String(length=80), nullable=True),
     sa.Column('rate_id', sa.Integer(), nullable=True),
     sa.Column('surrounds', sa.JSON(), nullable=True),
+    sa.Column('business', sa.String(length=80), nullable=True),
     sa.Column('sur_count', sa.Integer(), nullable=True),
+    sa.Column('address', sa.String(length=80), nullable=True),
     sa.ForeignKeyConstraint(['rate_id'], ['area_rates.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('area_num'),
-    sa.UniqueConstraint('city_code'),
-    sa.UniqueConstraint('city_name')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('roles_users',
     sa.Column('user_id', sa.Integer(), nullable=True),
@@ -86,5 +92,6 @@ def downgrade():
     op.drop_index(op.f('ix_users_username'), table_name='users')
     op.drop_table('users')
     op.drop_table('roles')
+    op.drop_table('nearby_area')
     op.drop_table('area_rates')
     # ### end Alembic commands ###
