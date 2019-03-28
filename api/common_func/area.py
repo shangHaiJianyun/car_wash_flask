@@ -7,7 +7,8 @@ import json
 import sys
 
 from api.common_func.city_code import city_codes, level_code
-from api.models.models import Area, row2dict, db, Area_rate
+from api.common_func.utils import GetLocation, get_ride
+from api.models.models import Area, row2dict, db, Area_rate, NearbyArea
 
 
 class AreaM(object):
@@ -63,8 +64,9 @@ class AreaM(object):
         db.session.commit()
         return 'success'
 
-    def get_locations(self, name):
-        pass
+    def get_area(self, name):
+        res = Area.query.filter(Area.city_name == name).one_or_none()
+        return res
 
     @staticmethod
     def set_area():
@@ -125,3 +127,56 @@ class AreaRateM(object):
     def get_obj(self, level):
         res = Area_rate.query.filter(Area_rate.rate_level == level).one_or_none()
         return row2dict(res)
+
+
+class NearbyM(object):
+    def list_all(self):
+        nearby = NearbyArea.query.all()
+        return nearby
+
+    def get(self, area_id):
+        res = NearbyArea.query.filter(NearbyArea.area_id == area_id).one_or_none()
+        return row2dict(res)
+
+    def add_new(self, **args):
+        new_co = NearbyArea(**args)
+        db.session.add(new_co)
+        db.session.commit()
+        return self.get(new_co.id)
+
+    @staticmethod
+    def set_nearby():
+        """
+        nearby:
+        {
+        ul:左上  -45° 3.14*5000m
+        uu:上   0°  5000m
+        ur:右上  45° 3.14*5000m
+        ll:左  -90° 5000m
+        rr:右  90° 5000m
+        dl:左下  -135° 3.14*5000m
+        dd:下  180° 5000m
+        dr:右下 135° 3.14*5000m
+        }
+
+        uu,ul,ur...:{
+            "area_id":"区域id",
+            "area_cen":"区域中心点",
+            "area_name":"区域名称",
+            "distance":"距离",
+            "ridding_time":"骑行时间",
+
+        }
+        :return:
+        """
+        _dis = 5000
+        _long = 7070
+        areas = AreaM().get_area("上海市")
+        for i in areas:
+            lng = i.locations['cen']['lng']
+            lat = i.locations['cen']['lat']
+            lng1, lat1 = GetLocation(lng, lat, -45, _dis)
+            origin = '{0}, {1}'.format(lng, lat)
+            destination = '{0}, {1}'.format(lng1, lat1)
+            dis, ridding_time = get_ride(origin, destination)
+            pass
