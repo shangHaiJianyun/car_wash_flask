@@ -4,8 +4,9 @@ import json
 from flask import request, jsonify
 
 from api import db
-from api.common_func.area import AreaM, AreaRateM
+from api.common_func.area import AreaM, AreaRateM, NearbyM
 from api.common_func.city_code import level_code
+from api.common_func.nearby_area import set_nearby
 from api.modules.map import map_blu
 
 
@@ -83,9 +84,12 @@ def return_rate():
     return jsonify({'area_rate': area_rate})
 
 
-@map_blu.route('get_nearby', methods=['GET','POST'])
+@map_blu.route('get_nearby', methods=['GET', 'POST'])
 def get_nearby():
     """获取某一区域id或者是中心点坐标 返回附近8个区域的信息"""
-    area_id = request.json.get('area_id')
-    pass
-
+    try:
+        area_id = request.json.get('area_id')
+        res = NearbyM().get_nearby(area_id)['nearby']
+    except Exception as e:
+        raise e
+    return jsonify(res)

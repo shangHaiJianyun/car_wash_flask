@@ -6,8 +6,9 @@
 import json
 import sys
 
+import requests
+
 from api.common_func.city_code import city_codes, level_code
-from api.common_func.utils import GetLocation, get_ride
 from api.models.models import Area, row2dict, db, Area_rate, NearbyArea
 
 
@@ -54,9 +55,9 @@ class AreaM(object):
 
     def update(self, id, param):
         # print id, param
-        new_co = Area.query.filter(Area.id == id).update(param)
+        Area.query.filter(Area.id == id).update(param)
         db.session.commit()
-        return self.get(new_co.id)
+        return 'success'
 
     def delete(self, id):
         tmp = Area.query.filter(Area.id == id)
@@ -65,7 +66,7 @@ class AreaM(object):
         return 'success'
 
     def get_area(self, name):
-        res = Area.query.filter(Area.city_name == name).one_or_none()
+        res = Area.query.filter(Area.city_name == name)
         return res
 
     @staticmethod
@@ -109,6 +110,28 @@ class AreaM(object):
 
         return 'set data successfully!'
 
+    @staticmethod
+    def update_area_description():
+        areas = AreaM().get_all()
+        for i in areas:
+            lng, lat = i.locations['cen']['lng'], i.locations['cen']['lat']
+            loc = '{0},{1}'.format(lng, lat)
+            res = requests.get(
+                url="https://restapi.amap.com/v3/geocode/regeo",
+                params={
+                    "key": "1307e088b2362d9d10bb5a3a26a4c29e",
+                    "output": "json",
+                    "location": loc,
+                    "radius": 1000,
+                    "poitype": "商务写字楼",
+                }
+            )
+            result = res.json()['regeocode']['addressComponent']['streetNumber']['street']
+            if result:
+                param = {"area_description": result}
+                AreaM().update(i.id, param)
+                print('update successfully.')
+
 
 class AreaRateM(object):
     def list_all(self):
@@ -134,7 +157,11 @@ class NearbyM(object):
         nearby = NearbyArea.query.all()
         return nearby
 
-    def get(self, area_id):
+    def get(self,id):
+        res = NearbyArea.query.filter(NearbyArea.id == id).one_or_none()
+        return row2dict(res)
+
+    def get_nearby(self, area_id):
         res = NearbyArea.query.filter(NearbyArea.area_id == area_id).one_or_none()
         return row2dict(res)
 
@@ -143,40 +170,3 @@ class NearbyM(object):
         db.session.add(new_co)
         db.session.commit()
         return self.get(new_co.id)
-
-    @staticmethod
-    def set_nearby():
-        """
-        nearby:
-        {
-        ul:左上  -45° 3.14*5000m
-        uu:上   0°  5000m
-        ur:右上  45° 3.14*5000m
-        ll:左  -90° 5000m
-        rr:右  90° 5000m
-        dl:左下  -135° 3.14*5000m
-        dd:下  180° 5000m
-        dr:右下 135° 3.14*5000m
-        }
-
-        uu,ul,ur...:{
-            "area_id":"区域id",
-            "area_cen":"区域中心点",
-            "area_name":"区域名称",
-            "distance":"距离",
-            "ridding_time":"骑行时间",
-
-        }
-        :return:
-        """
-        _dis = 5000
-        _long = 7070
-        areas = AreaM().get_area("上海市")
-        for i in areas:
-            lng = i.locations['cen']['lng']
-            lat = i.locations['cen']['lat']
-            lng1, lat1 = GetLocation(lng, lat, -45, _dis)
-            origin = '{0}, {1}'.format(lng, lat)
-            destination = '{0}, {1}'.format(lng1, lat1)
-            dis, ridding_time = get_ride(origin, destination)
-            pass

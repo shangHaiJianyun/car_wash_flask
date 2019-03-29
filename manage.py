@@ -8,6 +8,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 from api.common_func.area import AreaRateM, AreaM
+from api.common_func.nearby_area import set_nearby
 from api.models.models import User, user_datastore
 from api.common_func.get_role import get_user_role
 
@@ -83,7 +84,14 @@ def set_Arate():
 
 @manager.command
 def setArea():
-    AreaM.set_area()
+    # AreaM().set_area()
+
+    AreaM().update_area_description()
+
+
+@manager.command
+def set_near():
+    set_nearby()
 
 
 if __name__ == '__main__':
