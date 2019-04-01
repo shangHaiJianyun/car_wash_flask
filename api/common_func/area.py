@@ -122,15 +122,14 @@ class AreaM(object):
                     "key": "1307e088b2362d9d10bb5a3a26a4c29e",
                     "output": "json",
                     "location": loc,
-                    "radius": 1000,
-                    "poitype": "商务写字楼",
+                    "radius": 1000
                 }
             )
-            result = res.json()['regeocode']['addressComponent']['streetNumber']['street']
+            result = res.json()['regeocode']['formatted_address']
             if result:
                 param = {"area_description": result}
                 AreaM().update(i.id, param)
-                print('update successfully.')
+                # print('update successfully.')
 
 
 class AreaRateM(object):

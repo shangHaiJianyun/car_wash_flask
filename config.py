@@ -6,7 +6,6 @@ from redis import StrictRedis
 
 
 class Config:
-    ENV = 'develop'
     DEBUG = True
     if sys.path[0] == '/home/chendebo/Desktop/car_wash_flask':
         # 本地测试用例数据库

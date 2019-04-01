@@ -79,7 +79,7 @@ def set_Arate():
     Area_rates.add_new(name='二等', rate_level="B")
     Area_rates.add_new(name='三等', rate_level="C")
     Area_rates.add_new(name='交界处', rate_level="D")
-    print('over')
+    # print('over')
 
 
 @manager.command
