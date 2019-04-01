@@ -33,6 +33,7 @@ class GetLocation(object):
     短半径b = 6356752.3142
     扁率f = 1 / 298.2572236
     """
+
     def __init__(self, lon, lat, brng, dis):
         self.lon = lon
         self.lat = lat
@@ -96,7 +97,7 @@ class GetLocation(object):
         return self.lon + self.deg(L), self.deg(lat2)
 
 
-def get_ride(origin, destination):
+def get_ride(origin, destination, key):
     """
     根据两地的经纬度获取骑行路线及骑行时间
     {'data': {'destination': '121.62486,29.92326568537871',
@@ -110,7 +111,7 @@ def get_ride(origin, destination):
         params={
             "origin": origin,
             "destination": destination,
-            "key": "00a3f5dbb8e22f4c8cd3fa2b5346d560"
+            "key": key
         }
     ).json()
     dis = res['data']['paths'][0]['distance']
@@ -144,10 +145,17 @@ def set_nearby():
     """
     _dis = 5000
     _long = 7070
+    key_01 = "1307e088b2362d9d10bb5a3a26a4c29e"
+    key_02 = "00a3f5dbb8e22f4c8cd3fa2b5346d560"
     areas = AreaM().get_area("上海市")
     for i in areas:
         # 区域id
         id = i.id
+        a = int(id)
+        if a < 400:
+            key = key_01
+        else:
+            key = key_02
         lng = i.locations['cen']['lng']
         lat = i.locations['cen']['lat']
 
@@ -158,7 +166,7 @@ def set_nearby():
         destination1 = '{0}, {1}'.format(lng1, lat1)
         # ul = generate_u(ul, areas, lng1, lat1, origin, destination1)
         # print(ul)
-        dis1, ridding_time1 = get_ride(origin, destination1)
+        dis1, ridding_time1 = get_ride(origin, destination1, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations
@@ -177,7 +185,7 @@ def set_nearby():
         uu = {}
         lng2, lat2 = GetLocation(lng, lat, 0, _dis).calculate_loc()
         destination2 = '{0}, {1}'.format(lng2, lat2)
-        dis2, ridding_time2 = get_ride(origin, destination2)
+        dis2, ridding_time2 = get_ride(origin, destination2, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations
@@ -195,7 +203,7 @@ def set_nearby():
         ur = {}
         lng3, lat3 = GetLocation(lng, lat, 45, _long).calculate_loc()
         destination3 = '{0}, {1}'.format(lng3, lat3)
-        dis3, ridding_time3 = get_ride(origin, destination3)
+        dis3, ridding_time3 = get_ride(origin, destination3, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations
@@ -213,7 +221,7 @@ def set_nearby():
         ll = {}
         lng4, lat4 = GetLocation(lng, lat, -90, _dis).calculate_loc()
         destination4 = '{0}, {1}'.format(lng4, lat4)
-        dis4, ridding_time4 = get_ride(origin, destination4)
+        dis4, ridding_time4 = get_ride(origin, destination4, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations
@@ -231,7 +239,7 @@ def set_nearby():
         rr = {}
         lng5, lat5 = GetLocation(lng, lat, 90, _dis).calculate_loc()
         destination5 = '{0}, {1}'.format(lng5, lat5)
-        dis5, ridding_time5 = get_ride(origin, destination5)
+        dis5, ridding_time5 = get_ride(origin, destination5, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations
@@ -249,7 +257,7 @@ def set_nearby():
         dl = {}
         lng6, lat6 = GetLocation(lng, lat, -135, _long).calculate_loc()
         destination6 = '{0}, {1}'.format(lng6, lat6)
-        dis6, ridding_time6 = get_ride(origin, destination6)
+        dis6, ridding_time6 = get_ride(origin, destination6, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations
@@ -267,7 +275,7 @@ def set_nearby():
         dd = {}
         lng7, lat7 = GetLocation(lng, lat, 180, _dis).calculate_loc()
         destination7 = '{0}, {1}'.format(lng7, lat7)
-        dis7, ridding_time7 = get_ride(origin, destination7)
+        dis7, ridding_time7 = get_ride(origin, destination7, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations
@@ -285,7 +293,7 @@ def set_nearby():
         dr = {}
         lng8, lat8 = GetLocation(lng, lat, 135, _long).calculate_loc()
         destination8 = '{0}, {1}'.format(lng8, lat8)
-        dis8, ridding_time8 = get_ride(origin, destination8)
+        dis8, ridding_time8 = get_ride(origin, destination8, key)
         for n in areas:
             # 获取该区域的区域坐标
             j = n.locations

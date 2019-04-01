@@ -135,7 +135,6 @@ class AreaM(object):
                 AreaM().update(i.id, param)
 
 
-
 class AreaRateM(object):
     def list_all(self):
         pass
@@ -160,7 +159,7 @@ class NearbyM(object):
         nearby = NearbyArea.query.all()
         return nearby
 
-    def get(self,id):
+    def get(self, id):
         res = NearbyArea.query.filter(NearbyArea.id == id).one_or_none()
         return row2dict(res)
 
