@@ -33,18 +33,17 @@ class GetLocation(object):
     短半径b = 6356752.3142
     扁率f = 1 / 298.2572236
     """
-    # 长半径a = 6378137
-    _a = 6378137
-    # 短半径b = 6356752.3142
-    _b = 6356752.3142
-    # 扁率f = 1 / 298.2572236
-    _f = 1 / 298.2572236
-
     def __init__(self, lon, lat, brng, dis):
         self.lon = lon
         self.lat = lat
         self.brng = brng
         self.dis = dis
+        # 长半径a = 6378137
+        self._a = 6378137
+        # 短半径b = 6356752.3142
+        self._b = 6356752.3142
+        # 扁率f = 1 / 298.2572236
+        self._f = 1 / 298.2572236
 
     def rad(self, d):
         # 将度换成弧度
