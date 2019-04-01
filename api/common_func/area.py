@@ -130,6 +130,10 @@ class AreaM(object):
                 param = {"area_description": result}
                 AreaM().update(i.id, param)
                 # print('update successfully.')
+            else:
+                param = {"area_description": i.city_name}
+                AreaM().update(i.id, param)
+
 
 
 class AreaRateM(object):
