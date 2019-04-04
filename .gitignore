@@ -1,1 +1,5 @@
 *.pyc
+migrations/*
+logs/*
+.vscode/*
+migrations/versions/6b7f2d0c000b_.py

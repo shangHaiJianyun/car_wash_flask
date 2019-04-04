@@ -1,5 +1,6 @@
 import logging
 import sys
+import os
 from datetime import timedelta
 
 from redis import StrictRedis
@@ -10,6 +11,8 @@ class Config:
     if sys.path[0] == '/home/chendebo/Desktop/car_wash_flask':
         # 本地测试用例数据库
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_wash'
+    elif "DanielJiang" in os.getcwd():
+        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://jjh:jjhjjh100@localhost/car_wash?charset=utf8mb4'
     else:
         # 服务器端数据库链接
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/car_wash?charset=utf8mb4'
@@ -24,7 +27,7 @@ class Config:
     # 设置jwt秘钥
     JWT_SECRET_KEY = 'super_key'
     PROPAGATE_EXCEPTIONS = True
-    JWT_ACCESS_TOKEN_EXPIRES=False
+    JWT_ACCESS_TOKEN_EXPIRES = False
 
     # SECURITY_TOKEN_AUTHENTICATION_KEY = 'auth_token'
     # SECURITY_TOKEN_AUTHENTICATION_HEADER = 'auth_token'
