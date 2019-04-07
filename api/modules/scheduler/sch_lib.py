@@ -12,8 +12,8 @@ from sqlalchemy import *
 from api.models.models import *
 from .sch_model import *
 from config import *
-# app = current_app
-# engine = create_engine(Config['SQLALCHEMY_DATABASE_URI'])
+
+
 engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
 
 
@@ -29,8 +29,13 @@ class SchTask():
         return new_sch.id
 
     def get(self, task_id):
+        print(task_id, type(task_id))
         res = SchTaskM.query.filter(SchTaskM.id == task_id).one_or_none()
         return row2dict(res)
+
+    def list_all(self):
+        res = SchTaskM.query.all()
+        return [row2dict(x) for x in res]
 
     def get_by_date(self, sch_date_str):
         sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d")
@@ -46,7 +51,7 @@ class SchTask():
 
     def get_sub(self, task_id):
         subs = SubTaskM.query.filter(SubTaskM.sch_task_id == task_id).all()
-        if sub:
+        if subs:
             return [row2dict(x) for x in subs]
         else:
             return None
@@ -61,10 +66,16 @@ class SubTask():
         return row2dict(res)
 
     def create(self, task_id, sub_task_uid):
-        new_sub = SubTaskM(sch_task_id=task_id, sub_task_uid=sub_task_uid)
-        db.session.add(new_sub)
-        db.session.commit()
-        return self.get(new_sch.id)
+        sub_id = SubTaskM.query.filter(
+            and_(sub_task_uid == sub_task_uid)).one_or_none()
+        if sub_id:
+            return self.get(sub_id.id)
+        else:
+            new_sub = SubTaskM(sch_task_id=task_id,
+                               sub_task_uid=sub_task_uid, city=self.city)
+            db.session.add(new_sub)
+            db.session.commit()
+            return self.get(new_sub.id)
 
     def update(self, id, **args):
         sub_task = SubTaskM.query.filter(SubTaskM.id == id).update(args)

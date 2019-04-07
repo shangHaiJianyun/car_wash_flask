@@ -26,7 +26,7 @@ def random_period(day_str):
     return start, end
 
 
-def get_client_orders(regions, workday, n_order, n_address):
+def gen_client_orders(regions, workday, n_order, n_address):
     '''
         gen orders to simulate
 
@@ -66,7 +66,7 @@ def get_client_orders(regions, workday, n_order, n_address):
     return jobs
 
 
-def get_worker(regions, day_str, n_worker):
+def gen_worker(regions, day_str, n_worker):
     '''
         worker_type: 
         1: 全职 
