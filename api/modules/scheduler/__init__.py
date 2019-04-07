@@ -4,7 +4,6 @@ from flask import Blueprint
 # 1. 创建蓝图对象
 sch_blu = Blueprint("sch", __name__)
 
-# 4. 关联视图函数
 from .views import *
 # from .sch import *
 # from .sch_sim import *

@@ -11,6 +11,7 @@ from flask_bcrypt import Bcrypt
 import config
 from config import config_dict
 from api.models.models import *
+from api.modules.scheduler.sch_model import *
 
 from flask_caching import Cache
 from celery import Celery

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 import sys
 import os
@@ -13,11 +14,15 @@ class Config:
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_wash'
     elif "DanielJiang" in os.getcwd():
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://jjh:jjhjjh100@localhost/car_wash?charset=utf8mb4'
+        SQLALCHEMY_BINDS = {
+            'sch': 'mysql+pymysql://jjh:jjhjjh100@localhost/sch?charset=utf8mb4'
+        }
     else:
         # 服务器端数据库链接
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/car_wash?charset=utf8mb4'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = True
+    # SQLALCHEMY_ECHO = True
     # used for encryption and session management
     SECRET_KEY = 'mysecretkey'
     # 安全配置

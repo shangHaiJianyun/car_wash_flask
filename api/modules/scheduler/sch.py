@@ -194,45 +194,7 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
     return job_sorted
 
 
-def get_worker_opentime(worker_info, worker_id):
-    '''
-        worker opentime time
-        output:
-            list for dict
-            [{'w_start': starttime, 'w_end': endtime}]
-    '''
-    w_start = worker_info.w_start
-    w_end = worker_info.w_end
-    # print(worker_id, w_start, w_end)
-    free_time = []
-    if os.path.isfile('worker_jobs.pickle'):
-        worker_jobs = pd.read_pickle('worker_jobs.pickle')
-        aj = worker_jobs[worker_jobs.worker_id == worker_id]
-        if len(aj) > 0:
-            print('aj exists...')
-            aj.loc[:, 'last_end'] = aj.plan_end.shift(1)
-            aj.loc[:, 'spare_time'] = (
-                aj.plan_start - aj.last_end) / np.timedelta64(1, 'm')
-            aj_start = aj.iloc[0].plan_start
-            aj_end = aj.iloc[-1].plan_end
-            if (aj_start - w_start) / np.timedelta64(1, 'm') >= 60:
-                free_time.append(dict(w_start=w_start, w_end=aj_start))
-            spare_time = aj[aj.spare_time > 160]
-            print(spare_time)
-            if len(spare_time) > 0:
-                for idx, row in spare_time.iterrows():
-                    free_time.append(
-                        dict(w_start=row.last_end, w_end=row.plan_start))
-            if (w_end - aj_end) / np.timedelta64(1, 'm') >= 60:
-                free_time.append(dict(w_start=aj_end, w_end=w_end))
-        else:
-            free_time.append({'w_start': w_start, 'w_end': w_end})
-    else:
-        free_time.append({'w_start': w_start, 'w_end': w_end})
-    return free_time
-
-
-def dispatch_main(jobs, workers):
+def dispatch_region_jobs(jobs, workers):
     '''
         派单
         input:
@@ -414,5 +376,5 @@ def dispatch_main(jobs, workers):
 
 if __name__ == '__main__':
     jobs.loc[:, 'worker_id'] = 0
-    assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_main(
+    assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
         jobs, workers)

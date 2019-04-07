@@ -2340,3 +2340,398 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: areas
 INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [30/Jan/2019 15:51:49] "POST /api/map/get_rate HTTP/1.1" 500 -
 INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 INFO /home/python/.virtualenvs/pc_py3/lib/python3.5/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 SHOW VARIABLES LIKE 'sql_mode'
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 {}
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 SELECT DATABASE()
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 {}
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 {}
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 {}
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 {}
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 {}
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 BEGIN (implicit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 SELECT sch_jobs.id AS sch_jobs_id, sch_jobs.sch_task_id AS sch_jobs_sch_task_id, sch_jobs.city AS sch_jobs_city, sch_jobs.region_id AS sch_jobs_region_id, sch_jobs.addr AS sch_jobs_addr, sch_jobs.job_date AS sch_jobs_job_date, sch_jobs.order_id AS sch_jobs_order_id, sch_jobs.job_type AS sch_jobs_job_type, sch_jobs.start_time AS sch_jobs_start_time, sch_jobs.end_time AS sch_jobs_end_time, sch_jobs.plan_start AS sch_jobs_plan_start, sch_jobs.plan_end AS sch_jobs_plan_end, sch_jobs.hrs AS sch_jobs_hrs, sch_jobs.wrk_id AS sch_jobs_wrk_id, sch_jobs.sch_status AS sch_jobs_sch_status, sch_jobs.dispatch_id AS sch_jobs_dispatch_id 
+FROM sch_jobs 
+WHERE sch_jobs.id > %(id_1)s AND sch_jobs.hrs > %(hrs_1)s
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/sqlalchemy/log.py:109 {'id_1': 0, 'hrs_1': 0}
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 17:42:34] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:22:34] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:23:17] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:24:32] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:24:51] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:25:37] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:26:18] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:27:07] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:28:00] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:32:41] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:33:10] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:33:53] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:34:16] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:35:00] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:35:42] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:36:57] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:37:26] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 18:41:13] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:09:23] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:09:23] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:10:11] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:15:37] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:18:14] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:19:11] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:20:01] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_model.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:21:50] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:24:57] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_sim.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:26:10] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:27:34] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:27:52] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:28:40] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:29:03] "POST /api/sch/get_sim_data HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:30:09] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:33:37] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 19:34:42] "POST /api/sch/get_sim_data HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/celery_tasks/dispatch/tasks.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/celery_tasks/dispatch/tasks.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [07/Apr/2019 22:30:25] "POST /api/sch/auto_schedule HTTP/1.1" 500 -
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/celery_tasks/dispatch/tasks.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/celery_tasks/dispatch/tasks.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
+WARNING /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger is active!
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Debugger PIN: 274-860-383
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Detected change in '/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/__init__.py', reloading
+INFO /Users/DanielJiang/.virtualenvs/ebflaskpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Restarting with stat
