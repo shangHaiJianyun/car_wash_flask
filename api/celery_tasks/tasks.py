@@ -5,6 +5,9 @@
 # import time
 #
 # from flask import current_app
+import json
+
+import requests
 
 from api.celery_tasks import celery
 
@@ -26,3 +29,38 @@ def dispatch():
 
 #
 # # 在api中调用时使用 dispatch.delay(对应参数)
+
+@celery.task
+def get_order(order_status,start_service_date,end_service_date):
+    access_key = 'xunjiepf'
+    results = requests.post(
+        url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+        params={
+            'access_key': access_key
+        }
+    )
+    page_size = results.json()['data']['total_count']
+    if order_status and start_service_date and end_service_date:
+        res = requests.post(
+            url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+            headers={
+                "Content-Type": "application/json"
+            },
+            data=json.dumps({
+                'access_key': access_key,
+                'page_size': page_size,
+                'order_status': order_status,
+                'start_service_date': start_service_date,
+                'end_service_date': end_service_date
+            })
+        )
+    else:
+        res = requests.post(
+            url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+            params={
+                'access_key': access_key,
+                'page_size': page_size,
+            }
+        )
+    result = res.json()['data']['data']
+    return result

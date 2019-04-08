@@ -53,6 +53,14 @@ class Config:
     CELERY_BROKER_URL = 'redis://localhost:6379/0'
     CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
     CELERY_TASK_SERIALIZER = 'json'
+    # 定时任务
+    CELERYBEAT_SCHEDULE = {
+        'task1': {
+            'task': 'api.celery_tasks.tasks.get_order',
+            'schedule': timedelta(seconds=300),
+            'args': ''
+        }
+    }
 
 
 class DevelopConfig(Config):  # 定义开发环境的配置
