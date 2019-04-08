@@ -59,6 +59,7 @@ class SchWorkersM(db.Model):
     # sch_task_id = db.Column(db.Integer)
     city = db.Column(db.String(32), index=True)
     worker_id = db.Column(db.String(10), index=True)
+    w_region = db.Column(db.String(10), index=True)
     sch_date = db.Column(db.Date, index=True)
     w_type = db.Column(db.String(20))
     worker_type = db.Column(db.Integer, index=True)
@@ -71,7 +72,6 @@ class SchWorkersM(db.Model):
     min_hrs = db.Column(db.Float)
     hrs_assigned = db.Column(db.Float)
     hrs_to_assign = db.Column(db.Float)
-    w_region = db.Column(db.String(10))
     w_start = db.Column(db.DateTime)
     w_end = db.Column(db.DateTime)
     sch_task_id = db.Column(db.Integer, index=True)
@@ -108,4 +108,12 @@ class SchDispatchM(db.Model):
     sch_date = db.Column(db.Date, index=True)
     worker_id = db.Column(db.Integer, index=True)
     status = db.Column(db.String(10), index=True, )
+    created_on = db.Column(db.DateTime, default=db.func.current_timestamp())
+
+
+class Sch_Test_Log(db.Model):
+    __tablename__ = 'sch_test_log'
+    id = db.Column(db.Integer, primary_key=True)
+    log_type = db.Column(db.String(50), index=True)
+    log_data = db.Column(JSON())
     created_on = db.Column(db.DateTime, default=db.func.current_timestamp())

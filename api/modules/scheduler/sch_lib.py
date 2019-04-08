@@ -213,7 +213,7 @@ class SchWorkers():
                 df_jobs = pd.DataFrame(worker_jobs).sort_values(['plan_start'])
                 df_jobs.loc[:, 'last_end'] = df_jobs.plan_end.shift(1)
                 df_jobs.loc[:, 'spare_time'] = (
-                                                       df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
+                    df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
                 j_start = df_jobs.iloc[0].plan_start
                 j_end = df_jobs.iloc[-1].plan_end
 
@@ -294,3 +294,17 @@ class SchDispatch():
 
     def get_by_worker_sch_day(self, worker_id, sch_date):
         pass
+
+
+class SchTestLog():
+    def create(self, log_type, log_data):
+        nl = Sch_Test_Log(log_type=log_type, log_data=log_data)
+        db.session.add(nl)
+        db.session.commit()
+        return nl.id
+
+    def get_by_type(self, log_type):
+        data = Sch_Test_Log.query.filter(Sch_Test_Log.log_type == log_type).order_by(
+            Sch_Test_Log.created_on.desc()).all()
+        if data:
+            return [row2dict(x) for x in data]

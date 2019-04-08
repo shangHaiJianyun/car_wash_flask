@@ -10,11 +10,16 @@ import json
 import requests
 
 from api.celery_tasks import celery
+from api.modules.scheduler.sch_lib import *
+from api.modules.scheduler.sch_data import *
 
 
 @celery.task
-def dispatch():
-    # logger.info()
+def set_order_to_paid():
+    """
+        定时将 新订单设置为付款，每次将 page 1 的订单设为 已付款
+    """
+    process_unpaid_orders()
     # print('celery...')
     pass
 

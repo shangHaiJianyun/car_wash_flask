@@ -8,10 +8,12 @@ import json
 import numpy as np
 import pandas as pd
 
-from api.models.models import *
-
+# from api.models.models import *
+from api.modules.scheduler.sch_lib import *
 
 # ：区域工时 供需计算
+
+
 def cal_region_order_req(region_jobs, period, bucket='start_time'):
     '''
         按 period 计算需求工时

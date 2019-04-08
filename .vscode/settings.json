@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "~/.virtualenvs/ebflaskpy3",
+    "python.pythonPath": "~/.virtualenvs/ebpy3",
     // "python.formatting.provider": "yapf",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,

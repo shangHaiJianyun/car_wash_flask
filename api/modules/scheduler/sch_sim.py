@@ -49,7 +49,7 @@ def gen_client_orders(regions, workday, n_order, n_address):
         else:
             region_id = regions[random.randint(0, len(regions) - 1)]
         orders.append({
-            'city': u"上海",
+            'city': u"上海市",
             'region_id': region_id,
             'order_id': x,
             'addr': addr,
@@ -115,7 +115,7 @@ def gen_worker(regions, day_str, n_worker):
             mdt = random.randint(0, 12)
 
         workers.append({
-            'city': u"上海",
+            'city': u"上海市",
             'worker_id': w + 1,
             'w_start': w_start,  # ： 工作开始时间
             'w_end': w_end,  # ：工作结束时间
