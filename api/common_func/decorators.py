@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Here is a custom decorator that verifies the JWT is present in
 # the request, as well as insuring that this user has a role of
 # `map` in the access token
