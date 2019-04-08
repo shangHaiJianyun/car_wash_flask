@@ -23,9 +23,22 @@ cache = Cache(config={'CACHE_TYPE': 'simple'})
 # login_manager.session_protection = 'strong'
 # login_manager.login_view = 'login'
 
-# # 设置celery配置
-# celery = Celery(__name__, broker=CeleryConfig.CELERY_BROKER_URL)
-#
+
+def make_celery(app):
+    # Initialize Celery
+    celery = Celery(app.import_name,
+                    backend=app.config['CELERY_RESULT_BACKEND'],
+                    broker=app.config['CELERY_BROKER_URL'],
+                    )
+    celery.conf.update(app.config)
+
+    class ContextTask(celery.Task):
+        def __call__(self, *args, **kwargs):
+            with app.app_context():
+                return self.run(*args, **kwargs)
+
+    celery.Task = ContextTask
+    return celery
 
 
 def setup_log(level):
@@ -47,9 +60,6 @@ def create_app(config_type):
     # 根据配置类型取出配置类
     config_class = config_dict[config_type]
     app = Flask(__name__)
-
-    # 更新celery配置
-    # celery.conf.update(config)
 
     # 根据配置类来加载应用配置
     app.config.from_object(config_class)

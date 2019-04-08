@@ -50,11 +50,9 @@ class Config:
     # SESSION_USE_SIGNER = True  # 对cookie中保存的sessionid进行加密(需要使用app的秘钥)
     # PERMANENT_SESSION_LIFETIME = timedelta(days=7)  # 设置session存储时间(session默认会进行持久化)
 
-
-# class CeleryConfig(object):
-#     CELERY_BROKER_URL = 'redis://localhost:6379/0'
-#     CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-#     CELERY_TASK_SERIALIZER = 'json'
+    CELERY_BROKER_URL = 'redis://localhost:6379/0'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+    CELERY_TASK_SERIALIZER = 'json'
 
 
 class DevelopConfig(Config):  # 定义开发环境的配置
