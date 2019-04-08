@@ -13,7 +13,6 @@ from api.models.models import *
 from .sch_model import *
 from config import *
 
-
 engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
 
 
@@ -203,7 +202,7 @@ class SchWorkers():
             worker's free time
         '''
         sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
-        work_info = self.get_worker_by_date(sch_date_str)
+        work_info = self.get_worker_info_by_date(worker_id, sch_date_str)
         free_time = []
 
         if work_info:
@@ -214,7 +213,7 @@ class SchWorkers():
                 df_jobs = pd.DataFrame(worker_jobs).sort_values(['plan_start'])
                 df_jobs.loc[:, 'last_end'] = df_jobs.plan_end.shift(1)
                 df_jobs.loc[:, 'spare_time'] = (
-                    df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
+                                                       df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
                 j_start = df_jobs.iloc[0].plan_start
                 j_end = df_jobs.iloc[-1].plan_end
 
@@ -228,7 +227,7 @@ class SchWorkers():
                             dict(w_start=row.last_end, w_end=row.plan_start))
 
                 if (w_end - j_end) / np.timedelta64(1, 'm') >= 60:
-                    free_time.append(dict(w_start=aj_end, w_end=w_end))
+                    free_time.append(dict(w_start=j_end, w_end=w_end))
             else:
                 free_time.append({'w_start': w_start, 'w_end': w_end})
         if len(free_time) > 0:
