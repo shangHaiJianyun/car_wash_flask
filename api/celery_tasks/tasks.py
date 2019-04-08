@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
 # # @Time    : 19-1-24 上午10:14
 #
-import random
-import time
+# import random
+# import time
+#
+# from flask import current_app
 
-from flask import current_app
-from celery.utils.log import get_task_logger
-
-from api import make_celery, create_app
-
-logger = get_task_logger(__name__)
-
-celery = make_celery(create_app('dev'))
+from api.celery_tasks import celery
 
 
 @celery.task

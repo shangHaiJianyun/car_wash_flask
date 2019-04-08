@@ -9,3 +9,10 @@
 4.在终端运行celery worker -A celery_worker.celery --loglevel=info 命令
 
 """
+from celery.utils.log import get_task_logger
+
+from api import make_celery, create_app
+
+logger = get_task_logger(__name__)
+
+celery = make_celery(create_app('dev'))
