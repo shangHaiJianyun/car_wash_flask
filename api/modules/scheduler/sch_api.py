@@ -2,13 +2,20 @@
 """
 get data from php backend
 save data to python backend
+
+functions:
+process_unpaid_orders：
+    自动获取未付款订单，将订单设置为已付款
+
+
 """
 import requests
 import datetime as dt
 from .sch_lib import *
+from .sch import *
 
 
-def get_orders_dispatch(days=2, city="上海市"):
+def get_orders_from_api(days=2, city="上海市"):
     """
         get paied orders
     input:
@@ -51,6 +58,31 @@ def get_orders_dispatch(days=2, city="上海市"):
     return result
 
 
+def pre_order_to_df(sch_task_id, order_list, city="上海市"):
+    df = pd.DataFrame(order_list)
+    df.loc[:, 'region_id'] = '0'
+    df.loc[:, 'worker_id'] = '0'
+    df.loc[:, 'sch_task_id'] = sch_task_id
+    df.loc[:, 'sch_status'] = 'open'
+    df.loc[:, 'start_time'] = pd.to_datetime(
+        df.service_date + ' ' + df.start_time, format="%Y-%m-%d %H:%M")
+    df.loc[:, 'end_time'] = pd.to_datetime(
+        df.service_date + ' ' + df.end_time, format="%Y-%m-%d %H:%M")
+    df.loc[:, 'sch_date'] = df.service_date
+    df.loc[:, 'hrs'] = pd.to_numeric(df.item_duration)
+    df = df.rename(columns={
+        'item_id': 'job_type',
+        'address_id': 'addr'
+    })
+    df = df.loc[:, (u'addr', u'end_time', u'hrs', u'job_type', u'order_id', u'region_id', u'sch_task_id',
+                    'sch_status', u'city', 'sch_date', 'sch_status', u'start_time',  u'worker_id')]
+    return df
+    Sch_J = SchJobs(city)
+    res = Sch_J.df_insert(df)
+    if res['status']:
+        return df
+
+
 def save_workers_from_api(day_str, city="上海市"):
     """
         get available worker and save to database
@@ -90,6 +122,7 @@ def save_workers_from_api(day_str, city="上海市"):
     df.loc[:, 'worker_id'] = df.uid
     df.loc[:, 'w_region'] = '0'
     df.loc[:, 'city'] = city
+    df.loc[:, 'sch_date'] = day_str
     df.loc[:, 'w_start'] = pd.to_datetime(
         day_str + ' ' + df.service_start_time, format="%Y-%m-%d %H:%M")
     df.loc[:, 'w_end'] = pd.to_datetime(
@@ -107,11 +140,13 @@ def save_workers_from_api(day_str, city="上海市"):
         df.max_star_t < df.w_hrs, df.max_star_t, df.w_hrs)
     df.loc[:, 'bdt_hrs'] = np.where(
         df.mdt < df.min_hrs, df.mdt, df.min_hrs)
-    df = df.loc[:, (u'hrs_assigned', u'hrs_to_assign', u'max_star_t', u'mdt', u'w_end', u'w_hrs',
+    df = df.loc[:, (u'hrs_assigned', u'hrs_to_assign', u'max_star_t', u'mdt', u'w_end', u'w_hrs', 'sch_date',
                     u'w_rank', u'w_region', u'w_start', u'w_type', u'worker_type', u'min_hrs', u'bdt_hrs', 'adt_hrs')]
+    return df
     Sch_W = SchWorkers(city)
     res = Sch_W.df_insert(df)
-    return res
+    if res['status']:
+        return df
 
 
 def process_unpaid_orders():
@@ -158,3 +193,18 @@ def set_order_paid(order_ids):
         return order_ids
     else:
         return False
+
+
+def sch_jobs():
+    joblist = get_orders_from_api()
+    job_df = pre_order_to_df(100, joblist)
+    job_day_sum = job_df.groupby('sch_date').agg(
+        {'order_id': 'count', 'hrs': 'sum'})
+    for x in job_day_sum.index:
+        # print(x)
+        jobs = job_df[job_df.sch_date == x]
+        workers = save_workers_from_api(x)
+        assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
+            jobs, workers, x)
+        print(assigned_jobs)
+        print(arranged_workers)

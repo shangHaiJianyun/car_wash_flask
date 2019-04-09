@@ -60,7 +60,7 @@ class SchWorkersM(db.Model):
     city = db.Column(db.String(32), index=True)
     worker_id = db.Column(db.String(10), index=True)
     w_region = db.Column(db.String(10), index=True)
-    sch_date = db.Column(db.Date, index=True)
+    sch_date = db.Column(db.String(12), index=True)
     w_type = db.Column(db.String(20))
     worker_type = db.Column(db.Integer, index=True)
     w_hrs = db.Column(db.Float)
@@ -74,7 +74,6 @@ class SchWorkersM(db.Model):
     hrs_to_assign = db.Column(db.Float)
     w_start = db.Column(db.DateTime)
     w_end = db.Column(db.DateTime)
-    sch_task_id = db.Column(db.Integer, index=True)
 
 
 class SchJobsM(db.Model):
@@ -84,7 +83,7 @@ class SchJobsM(db.Model):
     city = db.Column(db.String(32), index=True)
     region_id = db.Column(db.String(10), index=True)
     addr = db.Column(db.String(10))
-    job_date = db.Column(db.Date, index=True)
+    sch_date = db.Column(db.String(12), index=True)
     order_id = db.Column(db.String(20))
     job_type = db.Column(db.String(10))
     start_time = db.Column(db.DateTime)
@@ -92,7 +91,8 @@ class SchJobsM(db.Model):
     plan_start = db.Column(db.DateTime)
     plan_end = db.Column(db.DateTime)
     hrs = db.Column(db.Float)
-    wrk_id = db.Column(db.String(10), index=True, default=0)
+    worker_id = db.Column(db.String(10), index=True, default='0')
+    sch_task_id = db.Column(db.Integer, index=True)
     sch_status = db.Column(db.String(10), index=True, )
     dispatch_id = db.Column(db.Integer, index=True)
 

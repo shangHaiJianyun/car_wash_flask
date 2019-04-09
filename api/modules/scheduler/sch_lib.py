@@ -81,7 +81,7 @@ class SubTask():
         return self.get(sub_task.id)
 
     def get_by_date(self, sch_date_str):
-        job_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         res = SubTaskM.query.filter(
             and_(SubTaskM.sch_date == sch_date, SubTaskM.city == self.city)).all()
 
@@ -103,9 +103,9 @@ class SchJobs():
         pass
 
     def jobs_by_date(self, sch_date_str):
-        job_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        # job_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         res = SchJobsM.query.filter(and_(
-            SchJobsM.job_date == job_date, SchJobsM.city == self.city)).all()
+            SchJobsM.sch_date == sch_date_str, SchJobsM.city == self.city)).all()
         if res:
             return [row2dict(x) for x in res]
 
@@ -119,9 +119,9 @@ class SchJobs():
         try:
             df.to_sql('sch_jobs', self.engine, if_exists='append',
                       index=False, chunksize=1000)
-            return True
+            return dict(status=True)
         except Exception as err:
-            return False
+            return dict(status=False, error=err)
 
     def df_update(self, df):
         to_update = df.to_dict('records')
@@ -136,7 +136,7 @@ class SchJobs():
 
 
 class SchWorkers():
-    def __init__(self, city):
+    def __init__(self, city="上海市"):
         self.city = city
         self.engine = engine
 
@@ -150,7 +150,7 @@ class SchWorkers():
         try:
             df.to_sql('sch_workers', self.engine, if_exists='append',
                       index=False, chunksize=1000)
-            return True
+            return dict(status=True)
         except Exception as err:
             print('insert worker...', err)
             return False
@@ -164,22 +164,22 @@ class SchWorkers():
             db.session.commit()
             return True
         except:
-            return False
+            return dict(status=False, error=err)
 
     def all_worker_by_date(self, sch_date_str):
-        sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
 
         workers = SchWorkersM.query.filter(
-            and_(SchWorkersM.city == self.city, SchWorkersM.sch_date == sch_date)).all()
+            and_(SchWorkersM.city == self.city, SchWorkersM.sch_date == sch_date_str)).all()
         if workers:
             return [row2dict(x) for x in workers]
         else:
             return None
 
     def get_worker_info_by_date(self, worker_id, sch_date_str):
-        sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         worker_info = SchWorkersM.query.filter(
-            and_(SchWorkersM.worker_id == worker_id, SchWorkersM.sch_date == sch_date)).one_or_none()
+            and_(SchWorkersM.worker_id == worker_id, SchWorkersM.sch_date == sch_date_str)).one_or_none()
         if worker_info:
             return row2dict(worker_info)
         else:
@@ -189,9 +189,9 @@ class SchWorkers():
         '''
             worker's assigned jobs by date
         '''
-        job_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        # job_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         w_jobs = SchJobsM.query.filter(and_(
-            SchJobsM.city == self.city, SchJobsM.wrk_id == worker_id, SchJobsM.job_date == job_date)).all()
+            SchJobsM.city == self.city, SchJobsM.wrk_id == worker_id, SchJobsM.job_date_str == sch_date_str)).all()
         if w_jobs:
             return [row2dict(x) for x in w_jobs]
         else:
@@ -201,7 +201,7 @@ class SchWorkers():
         '''
             worker's free time
         '''
-        sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         work_info = self.get_worker_info_by_date(worker_id, sch_date_str)
         free_time = []
 
@@ -239,10 +239,10 @@ class SchWorkers():
         '''
             update worker info
         '''
-        sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         try:
             SchWorkersM.query.filter(and_(
-                SchWorkersM.worker_id == worker_id, SchWorkersM.sch_date == sch_date)).update(data)
+                SchWorkersM.worker_id == worker_id, SchWorkersM.sch_date == sch_date_str)).update(data)
             db.session.commit()
             return self.get_worker_info_by_date(worker_id, sch_date_str)
         except:

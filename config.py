@@ -56,7 +56,7 @@ class Config:
     # 定时任务
     CELERYBEAT_SCHEDULE = {
         'task1': {
-            'task': 'api.celery_tasks.tasks.get_order',
+            'task': 'api.celery_tasks.tasks.set_order_to_paid',
             'schedule': timedelta(seconds=300),
             'args': ''
         }

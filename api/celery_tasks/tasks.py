@@ -6,12 +6,14 @@
 #
 # from flask import current_app
 import json
-
+import time
+import datetime as dt
 import requests
+
 
 from api.celery_tasks import celery
 from api.modules.scheduler.sch_lib import *
-from api.modules.scheduler.sch_data import *
+from api.modules.scheduler.sch_api import *
 
 
 @celery.task
@@ -19,9 +21,8 @@ def set_order_to_paid():
     """
         定时将 新订单设置为付款，每次将 page 1 的订单设为 已付款
     """
-    process_unpaid_orders()
-    # print('celery...')
-    pass
+    res = process_unpaid_orders()
+    return res
 
 
 @celery.task
