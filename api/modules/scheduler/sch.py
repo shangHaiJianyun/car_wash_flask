@@ -381,7 +381,7 @@ def dispatch_region_jobs(jobs, workers, day_str):
     return assigned_jobs, jobs, worker_summary, arranged_workers
 
 
-if __name__ == '__main__':
-    jobs.loc[:, 'worker_id'] = 0
-    assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
-        jobs, workers)
+# if __name__ == '__main__':
+#     jobs.loc[:, 'worker_id'] = 0
+#     assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
+#         jobs, workers)

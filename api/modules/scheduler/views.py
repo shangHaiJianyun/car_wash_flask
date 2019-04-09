@@ -19,7 +19,7 @@ def gen_sim_data():
     n_order = request.json.get('n_order')
     n_address = request.json.get('n_address')
     regions = request.json.get('regions')
-    city = u"上海"
+    city = u"上海市"
     sch_date = dt.datetime.strptime(workday, "%Y-%m-%d").date()
 
     #: gen simulate data
