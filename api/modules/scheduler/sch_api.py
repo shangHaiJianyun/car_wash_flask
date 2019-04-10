@@ -60,7 +60,7 @@ def get_orders_from_api(days=2, city="上海市"):
 
 def save_order_from_api(sch_task_id, order_list, city="上海市"):
     """
-        convert datetime to string format     
+        convert datetime to string format
     """
     df = pd.DataFrame(order_list)
     df.loc[:, 'region_id'] = '0'
@@ -82,14 +82,14 @@ def save_order_from_api(sch_task_id, order_list, city="上海市"):
     })
 
     df_addr = df.groupby('address_detail').agg({"order_id": 'count'})
-    df_addr=df_addr.reset_index().reset_index()
-    df_addr = df_addr.rename(columns={"index":"addr"})
+    df_addr = df_addr.reset_index().reset_index()
+    df_addr = df_addr.rename(columns={"index": "addr"})
     # df_addr.to_dict('records')
 
     df = pd.merge(df, df_addr, how='inner',  left_on='address_detail', right_on='address_detail',
-            left_index=False, right_index=False, sort=True,
-            suffixes=('', '_y'), copy=True, indicator=False,
-            validate=None)
+                  left_index=False, right_index=False, sort=True,
+                  suffixes=('', '_y'), copy=True, indicator=False,
+                  validate=None)
 
     df = df.loc[:, (u'addr', u'end_time', u'hrs', u'job_type', u'order_id', u'region_id', u'sch_task_id',
                     'sch_status', u'city', 'sch_date', 'sch_status', u'start_time',  u'worker_id')]
@@ -114,6 +114,8 @@ def save_workers_from_api(day_str, city="上海市"):
             'date': day_str
         }
     )
+    # datas = results.json()
+    # print(datas)
     page_size = results.json()['data']['total_count']
 
     res = requests.post(
@@ -215,12 +217,13 @@ def set_order_paid(order_ids):
 
 
 def save_data_from_api():
+    """
+         从 php 获取 技师 和 订单数据，保存到 派单系统
+    """
     joblist = get_orders_from_api()
     job_res = save_order_from_api(100, joblist)
-    td = dt.datetime.today()
+    td = dt.datetime.today().date()
     tm = (dt.datetime.today() + dt.timedelta(days=1)).date()
-    # job_day_sum = job_df.groupby('sch_date').agg(
-    #     {'order_id': 'count', 'hrs': 'sum'})
     worker_res = []
     for x in [td.isoformat(), tm.isoformat()]:
         res = save_workers_from_api(x)
@@ -229,9 +232,15 @@ def save_data_from_api():
 
 
 def sch_jobs_today():
+    """
+        派当日订单， 当前时间以后的
+    """
+    # 获取数据，更新到db
+    r = save_data_from_api()
     city = "上海市"
-    # sch_datetime = dt.datetime.today()
-    sch_datetime = dt.datetime(2019, 4, 9, 11, 00)
+    sch_datetime = dt.datetime.today()
+    # ：test data
+    # sch_datetime = dt.datetime(2019, 4, 9, 11, 00)
     day_str = sch_datetime.date().isoformat()
     sch_jobs = SchJobs(city)
     jobs = sch_jobs.unscheduled_jobs(sch_datetime)
@@ -246,11 +255,56 @@ def sch_jobs_today():
         jobs, workers, day_str)
     assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
     open_jobs = open_jobs.drop(['hrs_t'], 1)
+
+    # create dispatch data
+    # deadline = 15
+    # disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+    # dispatch_jobs(disps)
     return dict(
         assigned_jobs=assigned_jobs.to_dict('records'),
         workers=arranged_workers.to_dict('records'),
         open_jobs=open_jobs.to_dict('records'),
-        worker_summary=worker_summary.to_dict('records')
+        worker_summary=worker_summary.to_dict('records'),
+        # dispatch_data=disps
     )
 
 
+def create_dispatch(worker_summary, assigned_jobs, deadline):
+    ws = worker_summary.reset_index()
+    disps = []
+    for idx, row in ws.iterrows():
+        #     print(row['worker_id'])
+        orders = assigned_jobs[assigned_jobs.worker_id == row['worker_id']].loc[:, (
+            'order_id', 'plan_start', 'plan_end')].sort_values('plan_start')
+        first_job_time = orders.iloc[0].plan_start
+        dispatch_date_t = first_job_time - dt.timedelta(seconds=3600)
+        dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M')
+        orders.columns = ['order_id', 'start_time', 'end_time']
+        orders.start_time = orders.start_time.apply(
+            lambda x: x.strftime('%Y-%m-%d %H:%M'))
+        orders.end_time = orders.end_time.apply(
+            lambda x: x.strftime('%Y-%m-%d %H:%M'))
+        dispatch_info = dict(
+            worker_id=row['worker_id'], orders=orders.to_dict('records'))
+        disps.append(dict(dispatch_info=dispatch_info,
+                          dispatch_date=dispatch_date, deadline=deadline))
+    return disps
+
+
+def dispatch_jobs(data):
+    """派单内容"""
+    passwd = 'xunjiepf'
+    # 获取传输参数
+    for x in data:
+        x.update(passwd=passwd)
+        # print(x)
+        # res = requests.post(
+        #     url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
+        #     headers={
+        #         "Content-Type": "application/json"
+        #     },
+        #     data=json.dumps(x)
+        # )
+        # print(res.json())
+        # erro.append(res.json(),)
+    # return (dispatch_erro)
