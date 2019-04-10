@@ -5,8 +5,8 @@ from flask import jsonify, request
 
 from api.modules.scheduler import sch_blu
 from api.modules.scheduler.sch import *
-# from api.modules.scheduler.sch_lib import *
-# from api.modules.scheduler.sch_sim import *
+from api.modules.scheduler.sch_lib import *
+from api.modules.scheduler.sch_sim import *
 from api.modules.scheduler.sch_api import *
 
 
