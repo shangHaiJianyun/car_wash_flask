@@ -206,8 +206,8 @@ class SchWorkers():
                 db.session.flush()
             db.session.commit()
             return True
-        except:
-            return dict(status=False, error=err)
+        except Exception as e:
+            return dict(status=False, error=e)
 
     def all_worker_by_date(self, sch_date_str):
         # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
@@ -292,7 +292,7 @@ class SchWorkers():
         # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         try:
             SchWorkersM.query.filter(and_(
-                SchWorkersM.worker_id == worker_id, SchWorkersM.sch_date == sch_date_str)).update(data)
+                SchWorkersM.worker_id == worker_id, SchWorkersM.sch_date == sch_date_str)).update(worker_data)
             db.session.commit()
             return self.get_worker_info_by_date(worker_id, sch_date_str)
         except:

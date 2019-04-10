@@ -11,6 +11,7 @@ import pandas as pd
 # from api.models.models import *
 from api.modules.scheduler.sch_lib import *
 
+
 # ：区域工时 供需计算
 
 
@@ -29,7 +30,7 @@ def cal_region_order_req(region_jobs, period, bucket='start_time'):
             columns=['addr', 'order_hrs'], index=job_idx).fillna(0)
         job_bucket.loc[:, 'req_hrs'] = row.hrs / len(job_idx)
         job_bucket.loc[:, 'addr'] = row.addr
-    #     hrs_bucket = hrs_idx.join(hrs_bucket).fillna(0)
+        #     hrs_bucket = hrs_idx.join(hrs_bucket).fillna(0)
         region_all = region_all.append(job_bucket)
     region_sum = region_all.resample(period).agg({
         'req_hrs': 'sum'
@@ -64,11 +65,11 @@ def calculate_region_loads(region_id, jobs, workers, period, bucket='start_time'
     '''
     region_req = cal_region_order_req(jobs, period, bucket)
     region_wrk_hrs = cal_region_wrk_hrs(workers, period)
-#     region_req_supply = region_req.join(region_wrk_hrs).fillna(0)
+    #     region_req_supply = region_req.join(region_wrk_hrs).fillna(0)
     region_req_supply = region_wrk_hrs.join(region_req).fillna(0)
     region_req_supply.loc[:, 'region_id'] = region_id
     region_req_supply.loc[:, 'short_hrs'] = region_req_supply.wrk_hrs - \
-        region_req_supply.req_hrs
+                                            region_req_supply.req_hrs
     return region_req_supply
 
 
@@ -93,7 +94,7 @@ def calculate_radt(region_jobs, region_workers):
     # 当日技师必派单 总量
     total_wrk_bdt = region_workers.loc[region_workers.mdt > 0].sum().bdt_hrs
     total_wrk_min_hrs = region_workers.sum().min_hrs  # 技师 adt
-    total_wrk_available_hrs = region_workers.sum().w_hrs   # 技师可用工时
+    total_wrk_available_hrs = region_workers.sum().w_hrs  # 技师可用工时
     mdt_total = region_workers.sum().mdt
 
     # 当日订单总量
@@ -121,15 +122,15 @@ def calculate_radt(region_jobs, region_workers):
             region_workers.loc[:, 'bdt_hrs'] = np.where(
                 region_workers.mdt < region_workers.min_hrs, region_workers.mdt, region_workers.bdt_hrs)
             adt_adj = (total_req_hrs - total_bdt) * \
-                (region_workers.min_hrs - region_workers.bdt_hrs) / temp
-#         region_workers.loc[:, 'adt_hrs'] = np.where((region_workers.bdt_hrs + adt_adj) > 0, region_workers.bdt_hrs + adt_adj, 0)
+                      (region_workers.min_hrs - region_workers.bdt_hrs) / temp
+        #         region_workers.loc[:, 'adt_hrs'] = np.where((region_workers.bdt_hrs + adt_adj) > 0, region_workers.bdt_hrs + adt_adj, 0)
         region_workers.loc[:, 'adt_hrs'] = region_workers.bdt_hrs + adt_adj
 
         region_workers = region_workers.sort_values(
             ['bdt_hrs', 'adt_hrs', 'w_rank', 'worker_type', ], ascending=[0, 0, 0, 1])
         # print('radt  需求工时 %2.2f < 必派单技师需求量 %2.2f, bdt total %2.2f' % (total_req_hrs, total_wrk_min_hrs, total_bdt))
-#         print(adt_adj)
-#         print(region_workers)
+    #         print(adt_adj)
+    #         print(region_workers)
     return region_workers
 
 
@@ -144,11 +145,11 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
         ['addr', 'start_time', 'late_start']).reset_index().drop(['index'], 1)
     # print(jobs)
     jobs.loc[:, 'trans_hr'] = 0
-#     total_orders_addr = job2.groupby('addr').agg({'order_id': 'count'})
-#     print('按地址统计订单数')
-#     print(total_orders_addr)
+    #     total_orders_addr = job2.groupby('addr').agg({'order_id': 'count'})
+    #     print('按地址统计订单数')
+    #     print(total_orders_addr)
     addrs = np.unique(np.array(jobs.addr))
-#     addrs = total_orders_addr.index
+    #     addrs = total_orders_addr.index
     job_sorted = pd.DataFrame()
     k = 1
     for addr in addrs:
@@ -176,7 +177,8 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
             for t, row in job3.iterrows():
                 #                 print('t ..', t,  'grp ', k, 'order_id', job3.loc[t, 'order_id'])
                 job3.loc[t, 'grp'] = k
-                if (plan_end + row.hrs_t + order_interval < row.end_time) & (plan_end + max_wait_interval > row.start_time):
+                if (plan_end + row.hrs_t + order_interval < row.end_time) & (
+                        plan_end + max_wait_interval > row.start_time):
                     row.grp = k
                     if row.start_time >= plan_end + order_interval:
                         row.plan_start = row.start_time
@@ -190,19 +192,18 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
                         plan_end = row.plan_end
                         job_sorted = job_sorted.append(row)
                     job3 = job3.drop([t])
-            k = k+1
+            k = k + 1
     job_sorted = job_sorted.astype(
         {'addr': int, 'grp': int, 'job_type': int, 'order_id': str})
     # print(job_sorted)
     job_sorted = job_sorted.loc[job_sorted.plan_start.notnull(), ('addr', 'grp', 'job_type', 'order_id',
-                                                                  'start_time', 'plan_start', 'plan_end', 'end_time', 'hrs', 'hrs_t', 'trans_hr')]
+                                                                  'start_time', 'plan_start', 'plan_end', 'end_time',
+                                                                  'hrs', 'hrs_t', 'trans_hr')]
     job_sorted = job_sorted.loc[job_sorted.plan_end <= w_end]
     job_sorted = job_sorted.loc[job_sorted.plan_start.notnull()]
     job_sorted = job_sorted.sort_values(['grp', 'plan_start', 'addr'])
     job_sorted.loc[:, 'wait_hr'] = np.where(job_sorted.grp.shift(1) == job_sorted.grp,
                                             (job_sorted.plan_start - job_sorted.plan_end.shift(1))/np.timedelta64(1, 'h') - job_sorted.trans_hr, 0)
-    # print('job_sorted')
-    # print(job_sorted)
     return job_sorted
 
 
@@ -238,7 +239,7 @@ def dispatch_region_jobs(jobs, workers, day_str):
         wkr_start = row.w_start
         wkr_end = row.w_end
         w_adt_hrs = row.adt_hrs
-#         w_adt_hrs = row.min_hrs
+        # w_adt_hrs = row.min_hrs
         hrs_to_assign = w_adt_hrs - row.hrs_assigned
 #         hrs_to_assign = row.adt_hrs - row.hrs_assigned
         print('技师 ： %s, 需派单 %2.2f 小时, 现有 %d 个订单 ' %
@@ -260,7 +261,6 @@ def dispatch_region_jobs(jobs, workers, day_str):
                 jobs_a = jobs.loc[(jobs.worker_id == 0) & (
                     (jobs.end_time - jobs.hrs_t >= w_start) & (jobs.start_time + jobs.hrs_t <= w_end))]
                 if not jobs_a.empty:
-
                     #: arrange jobs for wrk
                     order_interval = dt.timedelta(seconds=300)
                     job_arranged = sort_jobs(
@@ -275,9 +275,10 @@ def dispatch_region_jobs(jobs, workers, day_str):
                             'wait_hr': 'sum', 'order_id': 'count'
                         })
                         job_grp.loc[:, 'duration'] = (
-                            job_grp.plan_end - job_grp.plan_start)/np.timedelta64(1, 'h')
+                                                             job_grp.plan_end - job_grp.plan_start) / np.timedelta64(1,
+                                                                                                                     'h')
                         job_grp.loc[:, 'idle_rate'] = np.where(
-                            job_grp.order_id == 1, 0, np.round(job_grp.wait_hr / job_grp.duration, 2)*100)
+                            job_grp.order_id == 1, 0, np.round(job_grp.wait_hr / job_grp.duration, 2) * 100)
                         job_grp = job_grp.reset_index().sort_values(
                             ['hrs', 'idle_rate', 'duration', 'plan_start', 'addr', 'grp', ], ascending=[0, 1, 0,  0, 1, 1])
                         # print(' --- %d  job grp find..' % (len(job_grp)))
@@ -370,9 +371,9 @@ def dispatch_region_jobs(jobs, workers, day_str):
         'order_id': 'count'
     }).reset_index()
     # print(' %2d worker done...' % len(worker_summary))
-#     print(worker_summary)
+    #     print(worker_summary)
     # print('### 还剩下  %d 个订单未分配 ' % len(jobs))
-#     print(jobs)
+    #     print(jobs)
     return assigned_jobs, jobs, worker_summary, arranged_workers
 
 

@@ -34,8 +34,8 @@ def gen_client_orders(regions, workday, n_order, n_address):
             order array:
                 job_type: 2: 20min, 3:30min, 4:40min
     '''
-    def job_bucket(end_time):
-        return time_bkt[np.argmin(np.abs(time_bkt - end_time))]
+    # def job_bucket(end_time):
+    #     return time_bkt[np.argmin(np.abs(time_bkt - end_time))]
 
     orders = []
 

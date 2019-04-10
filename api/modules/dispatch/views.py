@@ -90,10 +90,8 @@ def dispatch():
     # 获取传输参数
     data = request.json.get("data")
 
-    # # 获得当前时间时间戳
-    # now = int(time.time())
-    # # 转换为其他日期格式,如:"%Y-%m-%d %H:%M:%S"
-    # timeStruct = time.localtime(int(time.time()))
+    worker_id = data[0]['worker_id']
+    erro = []
     dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(time.time())))
     # 获取服务时间的时间戳
     for i in data[0]['orders']:
@@ -110,9 +108,17 @@ def dispatch():
             deadline = 60
 
         # print(deadline)
+        dis_data = []
+        order = []
+        order.append(i)
+        s = {}
+        s['worker_id'] = worker_id
+        s['orders'] = order
+        dis_data.append(s)
+        # print(dis_data)
         params = {
             "passwd": passwd,
-            "dispatch_info": {"data": data},
+            "dispatch_info": {"data": dis_data},
             "dispatch_date": dispatch_date,
             "deadline": deadline
         }
@@ -124,7 +130,8 @@ def dispatch():
             data=json.dumps(params)
         )
         # print(res.json())
-        return jsonify(res.json())
+        erro.append(res.json())
+    return jsonify(erro)
 
 
 @dis_blu.route('/updateOrderStatus', methods=['GET', 'POST'])
