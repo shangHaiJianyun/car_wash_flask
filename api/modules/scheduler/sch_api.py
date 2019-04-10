@@ -78,8 +78,19 @@ def save_order_from_api(sch_task_id, order_list, city="上海市"):
     df.loc[:, 'hrs'] = pd.to_numeric(df.item_duration)
     df = df.rename(columns={
         'item_id': 'job_type',
-        'address_id': 'addr'
+        # 'address_id': 'addr'
     })
+
+    df_addr = df.groupby('address_detail').agg({"order_id": 'count'})
+    df_addr=df_addr.reset_index().reset_index()
+    df_addr = df_addr.rename(columns={"index":"addr"})
+    # df_addr.to_dict('records')
+
+    df = pd.merge(df, df_addr, how='inner',  left_on='address_detail', right_on='address_detail',
+            left_index=False, right_index=False, sort=True,
+            suffixes=('', '_y'), copy=True, indicator=False,
+            validate=None)
+
     df = df.loc[:, (u'addr', u'end_time', u'hrs', u'job_type', u'order_id', u'region_id', u'sch_task_id',
                     'sch_status', u'city', 'sch_date', 'sch_status', u'start_time',  u'worker_id')]
     # return df
@@ -224,7 +235,7 @@ def sch_jobs_today():
     day_str = sch_datetime.date().isoformat()
     sch_jobs = SchJobs(city)
     jobs = sch_jobs.unscheduled_jobs(sch_datetime)
-    jobs.loc[:, 'addr'] = '9300'
+    # jobs.loc[:, 'addr'] = '9300'
     sch_workers = SchWorkers(city)
     workers = sch_workers.all_worker_by_date(day_str)
     # tm = (dt.datetime.today() + dt.timedelta(days=1)).date()
