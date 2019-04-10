@@ -265,8 +265,11 @@ def sch_jobs_today():
 
 
 def create_dispatch(worker_summary, assigned_jobs, deadline):
+    city = "上海市"
     ws = worker_summary.reset_index()
     disps = []
+    disp_sch = SchDispatch(city)
+
     for idx, row in ws.iterrows():
         #     print(row['worker_id'])
         orders = assigned_jobs[assigned_jobs.worker_id == row['worker_id']].loc[:, (
@@ -279,27 +282,57 @@ def create_dispatch(worker_summary, assigned_jobs, deadline):
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
         orders.end_time = orders.end_time.apply(
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
+        order_list = list(orders.order_id)
+        disp_id = disp_sch.create(
+            dispatch_date_str, row['worker_id'], deadline, order_list, dispatch_info)
         dispatch_info = dict(
             worker_id=row['worker_id'], orders=orders.to_dict('records'))
         disps.append(dict(dispatch_info=dispatch_info,
-                          dispatch_date=dispatch_date, deadline=deadline))
+                          dispatch_date=dispatch_date, deadline=deadline, disp_id=disp_id))
     return disps
+
+
+def update_dispatch_result(dispatch_res):
+    """
+        派单成功： 修改本地的 job 的dispatch 数据
+        派单错误：计入日志
+    """
+    city = "上海市"
+    if dispatch_res['success_count'] > 0:
+        disp_sch = SchDispatch(city)
+        for x in dispatch_res['disp_success']:
+            disp_id = x['disp_id']
+            disp_sch.update_dispatched(disp_id, 'dispatched')
+    if dispatch_res['error_count'] > 0:
+        slog = SchTestLog()
+        slog.create('dispatch_err', disp_error)
 
 
 def dispatch_jobs(data):
     """派单内容"""
     passwd = 'xunjiepf'
     # 获取传输参数
+
+    disp_success = []
+    disp_error = []
+
     for x in data:
+        y = x.copy()
         x.update(passwd=passwd)
         # print(x)
-        # res = requests.post(
-        #     url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
-        #     headers={
-        #         "Content-Type": "application/json"
-        #     },
-        #     data=json.dumps(x)
-        # )
-        # print(res.json())
-        # erro.append(res.json(),)
-    # return (dispatch_erro)
+        req = requests.post(
+            url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
+            headers={
+                "Content-Type": "application/json"
+            },
+            data=json.dumps(x)
+        )
+        if req.status_code == requests.codes.ok:
+            res = res.json()
+            if res['errcode'] == 0:
+                disp_success.append(y)
+            else:
+                disp_error.append(dict(data=y, error=res['errmsg']))
+        else:
+            disp_error.append(dict(data=y, error='request fail'))
+    return dict(disp_success=disp_success, disp_error=disp_error, total=len(x), error_count=len(disp_error), succes_count=len(disp_success))

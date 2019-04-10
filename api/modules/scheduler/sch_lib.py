@@ -309,16 +309,27 @@ class SchDispatch():
         if dispatch:
             return row2dict(dispatch)
 
-    def create(self, sch_date_str, worker_id, status):
-        sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d")
-        new_d = SchDispatchM(city=self.city, sch_date=sch_date,
-                             worker_id=worker_id, status=status)
+    def create(self, sch_date_str, worker_id, deadline, dispatch_info, order_list, status="ready"):
+        # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d")
+        new_d = SchDispatchM(city=self.city, sch_date=sch_date_str,
+                             worker_id=worker_id, deadline=deadline, dispatch_info=dispatch_info, status=status)
         db.session.add(new_d)
+        # update jobs
+        j = SchJobsM.query.filter(SchJobsM.order_id.in_(order_list)).all()
+        for x in j:
+            x.dispatch_id = new_d.id
+            x.worker_id = worker_id
+            x.status = 'to_dispatch'
+            db.session.flush()
         db.session.commit()
         return self.get(new_d.id)
 
-    def update(self, id, status):
+    def update_dispatched(self, id, status):
         SchDispatchM.query.filter(SchDispatchM.id == id).update(status=status)
+        j = SchJobsM.query.filter(SchJobsM.dispatch_id == id).all()
+        for x in j:
+            x.status = status
+            db.session.flush()
         db.session.commit()
         return self.get(id)
 
