@@ -5,8 +5,9 @@ from flask import jsonify, request
 
 from api.modules.scheduler import sch_blu
 from api.modules.scheduler.sch import *
-from api.modules.scheduler.sch_lib import *
-from api.modules.scheduler.sch_sim import *
+# from api.modules.scheduler.sch_lib import *
+# from api.modules.scheduler.sch_sim import *
+from api.modules.scheduler.sch_api import *
 
 
 @sch_blu.route('/get_sim_data', methods=['POST'])
@@ -82,7 +83,7 @@ def show_schedule_tasks():
     return jsonify(tasks)
 
 
-@sch_blu.route('/auto_schedule', methods=['POST'])
+@sch_blu.route('/auto_schedule', methods=['GET', 'POST'])
 def schedule_main():
     '''
         start schedule
@@ -113,9 +114,10 @@ def schedule_main():
     return jsonify(dict(task_info=task_info, sub_task_list=sub_task_list))
 
 
-@sch_blu.route('/sch_result', methods=['POST'])
+@sch_blu.route('/sch_result', methods=['GET', 'POST'])
 def show_schedule_result():
     '''
         show schedule result
     '''
-    return
+    res = sch_jobs_today()
+    return jsonify(res)

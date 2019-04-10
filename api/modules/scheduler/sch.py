@@ -137,11 +137,12 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
     '''
         订单排序
     '''
-    max_wait_interval = datetime.timedelta(seconds=7200)
+    max_wait_interval = dt.timedelta(seconds=3600*3)
 
-    jobs.loc[:, 'late_start'] = jobs.end_time + jobs.hrs_t
-    jobs = jobs.sort_values(['addr', 'start_time', 'late_start'], ascending=[
-                            1, 1, 1]).reset_index().drop(['index'], 1)
+    jobs.loc[:, 'late_start'] = jobs.end_time - jobs.hrs_t
+    jobs = jobs.sort_values(
+        ['addr', 'start_time', 'late_start']).reset_index().drop(['index'], 1)
+    # print(jobs)
     jobs.loc[:, 'trans_hr'] = 0
 #     total_orders_addr = job2.groupby('addr').agg({'order_id': 'count'})
 #     print('按地址统计订单数')
@@ -151,12 +152,14 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
     job_sorted = pd.DataFrame()
     k = 1
     for addr in addrs:
-        job3 = jobs.loc[jobs.addr == addr]
+        job3 = jobs[jobs.addr == addr]
         job3.loc[:, 'grp'] = 0
 #         job3.loc[:, 'total_orders'] = total_orders_addr.loc[addr, 'order_id']
-        while len(job3) > 0:
+        while not job3.empty:
             first_idx = job3.index[0]
-            plan_start = w_start
+            req_start = job3.iloc[0].start_time.to_pydatetime()
+            # print(req_start, type(req_start))
+            plan_start = max(w_start, req_start)
             plan_end = job3.iloc[0].hrs_t + plan_start
             # job3.loc[:, 'plan_start'] = job3.start_time.shift(1) + job3.hrs_t.shift(1)
             # job3.loc[:, 'plan_end'] = job3.plan_start + job3.hrs_t
@@ -166,7 +169,10 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
 
             job_sorted = job_sorted.append(job3.iloc[0])
 
-            job3 = job3.drop([first_idx])
+            job3 = job3.drop(first_idx)
+            if job3.empty:
+                k = k + 1
+                break
             for t, row in job3.iterrows():
                 #                 print('t ..', t,  'grp ', k, 'order_id', job3.loc[t, 'order_id'])
                 job3.loc[t, 'grp'] = k
@@ -186,16 +192,17 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
                     job3 = job3.drop([t])
             k = k+1
     job_sorted = job_sorted.astype(
-        {'addr': int, 'grp': int, 'job_type': int, 'order_id': int})
+        {'addr': int, 'grp': int, 'job_type': int, 'order_id': str})
+    # print(job_sorted)
     job_sorted = job_sorted.loc[job_sorted.plan_start.notnull(), ('addr', 'grp', 'job_type', 'order_id',
                                                                   'start_time', 'plan_start', 'plan_end', 'end_time', 'hrs', 'hrs_t', 'trans_hr')]
     job_sorted = job_sorted.loc[job_sorted.plan_end <= w_end]
     job_sorted = job_sorted.loc[job_sorted.plan_start.notnull()]
-    job_sorted.set_index(['addr', 'grp']).sort_values(
-        ['addr', 'grp', 'plan_start'])
+    job_sorted = job_sorted.sort_values(['grp', 'plan_start', 'addr'])
     job_sorted.loc[:, 'wait_hr'] = np.where(job_sorted.grp.shift(1) == job_sorted.grp,
                                             (job_sorted.plan_start - job_sorted.plan_end.shift(1))/np.timedelta64(1, 'h') - job_sorted.trans_hr, 0)
-
+    # print('job_sorted')
+    # print(job_sorted)
     return job_sorted
 
 
@@ -220,73 +227,63 @@ def dispatch_region_jobs(jobs, workers, day_str):
         'addr': 'last',
         'hrs': 'sum',
         'order_id': 'count'}).sort_values(['hrs'], ascending=[0])
-#     print(jobs_by_addr)
     jobs.loc[:, 'worker_id'] = 0
-#     print(jobs.head())
     # ：技师排序
     arranged_workers = calculate_radt(jobs, workers)
     sch_workers = SchWorkers(city="上海市")
     # print('start .... %2d workers to assign' % len(arranged_workers))
     for idx, row in arranged_workers[:].iterrows():
-        print(row)
-        worker_id = idx
+        # print(row)
+        worker_id = row.worker_id
         wkr_start = row.w_start
         wkr_end = row.w_end
         w_adt_hrs = row.adt_hrs
 #         w_adt_hrs = row.min_hrs
         hrs_to_assign = w_adt_hrs - row.hrs_assigned
 #         hrs_to_assign = row.adt_hrs - row.hrs_assigned
-        # print('技师 ： %s, 需派单 %2.2f 小时, 现有 %d 个订单 ' %
-        #   (idx, hrs_to_assign, len(jobs), ))
+        print('技师 ： %s, 需派单 %2.2f 小时, 现有 %d 个订单 ' %
+              (worker_id, hrs_to_assign, len(jobs), ))
 #         print(row)
         n = 0
         worker_free_time = sch_workers.get_worker_free_time(worker_id, day_str)
         if worker_free_time is None:
             continue
         for ft in worker_free_time:
-            w_start = ft['w_start']
-            w_end = ft['w_end']
-            while ((w_end - w_start)/np.timedelta64(1, 'm') >= 20) & (hrs_to_assign > 0.5):
-                # print('   ...派单中: ', '服务开始时间：' ,w_start, '服务结束时间：', w_end, ' 需派工时',hrs_to_assign,' 当前订单数: ', len(jobs) )
-
+            w_start = dt.datetime.strptime(ft['w_start'],  "%Y-%m-%d %H:%M:%S")
+            w_end = dt.datetime.strptime(ft['w_end'],  "%Y-%m-%d %H:%M:%S")
+            while ((w_end - w_start).seconds >= 20) & (hrs_to_assign > 0.5):
+                print('   ...派单中: ', '服务开始时间：', w_start, '服务结束时间：',
+                      w_end, ' 需派工时', hrs_to_assign, ' 当前订单数: ', len(jobs))
                 # n += 1
                 # if n > 1:
                 #     print(' ### 第 %d 次为技师: %d 分配订单 ###' % (n, worker_id))
                 jobs_a = jobs.loc[(jobs.worker_id == 0) & (
-                    (jobs.end_time + jobs.hrs_t >= w_start) & (jobs.start_time + jobs.hrs_t <= w_end))]
-                # print(len(jobs_a),  'jobs available')
-                if len(jobs_a):
+                    (jobs.end_time - jobs.hrs_t >= w_start) & (jobs.start_time + jobs.hrs_t <= w_end))]
+                if not jobs_a.empty:
+
                     #: arrange jobs for wrk
-                    order_interval = datetime.timedelta(seconds=300)
+                    order_interval = dt.timedelta(seconds=300)
                     job_arranged = sort_jobs(
                         jobs_a, order_interval, w_start, w_end)
-                    if len(job_arranged) > 0:
-                        job_grp = job_arranged.groupby(['addr', 'grp']).agg({
-                            'hrs': 'sum',
-                            'plan_start': 'first',
-                            'plan_end': 'last',
-                            'trans_hr': 'sum',
-                            'wait_hr': 'sum',
-                            'order_id': 'count'
-                        })
+                    if not job_arranged.empty:
+                        print('*********可分配订单 job_arranged')
+                        print(job_arranged)
 
+                        job_grp = job_arranged.groupby(['addr', 'grp']).agg({
+                            'hrs': 'sum', 'plan_start': 'first',
+                            'plan_end': 'last', 'trans_hr': 'sum',
+                            'wait_hr': 'sum', 'order_id': 'count'
+                        })
                         job_grp.loc[:, 'duration'] = (
                             job_grp.plan_end - job_grp.plan_start)/np.timedelta64(1, 'h')
                         job_grp.loc[:, 'idle_rate'] = np.where(
                             job_grp.order_id == 1, 0, np.round(job_grp.wait_hr / job_grp.duration, 2)*100)
                         job_grp = job_grp.reset_index().sort_values(
                             ['hrs', 'idle_rate', 'duration', 'plan_start', 'addr', 'grp', ], ascending=[0, 1, 0,  0, 1, 1])
-
                         # print(' --- %d  job grp find..' % (len(job_grp)))
-
-#                         if len(job_grp) == 0:
-#                             print(jobs_a)
-#                             print(job_arranged)
-#                             print(job_grp)
                         job_grp_a = job_grp[(job_grp.hrs >= hrs_to_assign) & (
                             job_grp.plan_end <= w_end)]
-
-                        if len(job_grp_a) > 0:
+                        if not job_grp_a.empty:
                             #: 如果 订单组 时间大于 需派单时间， 找到最适合的订单组, 分解
                             split_start = 0
                             split_end = 0
@@ -313,67 +310,65 @@ def dispatch_region_jobs(jobs, workers, day_str):
                             jobs_to_assign = job_arranged.loc[job_arranged.grp ==
                                                               grp_id][split_start:split_end]
                         else:
-                            #                     print(job_grp)
                             grp_to_assign = job_grp.hrs.nlargest(1)
-        #                     print('grp_to_assign', grp_to_assign)
                             grp_addr = job_grp.loc[grp_to_assign.index[0], 'addr']
                             jobs_to_assign = job_arranged[job_arranged.grp ==
                                                           job_grp.loc[grp_to_assign.index[0], 'grp']]
-        #                     print('  grp idx to_assign ', grp_to_assign.index[0])
-
-                    list_jobs_to_assign = jobs_to_assign.order_id.tolist()
-                    jobs_to_assign.loc[:, 'worker_id'] = worker_id
-                    # print('   订单分配成功 ', '地址：', grp_addr, ' 订单编号: ', list_jobs_to_assign, '合计小时数: ', jobs_to_assign.hrs.sum())
-
-                    #: 添加到 已分配订单
-                    assigned_jobs = assigned_jobs.append(
-                        jobs_to_assign, ignore_index=True)
-
-                    # ：从待分配中移除
-                    jobs = jobs[~jobs.order_id.isin(list_jobs_to_assign)]
-
-                    # ：更新技师的待派单时间
-    #                 hrs_to_assign = w_adt_hrs - job_grp.loc[grp_to_assign.index[0], 'hrs']
-                    hrs_to_assign = hrs_to_assign - jobs_to_assign.hrs.sum()
-                    # print('adt_hrs to assign', w_adt_hrs, '',jobs_to_assign.hrs.sum(), hrs_to_assign)
-                    if hrs_to_assign <= 0:
-                        hrs_to_assign = 0
-                    w_start = jobs_to_assign.iloc[-1].plan_end + order_interval
-
-                    # print('     技师还有', (w_end - w_start)/np.timedelta64(1, 'm'), ' 分钟剩余工时... ', w_start, w_end, '还需派单： ', hrs_to_assign)
-
-    #                 if (w_end - w_start)/np.timedelta64(1, 'm') <= -40:
-    #                     print(job_grp_a)
+                        list_jobs_to_assign = jobs_to_assign.order_id.tolist()
+                        jobs_to_assign.loc[:, 'worker_id'] = worker_id
+                        print('   订单分配成功 ', '地址：', grp_addr, ' 订单编号: ',
+                              list_jobs_to_assign, '合计小时数: ', jobs_to_assign.hrs.sum())
+                        #: 添加到 已分配订单
+                        assigned_jobs = assigned_jobs.append(
+                            jobs_to_assign, ignore_index=True)
+                        assigned_jobs_list = list(
+                            np.array(assigned_jobs.order_id))
+                        # ：从待分配中移除
+                        jobs = jobs[~jobs.order_id.isin(assigned_jobs_list)]
+                        # ：更新技师的待派单时间
+        #                 hrs_to_assign = w_adt_hrs - job_grp.loc[grp_to_assign.index[0], 'hrs']
+                        hrs_to_assign = hrs_to_assign - jobs_to_assign.hrs.sum()
+                        # print('adt_hrs to assign', w_adt_hrs, '',jobs_to_assign.hrs.sum(), hrs_to_assign)
+                        if hrs_to_assign <= 0:
+                            hrs_to_assign = 0
+                        w_start = jobs_to_assign.iloc[-1].plan_end + \
+                            order_interval
+                        print('     技师还有', (w_end - w_start)/np.timedelta64(1, 'm'), ' 分钟剩余工时... ',
+                              w_start, w_end, '还需派单： ', hrs_to_assign, '现在订单数： ', len(jobs))
+                    else:
+                        print('   技师 %2s  工作时段 %2s  ～ %2s  没有订单可分配...' %
+                              (worker_id, w_start.time(), w_end.time()))
+                        break
                     # print('    ** ' * 10)
     #                 worker_fully_assigned = True
     #                 print(arranged_workers.loc[worker_id])
     #                 print(len(jobs), len(assigned_jobs))
                 else:
-                    # print('   技师 %2d  工作时段 %2s  ～ %2s  没有订单可分配...' % (worker_id, w_start.time(), w_end.time()))
-                    #                 print(jobs.loc[:, ('start_time', 'end_time', 'hrs','order_id')])
+                    print(' %2d  技师 %2s  工作时段 %2s  ～ %2s  没有订单可分配...' %
+                          (idx, worker_id, w_start.time(), w_end.time()))
                     break
-
-            worker_jobs = assigned_jobs[assigned_jobs.worker_id == worker_id]
-            arranged_workers.loc[worker_id,
+        worker_jobs = assigned_jobs[assigned_jobs.worker_id == worker_id]
+        if not worker_jobs.empty:
+            arranged_workers.loc[idx,
                                  'hrs_assigned'] = worker_jobs.sum().hrs
-
-            f1 = (row.w_start - worker_jobs.plan_start.min()) / \
-                np.timedelta64(1, 'm')
+            # f1 = (row.w_start - worker_jobs.plan_start.min()) / \
+            # np.timedelta64(1, 'm')
             # print('w-s', row.w_start, worker_jobs.plan_start.min(), worker_jobs.plan_end.max(), row.w_end, f1)
 
-#         print(work_jobs.sort_values(['plan_start'], ascending=[1]))
-
-        # print('派单完成: 技师 ： %s, 需派单 %2.2f 小时, 已派单 %2.2f  小时' % (worker_id, w_adt_hrs, worker_jobs.sum().hrs, ))
+            print(worker_jobs.sort_values(['plan_start'], ascending=[1]))
+        print('派单完成: 技师 ： %s, 需派单 %2.2f 小时, 已派单 %2.2f  小时' %
+              (worker_id, w_adt_hrs, worker_jobs.sum().hrs, ))
         # print('====' * 10)
 
-    # print('完成分配...  %2d 个订单还未分配, %2d 个订单已分配..' %(len(jobs), len(assigned_jobs)))
+    print('完成分配...  %2d 个订单还未分配, %2d 个订单已分配..' %
+          (len(jobs), len(assigned_jobs)))
     worker_summary = assigned_jobs.groupby(['worker_id']).agg({
         'plan_start': 'first',
         'plan_end': 'last',
         'hrs': 'sum',
         'wait_hr': 'sum',
         'order_id': 'count'
-    })
+    }).reset_index()
     # print(' %2d worker done...' % len(worker_summary))
 #     print(worker_summary)
     # print('### 还剩下  %d 个订单未分配 ' % len(jobs))
@@ -381,7 +376,8 @@ def dispatch_region_jobs(jobs, workers, day_str):
     return assigned_jobs, jobs, worker_summary, arranged_workers
 
 
-if __name__ == '__main__':
-    jobs.loc[:, 'worker_id'] = 0
-    assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
-        jobs, workers)
+# if __name__ == '__main__':
+#     # jobs.loc[:, 'worker_id'] = 0
+
+#     assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
+#         jobs, workers)

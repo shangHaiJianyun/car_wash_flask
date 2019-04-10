@@ -55,9 +55,14 @@ class Config:
     CELERY_TASK_SERIALIZER = 'json'
     # 定时任务
     CELERYBEAT_SCHEDULE = {
-        'task1': {
-            'task': 'api.celery_tasks.tasks.set_order_to_paid',
-            'schedule': timedelta(seconds=300),
+        # 'task1': {
+        #     'task': 'api.celery_tasks.tasks.set_order_to_paid',
+        #     'schedule': timedelta(seconds=300),
+        #     'args': ''
+        # },
+        'task2': {
+            'task': 'api.celery_tasks.tasks.sch_order',
+            'schedule': timedelta(seconds=3000),
             'args': ''
         }
     }

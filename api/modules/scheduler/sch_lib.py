@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy import *
+from sqlalchemy import Date, cast, DateTime
 # from flask import current_app as app
 from api.models.models import *
 from .sch_model import *
@@ -96,11 +97,26 @@ class SchJobs():
         self.city = city
         self.engine = engine
 
-    def unscheduled_jobs(self, city):
+    def unscheduled_jobs(self, sch_datetime):
         '''
-            get un_scheduled jobs from php database and insert to sch_jobs
+            get un_scheduled jobs from sch_jobs
+            return dataframe
         '''
-        pass
+        res = SchJobsM.query.filter(and_(
+            cast(SchJobsM.start_time, DateTime) >= sch_datetime,
+            cast(SchJobsM.start_time, Date) == sch_datetime.date(),
+            SchJobsM.worker_id == '0',
+            SchJobsM.city == self.city)).order_by(SchJobsM.start_time.asc()).all()
+        order_list = [row2dict(x) for x in res]
+        df = pd.DataFrame(order_list)
+        df.loc[:, 'start_time'] = pd.to_datetime(
+            df.start_time, format="%Y-%m-%d %H:%M")
+        df.loc[:, 'end_time'] = pd.to_datetime(
+            df.end_time, format="%Y-%m-%d %H:%M")
+        df.loc[:, 'hrs_t'] = df.hrs.apply(
+            lambda x: dt.timedelta(seconds=x * 3600))
+        # df.loc[:, 'ts']
+        return df
 
     def jobs_by_date(self, sch_date_str):
         # job_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
@@ -116,12 +132,30 @@ class SchJobs():
             return [row2dict(x) for x in res]
 
     def df_insert(self, df):
-        try:
-            df.to_sql('sch_jobs', self.engine, if_exists='append',
-                      index=False, chunksize=1000)
-            return dict(status=True)
-        except Exception as err:
-            return dict(status=False, error=err)
+
+        to_insert = df.to_dict('records')
+
+        # try:
+        for x in to_insert:
+            today_job = SchJobsM.query.filter(and_(
+                SchJobsM.sch_date == x['sch_date'], SchJobsM.city == self.city, SchJobsM.order_id == x['order_id'])).one_or_none()
+            if today_job is None:
+                new_job = SchJobsM(**x)
+                db.session.add(new_job)
+                db.session.flush()
+        db.session.commit()
+        # df.to_sql('sch_workers', self.engine, if_exists='append',
+        #           index=False, chunksize=1000)
+        return dict(status="success")
+        # except Exception as err:
+        #     print('insert job...', err)
+        #     return dict(status="error")
+        # try:
+        #     df.to_sql('sch_jobs', self.engine, if_exists='append',
+        #               index=False, chunksize=1000)
+        #     return dict(status=True)
+        # except Exception as err:
+        #     return dict(status=False, error=err)
 
     def df_update(self, df):
         to_update = df.to_dict('records')
@@ -130,9 +164,9 @@ class SchJobs():
                 SchJobsM.query.filter(SchJobsM.id == x['id']).update(x)
                 db.session.flush()
             db.session.commit()
-            return True
+            return dict(status="success")
         except:
-            return False
+            return dict(status="error")
 
 
 class SchWorkers():
@@ -147,13 +181,22 @@ class SchWorkers():
         pass
 
     def df_insert(self, df):
+        to_insert = df.to_dict('records')
         try:
-            df.to_sql('sch_workers', self.engine, if_exists='append',
-                      index=False, chunksize=1000)
-            return dict(status=True)
+            for x in to_insert:
+                today_worker = self.get_worker_info_by_date(
+                    int(x['worker_id']), x['sch_date'])
+                if today_worker is None:
+                    new_wkr = SchWorkersM(**x)
+                    db.session.add(new_wkr)
+                    db.session.flush()
+            db.session.commit()
+            # df.to_sql('sch_workers', self.engine, if_exists='append',
+            #           index=False, chunksize=1000)
+            return dict(status="success")
         except Exception as err:
             print('insert worker...', err)
-            return False
+            return dict(status="error")
 
     def df_update(self, df):
         to_update = df.to_dict('records')
@@ -172,12 +215,19 @@ class SchWorkers():
         workers = SchWorkersM.query.filter(
             and_(SchWorkersM.city == self.city, SchWorkersM.sch_date == sch_date_str)).all()
         if workers:
-            return [row2dict(x) for x in workers]
+            worker_list = [row2dict(x) for x in workers]
+            df = pd.DataFrame(worker_list)
+            df.loc[:, 'w_start'] = pd.to_datetime(
+                df.w_start, format="%Y-%m-%d %H:%M")
+            df.loc[:, 'w_end'] = pd.to_datetime(
+                df.w_end, format="%Y-%m-%d %H:%M")
+            return df
         else:
             return None
 
     def get_worker_info_by_date(self, worker_id, sch_date_str):
         # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
+        worker_id = int(worker_id)
         worker_info = SchWorkersM.query.filter(
             and_(SchWorkersM.worker_id == worker_id, SchWorkersM.sch_date == sch_date_str)).one_or_none()
         if worker_info:
@@ -191,7 +241,7 @@ class SchWorkers():
         '''
         # job_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
         w_jobs = SchJobsM.query.filter(and_(
-            SchJobsM.city == self.city, SchJobsM.wrk_id == worker_id, SchJobsM.job_date_str == sch_date_str)).all()
+            SchJobsM.city == self.city, SchJobsM.worker_id == worker_id, SchJobsM.sch_date == sch_date_str)).all()
         if w_jobs:
             return [row2dict(x) for x in w_jobs]
         else:
@@ -202,12 +252,12 @@ class SchWorkers():
             worker's free time
         '''
         # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
-        work_info = self.get_worker_info_by_date(worker_id, sch_date_str)
+        worker_info = self.get_worker_info_by_date(worker_id, sch_date_str)
         free_time = []
-
-        if work_info:
-            w_start = worker_info.w_start
-            w_end = worker_info.w_end
+        # print('get_worker_free_time... work_info ...', worker_info)
+        if worker_info:
+            w_start = worker_info['w_start']
+            w_end = worker_info['w_end']
             worker_jobs = self.get_worker_jobs(worker_id, sch_date_str)
             if worker_jobs:
                 df_jobs = pd.DataFrame(worker_jobs).sort_values(['plan_start'])

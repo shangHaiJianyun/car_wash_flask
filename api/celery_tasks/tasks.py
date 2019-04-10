@@ -24,6 +24,9 @@ def set_order_to_paid():
     res = process_unpaid_orders()
     return res
 
+@celery.task
+def sch_order():
+    sch_jobs()
 
 @celery.task
 def get_order():

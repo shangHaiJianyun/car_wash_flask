@@ -58,16 +58,22 @@ def get_orders_from_api(days=2, city="上海市"):
     return result
 
 
-def pre_order_to_df(sch_task_id, order_list, city="上海市"):
+def save_order_from_api(sch_task_id, order_list, city="上海市"):
+    """
+        convert datetime to string format     
+    """
     df = pd.DataFrame(order_list)
     df.loc[:, 'region_id'] = '0'
+    df.loc[:, 'city'] = city
     df.loc[:, 'worker_id'] = '0'
     df.loc[:, 'sch_task_id'] = sch_task_id
     df.loc[:, 'sch_status'] = 'open'
-    df.loc[:, 'start_time'] = pd.to_datetime(
-        df.service_date + ' ' + df.start_time, format="%Y-%m-%d %H:%M")
-    df.loc[:, 'end_time'] = pd.to_datetime(
-        df.service_date + ' ' + df.end_time, format="%Y-%m-%d %H:%M")
+    df.loc[:, 'start_time'] = df.service_date + ' ' + df.start_time
+    df.loc[:, 'end_time'] = df.service_date + ' ' + df.end_time
+    # df.loc[:, 'start_time'] = pd.to_datetime(
+    #     df.service_date + ' ' + df.start_time, format="%Y-%m-%d %H:%M")
+    # df.loc[:, 'end_time'] = pd.to_datetime(
+    #     df.service_date + ' ' + df.end_time, format="%Y-%m-%d %H:%M")
     df.loc[:, 'sch_date'] = df.service_date
     df.loc[:, 'hrs'] = pd.to_numeric(df.item_duration)
     df = df.rename(columns={
@@ -76,11 +82,10 @@ def pre_order_to_df(sch_task_id, order_list, city="上海市"):
     })
     df = df.loc[:, (u'addr', u'end_time', u'hrs', u'job_type', u'order_id', u'region_id', u'sch_task_id',
                     'sch_status', u'city', 'sch_date', 'sch_status', u'start_time',  u'worker_id')]
-    return df
+    # return df
     Sch_J = SchJobs(city)
     res = Sch_J.df_insert(df)
-    if res['status']:
-        return df
+    return res['status']
 
 
 def save_workers_from_api(day_str, city="上海市"):
@@ -123,11 +128,14 @@ def save_workers_from_api(day_str, city="上海市"):
     df.loc[:, 'w_region'] = '0'
     df.loc[:, 'city'] = city
     df.loc[:, 'sch_date'] = day_str
-    df.loc[:, 'w_start'] = pd.to_datetime(
+    df.loc[:, 'w_start'] = day_str + ' ' + df.service_start_time
+    df.loc[:, 'w_end'] = day_str + ' ' + df.service_end_time
+
+    df.loc[:, 'w_start_t'] = pd.to_datetime(
         day_str + ' ' + df.service_start_time, format="%Y-%m-%d %H:%M")
-    df.loc[:, 'w_end'] = pd.to_datetime(
+    df.loc[:, 'w_end_t'] = pd.to_datetime(
         day_str + ' ' + df.service_end_time, format="%Y-%m-%d %H:%M")
-    df.loc[:, 'w_hrs'] = (df.w_end - df.w_start)/np.timedelta64(60, 'm')
+    df.loc[:, 'w_hrs'] = (df.w_end_t - df.w_start_t)/np.timedelta64(60, 'm')
     df.loc[:, 'w_rank'] = 100
     df.loc[:, 'w_type'] = df.worker_type
     df.loc[:, 'worker_type'] = 1
@@ -140,13 +148,13 @@ def save_workers_from_api(day_str, city="上海市"):
         df.max_star_t < df.w_hrs, df.max_star_t, df.w_hrs)
     df.loc[:, 'bdt_hrs'] = np.where(
         df.mdt < df.min_hrs, df.mdt, df.min_hrs)
-    df = df.loc[:, (u'hrs_assigned', u'hrs_to_assign', u'max_star_t', u'mdt', u'w_end', u'w_hrs', 'sch_date',
-                    u'w_rank', u'w_region', u'w_start', u'w_type', u'worker_type', u'min_hrs', u'bdt_hrs', 'adt_hrs')]
-    return df
+    df = df.loc[:, (u'hrs_assigned', u'hrs_to_assign', u'max_star_t', u'mdt', u'w_end', u'w_hrs', 'sch_date', 'worker_id',
+                    u'w_rank', 'city', u'w_region', u'w_start', u'w_type', u'worker_type', u'min_hrs', u'bdt_hrs', 'adt_hrs')]
+    # return df
+    # print(df.loc[:, ('city', 'worker_id')])
     Sch_W = SchWorkers(city)
     res = Sch_W.df_insert(df)
-    if res['status']:
-        return df
+    return res['status']
 
 
 def process_unpaid_orders():
@@ -195,16 +203,43 @@ def set_order_paid(order_ids):
         return False
 
 
-def sch_jobs():
+def save_data_from_api():
     joblist = get_orders_from_api()
-    job_df = pre_order_to_df(100, joblist)
-    job_day_sum = job_df.groupby('sch_date').agg(
-        {'order_id': 'count', 'hrs': 'sum'})
-    for x in job_day_sum.index:
-        # print(x)
-        jobs = job_df[job_df.sch_date == x]
-        workers = save_workers_from_api(x)
-        assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
-            jobs, workers, x)
-        print(assigned_jobs)
-        print(arranged_workers)
+    job_res = save_order_from_api(100, joblist)
+    td = dt.datetime.today()
+    tm = (dt.datetime.today() + dt.timedelta(days=1)).date()
+    # job_day_sum = job_df.groupby('sch_date').agg(
+    #     {'order_id': 'count', 'hrs': 'sum'})
+    worker_res = []
+    for x in [td.isoformat(), tm.isoformat()]:
+        res = save_workers_from_api(x)
+        worker_res.append(dict(date=x, res=res))
+    return dict(job_res=job_res, worker_res=worker_res)
+
+
+def sch_jobs_today():
+    city = "上海市"
+    # sch_datetime = dt.datetime.today()
+    sch_datetime = dt.datetime(2019, 4, 9, 11, 00)
+    day_str = sch_datetime.date().isoformat()
+    sch_jobs = SchJobs(city)
+    jobs = sch_jobs.unscheduled_jobs(sch_datetime)
+    jobs.loc[:, 'addr'] = '9300'
+    sch_workers = SchWorkers(city)
+    workers = sch_workers.all_worker_by_date(day_str)
+    # tm = (dt.datetime.today() + dt.timedelta(days=1)).date()
+    # job_day_sum = job_df.groupby('sch_date').agg(
+    #     {'order_id': 'count', 'hrs': 'sum'})
+
+    assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
+        jobs, workers, day_str)
+    assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
+    open_jobs = open_jobs.drop(['hrs_t'], 1)
+    return dict(
+        assigned_jobs=assigned_jobs.to_dict('records'),
+        workers=arranged_workers.to_dict('records'),
+        open_jobs=open_jobs.to_dict('records'),
+        worker_summary=worker_summary.to_dict('records')
+    )
+
+

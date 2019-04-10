@@ -72,8 +72,8 @@ class SchWorkersM(db.Model):
     min_hrs = db.Column(db.Float)
     hrs_assigned = db.Column(db.Float)
     hrs_to_assign = db.Column(db.Float)
-    w_start = db.Column(db.DateTime)
-    w_end = db.Column(db.DateTime)
+    w_start = db.Column(db.String(20))
+    w_end = db.Column(db.String(20))
 
 
 class SchJobsM(db.Model):
@@ -86,10 +86,10 @@ class SchJobsM(db.Model):
     sch_date = db.Column(db.String(12), index=True)
     order_id = db.Column(db.String(20))
     job_type = db.Column(db.String(10))
-    start_time = db.Column(db.DateTime)
-    end_time = db.Column(db.DateTime)
-    plan_start = db.Column(db.DateTime)
-    plan_end = db.Column(db.DateTime)
+    start_time = db.Column(db.String(20))
+    end_time = db.Column(db.String(20))
+    plan_start = db.Column(db.String(20))
+    plan_end = db.Column(db.String(20))
     hrs = db.Column(db.Float)
     worker_id = db.Column(db.String(10), index=True, default='0')
     sch_task_id = db.Column(db.Integer, index=True)
