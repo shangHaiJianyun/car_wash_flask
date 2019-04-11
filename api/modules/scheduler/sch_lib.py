@@ -322,7 +322,7 @@ class SchDispatch():
             x.status = 'to_dispatch'
             db.session.flush()
         db.session.commit()
-        return self.get(new_d.id)
+        return new_d.id
 
     def update_dispatched(self, id, status):
         SchDispatchM.query.filter(SchDispatchM.id == id).update(status=status)

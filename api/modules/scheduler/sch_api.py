@@ -254,7 +254,7 @@ def sch_jobs_today():
     #: create dispatch data
     deadline = 15
     disps = create_dispatch(worker_summary, assigned_jobs, deadline)
-    dispatch_jobs(disps)
+    # dispatch_jobs(disps)
     return dict(
         assigned_jobs=assigned_jobs.to_dict('records'),
         workers=arranged_workers.to_dict('records'),
@@ -275,20 +275,24 @@ def create_dispatch(worker_summary, assigned_jobs, deadline):
         orders = assigned_jobs[assigned_jobs.worker_id == row['worker_id']].loc[:, (
             'order_id', 'plan_start', 'plan_end')].sort_values('plan_start')
         first_job_time = orders.iloc[0].plan_start
-        dispatch_date_t = first_job_time - dt.timedelta(seconds=3600)
-        dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M')
+        dispatch_date_t = first_job_time - dt.timedelta(seconds=1800)
+        dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M:%S')
         orders.columns = ['order_id', 'start_time', 'end_time']
         orders.start_time = orders.start_time.apply(
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
         orders.end_time = orders.end_time.apply(
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
         order_list = list(orders.order_id)
-        disp_id = disp_sch.create(
-            dispatch_date_str, row['worker_id'], deadline, order_list, dispatch_info)
         dispatch_info = dict(
             worker_id=row['worker_id'], orders=orders.to_dict('records'))
-        disps.append(dict(dispatch_info=dispatch_info,
-                          dispatch_date=dispatch_date, deadline=deadline, disp_id=disp_id))
+        disp_id = disp_sch.create(
+            dispatch_date, row['worker_id'], deadline, order_list, dispatch_info)
+        disp_data = dict(dispatch_info=dispatch_info,
+                         dispatch_date=dispatch_date, deadline=deadline)
+        r = dispatch_to_api(disp_data, disp_id, disp_sch)
+        if r == "success":
+            disp_data.update(dispatch_id=disp_id)
+            disps.append(disp_data)
     return disps
 
 
@@ -308,7 +312,33 @@ def update_dispatch_result(dispatch_res):
         slog.create('dispatch_err', disp_error)
 
 
-def dispatch_jobs(data):
+def dispatch_to_api(data, disp_id, disp_sch):
+    passwd = 'xunjiepf'
+    dispatch_data = data
+    dispatch_data.update(passwd=passwd)
+    req = requests.post(
+        url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps(dispatch_data)
+    )
+    if req.status_code == requests.codes.ok:
+        res = req.json()
+        if res['errcode'] == 0:
+            disp_sch.update_dispatched(disp_id, 'dispatched')
+            return "success"
+        else:
+            slog = SchTestLog()
+            slog.create('dispatch_err', res['errmsg'])
+            return "error"
+    else:
+        slog = SchTestLog()
+        slog.create('dispatch_err', 'request fail')
+        return "error"
+
+
+def dispatch_jobs(data, disp_id):
     """派单内容"""
     passwd = 'xunjiepf'
     # 获取传输参数
@@ -316,10 +346,10 @@ def dispatch_jobs(data):
     disp_success = []
     disp_error = []
 
-    for x in data:
-        y = x.copy()
+    for y in data:
+        x = y
         x.update(passwd=passwd)
-        # print(x)
+        print(x)
         req = requests.post(
             url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
             headers={
