@@ -3911,3 +3911,53 @@ DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/
 DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
 DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
 INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [11/Apr/2019 14:38:44] "POST /api/sch/sch_result HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-11 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-11 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [11/Apr/2019 14:49:22] "POST /api/sch/sch_result HTTP/1.1" 200 -
