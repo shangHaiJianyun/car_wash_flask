@@ -26,7 +26,7 @@ def set_order_to_paid():
 
 @celery.task
 def sch_order():
-    sch_jobs()
+    sch_jobs_today()
 
 @celery.task
 def get_order():
