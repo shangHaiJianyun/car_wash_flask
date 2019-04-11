@@ -287,8 +287,8 @@ def create_dispatch(worker_summary, assigned_jobs, deadline):
         dispatch_info = dict(
             worker_id=row['worker_id'], orders=orders.to_dict('records'))
         disp_id = disp_sch.create(
-            dispatch_date, row['worker_id'], deadline, order_list, dispatch_info)
-        disp_data = dict(dispatch_info=dispatch_info,
+            dispatch_date, row['worker_id'], deadline, dispatch_info, order_list)
+        disp_data = dict(dispatch_info=dict(data=[dispatch_info]),
                          dispatch_date=dispatch_date, deadline=deadline)
         r = dispatch_to_api(disp_data, disp_id, disp_sch)
         if r == "success":
@@ -326,12 +326,12 @@ def dispatch_to_api(data, disp_id, disp_sch):
     )
     if req.status_code == requests.codes.ok:
         res = req.json()
-        if res['errcode'] == 0:
+        if res[0]['errcode'] == 0:
             disp_sch.update_dispatched(disp_id, 'dispatched')
             return "success"
         else:
             slog = SchTestLog()
-            data.update(errcode=res['errcode'])
+            data.update(errcode=res[0]['errcode'])
             slog.create('dispatch_err', data)
             return "error"
     else:

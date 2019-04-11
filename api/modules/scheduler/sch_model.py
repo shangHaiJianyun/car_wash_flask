@@ -60,7 +60,7 @@ class SchWorkersM(db.Model):
     city = db.Column(db.String(32), index=True)
     worker_id = db.Column(db.String(10), index=True)
     w_region = db.Column(db.String(10), index=True)
-    sch_date = db.Column(db.String(12), index=True)
+    sch_date = db.Column(db.String(20), index=True)
     w_type = db.Column(db.String(20))
     worker_type = db.Column(db.Integer, index=True)
     w_hrs = db.Column(db.Float)
@@ -83,7 +83,7 @@ class SchJobsM(db.Model):
     city = db.Column(db.String(32), index=True)
     region_id = db.Column(db.String(10), index=True)
     addr = db.Column(db.String(10))
-    sch_date = db.Column(db.String(12), index=True)
+    sch_date = db.Column(db.String(20), index=True)
     order_id = db.Column(db.String(20))
     job_type = db.Column(db.String(10))
     start_time = db.Column(db.String(20))
@@ -93,7 +93,7 @@ class SchJobsM(db.Model):
     hrs = db.Column(db.Float)
     worker_id = db.Column(db.String(10), index=True, default='0')
     sch_task_id = db.Column(db.Integer, index=True)
-    sch_status = db.Column(db.String(10), index=True, )
+    sch_status = db.Column(db.String(20), index=True, )
     dispatch_id = db.Column(db.Integer, index=True)
 
 
@@ -105,12 +105,12 @@ class SchDispatchM(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sch_task_id = db.Column(db.Integer, index=True)
     city = db.Column(db.String(32), index=True)
-    sch_date = db.Column(db.String(12), index=True)
-    dispatch_date = db.Column(db.String(18), index=True)
+    sch_date = db.Column(db.String(20), index=True)
+    dispatch_date = db.Column(db.String(20), index=True)
     deadline = db.Column(db.Integer)
     dispatch_info = db.Column(JSON())
     worker_id = db.Column(db.Integer, index=True)
-    status = db.Column(db.String(10), index=True, )
+    status = db.Column(db.String(20), index=True, )
     created_on = db.Column(db.DateTime, default=db.func.current_timestamp())
 
 
