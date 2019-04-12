@@ -332,30 +332,30 @@ def sch_tomorrow():
     if workers is None:
         return dict(status='error', msg='no workers', data='')
     return "Done"
-    # assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
-    #     jobs, workers, day_str)
-    # assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
-    # open_jobs = open_jobs.drop(['hrs_t'], 1)
+    assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
+        jobs, workers, day_str)
+    assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
+    open_jobs = open_jobs.drop(['hrs_t'], 1)
 
-    # if assigned_jobs.empty:
-    #     dict(status='success', data=dict(
-    #         assigned_jobs=assigned_jobs.to_dict('records'),
-    #         workers=arranged_workers.to_dict('records'),
-    #         open_jobs=open_jobs.to_dict('records'),
-    #         worker_summary=worker_summary.to_dict('records'),
-    #         dispatch_data=[])
-    #     )
-    # #: create dispatch data
-    # deadline = 15
-    # disps = create_dispatch(worker_summary, assigned_jobs, deadline)
-    # return dict(status='success',
-    #             data=dict(
-    #                 assigned_jobs=assigned_jobs.to_dict('records'),
-    #                 workers=arranged_workers.to_dict('records'),
-    #                 open_jobs=open_jobs.to_dict('records'),
-    #                 worker_summary=worker_summary.to_dict('records'),
-    #                 dispatch_data=disps)
-    #             )
+    if assigned_jobs.empty:
+        dict(status='success', data=dict(
+            assigned_jobs=assigned_jobs.to_dict('records'),
+            workers=arranged_workers.to_dict('records'),
+            open_jobs=open_jobs.to_dict('records'),
+            worker_summary=worker_summary.to_dict('records'),
+            dispatch_data=[])
+        )
+    #: create dispatch data
+    deadline = 60
+    disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+    return dict(status='success',
+                data=dict(
+                    assigned_jobs=assigned_jobs.to_dict('records'),
+                    workers=arranged_workers.to_dict('records'),
+                    open_jobs=open_jobs.to_dict('records'),
+                    worker_summary=worker_summary.to_dict('records'),
+                    dispatch_data=disps)
+                )
 
 
 def dispatch_to_api(data, disp_id, disp_sch):
