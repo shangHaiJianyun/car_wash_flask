@@ -116,6 +116,7 @@ def dispatch():
         s['orders'] = order
         dis_data.append(s)
         # print(dis_data)
+        # dispatch_date = service_date.split(' ')[0]
         params = {
             "passwd": passwd,
             "dispatch_info": {"data": dis_data},
