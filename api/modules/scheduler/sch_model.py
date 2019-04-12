@@ -93,7 +93,7 @@ class SchJobsM(db.Model):
     hrs = db.Column(db.Float)
     worker_id = db.Column(db.String(10), index=True, default='0')
     sch_task_id = db.Column(db.Integer, index=True)
-    sch_status = db.Column(db.String(20), index=True, )
+    status = db.Column(db.String(20), index=True, )
     dispatch_id = db.Column(db.Integer, index=True)
 
 

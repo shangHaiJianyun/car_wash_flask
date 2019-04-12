@@ -67,7 +67,7 @@ def save_order_from_api(sch_task_id, order_list, city="上海市"):
     df.loc[:, 'city'] = city
     df.loc[:, 'worker_id'] = '0'
     df.loc[:, 'sch_task_id'] = sch_task_id
-    df.loc[:, 'sch_status'] = 'open'
+    df.loc[:, 'status'] = 'open'
     df.loc[:, 'start_time'] = df.service_date + ' ' + df.start_time
     df.loc[:, 'end_time'] = df.service_date + ' ' + df.end_time
     # df.loc[:, 'start_time'] = pd.to_datetime(
@@ -92,7 +92,7 @@ def save_order_from_api(sch_task_id, order_list, city="上海市"):
                   validate=None)
 
     df = df.loc[:, (u'addr', u'end_time', u'hrs', u'job_type', u'order_id', u'region_id', u'sch_task_id',
-                    'sch_status', u'city', 'sch_date', 'sch_status', u'start_time',  u'worker_id')]
+                    'status', u'city', 'sch_date',  u'start_time',  u'worker_id')]
     # return df
     Sch_J = SchJobs(city)
     res = Sch_J.df_insert(df)
@@ -294,6 +294,7 @@ def create_dispatch(worker_summary, assigned_jobs, deadline):
         if r == "success":
             disp_data.update(dispatch_id=disp_id)
             disps.append(disp_data)
+        # disps.append(disp_data)  # 本地测试时，不调用 派单 api
     return disps
 
 

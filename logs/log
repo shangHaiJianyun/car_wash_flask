@@ -3961,3 +3961,675 @@ DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/
 DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
 DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
 INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [11/Apr/2019 14:49:22] "POST /api/sch/sch_result HTTP/1.1" 200 -
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/dispatch/dispatchorder HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 12:25:23] "POST /api/sch/sch_result HTTP/1.1" 500 -
+ERROR /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 Error on request:
+Traceback (most recent call last):
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 258, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py", line 122, in show_schedule_result
+    res = sch_jobs_today()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 257, in sch_jobs_today
+    disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 293, in create_dispatch
+    r = dispatch_to_api(disp_data, disp_id, disp_sch)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 330, in dispatch_to_api
+    disp_sch.update_dispatched(disp_id, 'dispatched')
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py", line 328, in update_dispatched
+    SchDispatchM.query.filter(SchDispatchM.id == id).update(status=status)
+TypeError: update() got an unexpected keyword argument 'status'
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/__init__.py:415 CACHEDIR=/Users/DanielJiang/.matplotlib
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/font_manager.py:1362 Using fontManager instance from /Users/DanielJiang/.matplotlib/fontlist-v300.json
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/pyplot.py:211 Loaded backend TkAgg version unknown.
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 12:31:14] "POST /api/sch/sch_result HTTP/1.1" 500 -
+ERROR /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 Error on request:
+Traceback (most recent call last):
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 258, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py", line 122, in show_schedule_result
+    res = sch_jobs_today()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 251, in sch_jobs_today
+    jobs, workers, day_str)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch.py", line 249, in dispatch_region_jobs
+    worker_free_time = sch_workers.get_worker_free_time(worker_id, day_str)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py", line 266, in get_worker_free_time
+    df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/ops.py", line 1069, in wrapper
+    result = safe_na_op(lvalues, rvalues)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/ops.py", line 1037, in safe_na_op
+    lambda x: op(x, rvalues))
+  File "pandas/_libs/algos_common_helper.pxi", line 1212, in pandas._libs.algos.arrmap_object
+    
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/ops.py", line 1037, in <lambda>
+    lambda x: op(x, rvalues))
+TypeError: ufunc true_divide cannot use operands with types dtype('float64') and dtype('<m8[m]')
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 12:58:16] "POST /api/sch/sch_result HTTP/1.1" 500 -
+ERROR /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 Error on request:
+Traceback (most recent call last):
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 258, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py", line 122, in show_schedule_result
+    res = sch_jobs_today()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 251, in sch_jobs_today
+    jobs, workers, day_str)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch.py", line 249, in dispatch_region_jobs
+    worker_free_time = sch_workers.get_worker_free_time(worker_id, day_str)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py", line 267, in get_worker_free_time
+    df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/ops.py", line 1069, in wrapper
+    result = safe_na_op(lvalues, rvalues)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/ops.py", line 1037, in safe_na_op
+    lambda x: op(x, rvalues))
+  File "pandas/_libs/algos_common_helper.pxi", line 1212, in pandas._libs.algos.arrmap_object
+    
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/ops.py", line 1037, in <lambda>
+    lambda x: op(x, rvalues))
+TypeError: ufunc true_divide cannot use operands with types dtype('float64') and dtype('<m8[m]')
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 13:25:12] "POST /api/sch/sch_result HTTP/1.1" 500 -
+ERROR /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 Error on request:
+Traceback (most recent call last):
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 258, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py", line 122, in show_schedule_result
+    res = sch_jobs_today()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 257, in sch_jobs_today
+    disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 290, in create_dispatch
+    dispatch_date, row['worker_id'], deadline, dispatch_info, order_list)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py", line 323, in create
+    right_on='order_id', suffixes=('', '_y'))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/reshape/merge.py", line 61, in merge
+    validate=validate)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/reshape/merge.py", line 551, in __init__
+    self.join_names) = self._get_merge_keys()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/reshape/merge.py", line 871, in _get_merge_keys
+    lk, stacklevel=stacklevel))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/generic.py", line 1382, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'order_id'
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/__init__.py:415 CACHEDIR=/Users/DanielJiang/.matplotlib
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/font_manager.py:1362 Using fontManager instance from /Users/DanielJiang/.matplotlib/fontlist-v300.json
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/pyplot.py:211 Loaded backend TkAgg version unknown.
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/__init__.py:415 CACHEDIR=/Users/DanielJiang/.matplotlib
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/font_manager.py:1362 Using fontManager instance from /Users/DanielJiang/.matplotlib/fontlist-v300.json
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/pyplot.py:211 Loaded backend TkAgg version unknown.
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 13:34:25] "POST /api/sch/sch_result HTTP/1.1" 500 -
+ERROR /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 Error on request:
+Traceback (most recent call last):
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 258, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py", line 122, in show_schedule_result
+    res = sch_jobs_today()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 257, in sch_jobs_today
+    disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 290, in create_dispatch
+    dispatch_date, row['worker_id'], deadline, dispatch_info, order_list)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py", line 324, in create
+    df.loc[:, 'plan_start'] = df.plan_start_y
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pandas/core/generic.py", line 4376, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'plan_start_y'
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/__init__.py:415 CACHEDIR=/Users/DanielJiang/.matplotlib
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/font_manager.py:1362 Using fontManager instance from /Users/DanielJiang/.matplotlib/fontlist-v300.json
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/matplotlib/pyplot.py:211 Loaded backend TkAgg version unknown.
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 13:46:32] "POST /api/sch/sch_result HTTP/1.1" 200 -
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 13:47:23] "POST /api/sch/sch_result HTTP/1.1" 200 -
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 13:50:42] "POST /api/sch/sch_result HTTP/1.1" 500 -
+ERROR /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 Error on request:
+Traceback (most recent call last):
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 258, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py", line 122, in show_schedule_result
+    res = sch_jobs_today()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 240, in sch_jobs_today
+    r = save_data_from_api()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 224, in save_data_from_api
+    job_res = save_order_from_api(100, joblist)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 98, in save_order_from_api
+    res = Sch_J.df_insert(df)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py", line 143, in df_insert
+    new_job = SchJobsM(**x)
+  File "<string>", line 4, in __init__
+    
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/state.py", line 424, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/state.py", line 421, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/ext/declarative/base.py", line 746, in _declarative_constructor
+    (k, cls_.__name__))
+TypeError: 'sch_status' is an invalid keyword argument for SchJobsM
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 13:52:23] "POST /api/sch/sch_result HTTP/1.1" 500 -
+ERROR /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 Error on request:
+Traceback (most recent call last):
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/serving.py", line 258, in execute
+    application_iter = app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/views.py", line 122, in show_schedule_result
+    res = sch_jobs_today()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 240, in sch_jobs_today
+    r = save_data_from_api()
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 224, in save_data_from_api
+    job_res = save_order_from_api(100, joblist)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_api.py", line 98, in save_order_from_api
+    res = Sch_J.df_insert(df)
+  File "/Users/DanielJiang/Documents/github/EcarWash/backend/car_wash/api/modules/scheduler/sch_lib.py", line 145, in df_insert
+    db.session.flush()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+    self._flush(objects)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+    raise value
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+    flush_context.execute()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+    uow
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+    result.read()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+    packet.check_error()
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1054, "Unknown column 'nan' in 'field list'") [SQL: 'INSERT INTO sch_jobs (city, region_id, addr, sch_date, order_id, job_type, start_time, end_time, plan_start, plan_end, hrs, worker_id, sch_task_id, status, dispatch_id) VALUES (%(city)s, %(region_id)s, %(addr)s, %(sch_date)s, %(order_id)s, %(job_type)s, %(start_time)s, %(end_time)s, %(plan_start)s, %(plan_end)s, %(hrs)s, %(worker_id)s, %(sch_task_id)s, %(status)s, %(dispatch_id)s)'] [parameters: {'city': '上海市', 'region_id': '0', 'addr': 0, 'sch_date': '2019-04-11', 'order_id': '5427', 'job_type': '66', 'start_time': '2019-04-11 19:00', 'end_time': '2019-04-11 21:00', 'plan_start': None, 'plan_end': None, 'hrs': 1, 'worker_id': '0', 'sch_task_id': 100, 'status': nan, 'dispatch_id': None}] (Background on this error at: http://sqlalche.me/e/2j85)
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/updateOrderStatus HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getorderlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-12 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist?access_key=xunjiepf&city=%E4%B8%8A%E6%B5%B7%E5%B8%82&date=2019-04-13 HTTP/1.1" 200 None
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:824 Starting new HTTPS connection (1): banana.xunjiepf.cn
+DEBUG /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/urllib3/connectionpool.py:396 https://banana.xunjiepf.cn:443 "POST /api/extend/getworkerlist HTTP/1.1" 200 None
+INFO /Users/DanielJiang/.virtualenvs/ebpy3/lib/python3.6/site-packages/werkzeug/_internal.py:88 127.0.0.1 - - [12/Apr/2019 13:55:24] "POST /api/sch/sch_result HTTP/1.1" 200 -

@@ -165,7 +165,8 @@ class SchJobs():
                 db.session.flush()
             db.session.commit()
             return dict(status="success")
-        except:
+        except Exception as err:
+            print(err)
             return dict(status="error")
 
 
@@ -261,7 +262,8 @@ class SchWorkers():
             worker_jobs = self.get_worker_jobs(worker_id, sch_date_str)
             if worker_jobs:
                 df_jobs = pd.DataFrame(worker_jobs).sort_values(['plan_start'])
-                df_jobs.loc[:, 'last_end'] = df_jobs.plan_end.shift(1)
+                df_jobs.loc[:, 'last_end'] = df_jobs.plan_end.shift(
+                    1).fillna(0)
                 df_jobs.loc[:, 'spare_time'] = (
                     df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
                 j_start = df_jobs.iloc[0].plan_start
@@ -316,22 +318,38 @@ class SchDispatch():
         db.session.add(new_d)
         # update jobs
         j = SchJobsM.query.filter(SchJobsM.order_id.in_(order_list)).all()
-        for x in j:
-            x.dispatch_id = new_d.id
-            x.worker_id = worker_id
-            x.status = 'to_dispatch'
-            db.session.flush()
+        df_j = pd.DataFrame([row2dict(x) for x in j])
+        df_disp = pd.DataFrame(dispatch_info['orders'])
+        df = pd.merge(df_j, df_disp, left_on='order_id',
+                      right_on='order_id', suffixes=('', '_y'))
+        df.loc[:, 'plan_start'] = df.start_time_y
+        df.loc[:, 'plan_end'] = df.end_time_y
+        df.loc[:, 'status'] = "to_dispatch"
+        df.loc[:, 'dispatch_id'] = new_d.id
+        df.loc[:, 'worker_id'] = worker_id
+        df = df.drop(['start_time_y', 'end_time_y'], 1)
+        sj = SchJobs(self.city)
+        sj.df_update(df)
+        # for x in j:
+        #     x.dispatch_id = new_d.id
+        #     x.worker_id = worker_id
+        #     x.plan_end = ""
+        #     x.plan_start = ""
+        #     x.status = 'to_dispatch'
+        #     db.session.flush()
         db.session.commit()
         return new_d.id
 
     def update_dispatched(self, id, status):
-        SchDispatchM.query.filter(SchDispatchM.id == id).update(status=status)
-        j = SchJobsM.query.filter(SchJobsM.dispatch_id == id).all()
-        for x in j:
-            x.status = status
-            db.session.flush()
-        db.session.commit()
-        return self.get(id)
+        r = SchDispatchM.query.filter(SchDispatchM.id == id).one_or_none()
+        if r:
+            r.status = status
+            j = SchJobsM.query.filter(SchJobsM.dispatch_id == id).all()
+            for x in j:
+                x.status = status
+                db.session.flush()
+            db.session.commit()
+            return self.get(id)
 
     def reject_dispatch(self, id):
         # remove job dispatch id, worker_id
