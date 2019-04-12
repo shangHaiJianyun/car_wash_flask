@@ -119,5 +119,6 @@ def show_schedule_result():
     '''
         show schedule result
     '''
-    res = sch_jobs_today()
+    # res = sch_jobs_today()
+    res = sch_tomorrow()
     return jsonify(res)

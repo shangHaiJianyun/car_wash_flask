@@ -310,20 +310,52 @@ def create_dispatch(worker_summary, assigned_jobs, deadline):
     return disps
 
 
-# def update_dispatch_result(dispatch_res):
-#     """
-#         派单成功： 修改本地的 job 的dispatch 数据
-#         派单错误：计入日志
-#     """
-#     city = "上海市"
-#     if dispatch_res['success_count'] > 0:
-#         disp_sch = SchDispatch(city)
-#         for x in dispatch_res['disp_success']:
-#             disp_id = x['disp_id']
-#             disp_sch.update_dispatched(disp_id, 'dispatched')
-#     if dispatch_res['error_count'] > 0:
-#         slog = SchTestLog()
-#         slog.create('dispatch_err', disp_error)
+def sch_tomorrow():
+    """
+        派明天订单， 当前时间以后的
+    """
+    # 获取数据，更新到db
+    process_unpaid_orders()
+    r = save_data_from_api()
+    city = "上海市"
+    sch_datetime = dt.datetime.today().date() + dt.timedelta(days=1)
+    # ：test data
+    # sch_datetime = dt.datetime(2019, 4, 9, 11, 00)
+    day_str = sch_datetime.isoformat()
+    tm_datetime = dt.datetime.strptime(day_str, "%Y-%m-%d")
+    sch_jobs = SchJobs(city)
+    jobs = sch_jobs.unscheduled_jobs(tm_datetime)
+    if jobs is None:
+        return dict(status='error', msg='no jobs', data='')
+    sch_workers = SchWorkers(city)
+    workers = sch_workers.all_worker_by_date(day_str)
+    if workers is None:
+        return dict(status='error', msg='no workers', data='')
+    return "Done"
+    # assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
+    #     jobs, workers, day_str)
+    # assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
+    # open_jobs = open_jobs.drop(['hrs_t'], 1)
+
+    # if assigned_jobs.empty:
+    #     dict(status='success', data=dict(
+    #         assigned_jobs=assigned_jobs.to_dict('records'),
+    #         workers=arranged_workers.to_dict('records'),
+    #         open_jobs=open_jobs.to_dict('records'),
+    #         worker_summary=worker_summary.to_dict('records'),
+    #         dispatch_data=[])
+    #     )
+    # #: create dispatch data
+    # deadline = 15
+    # disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+    # return dict(status='success',
+    #             data=dict(
+    #                 assigned_jobs=assigned_jobs.to_dict('records'),
+    #                 workers=arranged_workers.to_dict('records'),
+    #                 open_jobs=open_jobs.to_dict('records'),
+    #                 worker_summary=worker_summary.to_dict('records'),
+    #                 dispatch_data=disps)
+    #             )
 
 
 def dispatch_to_api(data, disp_id, disp_sch):
