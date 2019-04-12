@@ -261,16 +261,23 @@ class SchWorkers():
         if worker_info:
             w_start = worker_info['w_start']
             w_end = worker_info['w_end']
+            w_start = dt.datetime.strptime(w_start, "%Y-%m-%d %H:%M:%S")
+            w_end = dt.datetime.strptime(w_end, "%Y-%m-%d %H:%M:%S")
             worker_jobs = self.get_worker_jobs(worker_id, sch_date_str)
             if worker_jobs:
                 df_jobs = pd.DataFrame(worker_jobs).sort_values(['plan_start'])
                 df_jobs.loc[:, 'last_end'] = df_jobs.plan_end.shift(
-                    1).fillna(0)
+                    1)
+                df_jobs.last_end = pd.to_datetime(
+                    df_jobs.last_end, format="%Y-%m-%d %H:%M")
+                df_jobs.plan_start = pd.to_datetime(
+                    df_jobs.plan_start, format="%Y-%m-%d %H:%M")
+                df_jobs.plan_end = pd.to_datetime(
+                    df_jobs.plan_end, format="%Y-%m-%d %H:%M")
                 df_jobs.loc[:, 'spare_time'] = (
                     df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
                 j_start = df_jobs.iloc[0].plan_start
                 j_end = df_jobs.iloc[-1].plan_end
-
                 if (j_start - w_start) / np.timedelta64(1, 'm') >= 60:
                     free_time.append(dict(w_start=w_start, w_end=j_start))
 

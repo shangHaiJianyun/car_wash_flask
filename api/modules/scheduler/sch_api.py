@@ -267,7 +267,6 @@ def sch_jobs_today():
     #: create dispatch data
     deadline = 15
     disps = create_dispatch(worker_summary, assigned_jobs, deadline)
-    # dispatch_jobs(disps)
     return dict(status='success',
                 data=dict(
                     assigned_jobs=assigned_jobs.to_dict('records'),

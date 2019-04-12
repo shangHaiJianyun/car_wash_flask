@@ -69,7 +69,7 @@ def calculate_region_loads(region_id, jobs, workers, period, bucket='start_time'
     region_req_supply = region_wrk_hrs.join(region_req).fillna(0)
     region_req_supply.loc[:, 'region_id'] = region_id
     region_req_supply.loc[:, 'short_hrs'] = region_req_supply.wrk_hrs - \
-                                            region_req_supply.req_hrs
+        region_req_supply.req_hrs
     return region_req_supply
 
 
@@ -250,8 +250,11 @@ def dispatch_region_jobs(jobs, workers, day_str):
         if worker_free_time is None:
             continue
         for ft in worker_free_time:
-            w_start = dt.datetime.strptime(ft['w_start'],  "%Y-%m-%d %H:%M:%S")
-            w_end = dt.datetime.strptime(ft['w_end'],  "%Y-%m-%d %H:%M:%S")
+            w_start = ft['w_start']
+            w_end = ft['w_end']
+
+            # w_start = dt.datetime.strptime(ft['w_start'],  "%Y-%m-%d %H:%M:%S")
+            # w_end = dt.datetime.strptime(ft['w_end'],  "%Y-%m-%d %H:%M:%S")
             while ((w_end - w_start).seconds >= 20) & (hrs_to_assign > 0.5):
                 print('   ...派单中: ', '服务开始时间：', w_start, '服务结束时间：',
                       w_end, ' 需派工时', hrs_to_assign, ' 当前订单数: ', len(jobs))
@@ -275,8 +278,8 @@ def dispatch_region_jobs(jobs, workers, day_str):
                             'wait_hr': 'sum', 'order_id': 'count'
                         })
                         job_grp.loc[:, 'duration'] = (
-                                                             job_grp.plan_end - job_grp.plan_start) / np.timedelta64(1,
-                                                                                                                     'h')
+                            job_grp.plan_end - job_grp.plan_start) / np.timedelta64(1,
+                                                                                    'h')
                         job_grp.loc[:, 'idle_rate'] = np.where(
                             job_grp.order_id == 1, 0, np.round(job_grp.wait_hr / job_grp.duration, 2) * 100)
                         job_grp = job_grp.reset_index().sort_values(
@@ -348,8 +351,8 @@ def dispatch_region_jobs(jobs, workers, day_str):
                     print(' %2d  技师 %2s  工作时段 %2s  ～ %2s  没有订单可分配...' %
                           (idx, worker_id, w_start.time(), w_end.time()))
                     break
-        worker_jobs = assigned_jobs[assigned_jobs.worker_id == worker_id]
-        if not worker_jobs.empty:
+        if not assigned_jobs.empty:
+            worker_jobs = assigned_jobs[assigned_jobs.worker_id == worker_id]
             arranged_workers.loc[idx,
                                  'hrs_assigned'] = worker_jobs.sum().hrs
             # f1 = (row.w_start - worker_jobs.plan_start.min()) / \
@@ -357,19 +360,20 @@ def dispatch_region_jobs(jobs, workers, day_str):
             # print('w-s', row.w_start, worker_jobs.plan_start.min(), worker_jobs.plan_end.max(), row.w_end, f1)
 
             print(worker_jobs.sort_values(['plan_start'], ascending=[1]))
-        print('派单完成: 技师 ： %s, 需派单 %2.2f 小时, 已派单 %2.2f  小时' %
-              (worker_id, w_adt_hrs, worker_jobs.sum().hrs, ))
+            print('派单完成: 技师 ： %s, 需派单 %2.2f 小时, 已派单 %2.2f  小时' %
+                  (worker_id, w_adt_hrs, worker_jobs.sum().hrs, ))
         # print('====' * 10)
 
     print('完成分配...  %2d 个订单还未分配, %2d 个订单已分配..' %
           (len(jobs), len(assigned_jobs)))
-    worker_summary = assigned_jobs.groupby(['worker_id']).agg({
-        'plan_start': 'first',
-        'plan_end': 'last',
-        'hrs': 'sum',
-        'wait_hr': 'sum',
-        'order_id': 'count'
-    }).reset_index()
+    if not assigned_jobs.empty:
+        worker_summary = assigned_jobs.groupby(['worker_id']).agg({
+            'plan_start': 'first',
+            'plan_end': 'last',
+            'hrs': 'sum',
+            'wait_hr': 'sum',
+            'order_id': 'count'
+        }).reset_index()
     # print(' %2d worker done...' % len(worker_summary))
     #     print(worker_summary)
     # print('### 还剩下  %d 个订单未分配 ' % len(jobs))
