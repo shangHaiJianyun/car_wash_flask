@@ -245,24 +245,37 @@ def sch_jobs_today():
     day_str = sch_datetime.date().isoformat()
     sch_jobs = SchJobs(city)
     jobs = sch_jobs.unscheduled_jobs(sch_datetime)
+    if jobs is None:
+        return dict(status='error', msg='no jobs', data='')
     sch_workers = SchWorkers(city)
     workers = sch_workers.all_worker_by_date(day_str)
+    if workers is None:
+        return dict(status='error', msg='no workers', data='')
     assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
         jobs, workers, day_str)
     assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
     open_jobs = open_jobs.drop(['hrs_t'], 1)
 
+    if assigned_jobs.empty:
+        dict(status='success', data=dict(
+            assigned_jobs=assigned_jobs.to_dict('records'),
+            workers=arranged_workers.to_dict('records'),
+            open_jobs=open_jobs.to_dict('records'),
+            worker_summary=worker_summary.to_dict('records'),
+            dispatch_data=[])
+        )
     #: create dispatch data
     deadline = 15
     disps = create_dispatch(worker_summary, assigned_jobs, deadline)
     # dispatch_jobs(disps)
-    return dict(
-        assigned_jobs=assigned_jobs.to_dict('records'),
-        workers=arranged_workers.to_dict('records'),
-        open_jobs=open_jobs.to_dict('records'),
-        worker_summary=worker_summary.to_dict('records'),
-        dispatch_data=disps
-    )
+    return dict(status='success',
+                data=dict(
+                    assigned_jobs=assigned_jobs.to_dict('records'),
+                    workers=arranged_workers.to_dict('records'),
+                    open_jobs=open_jobs.to_dict('records'),
+                    worker_summary=worker_summary.to_dict('records'),
+                    dispatch_data=disps)
+                )
 
 
 def create_dispatch(worker_summary, assigned_jobs, deadline):

@@ -107,6 +107,8 @@ class SchJobs():
             cast(SchJobsM.start_time, Date) == sch_datetime.date(),
             SchJobsM.worker_id == '0',
             SchJobsM.city == self.city)).order_by(SchJobsM.start_time.asc()).all()
+        if len(res) == 0:
+            return None
         order_list = [row2dict(x) for x in res]
         df = pd.DataFrame(order_list)
         df.loc[:, 'start_time'] = pd.to_datetime(
