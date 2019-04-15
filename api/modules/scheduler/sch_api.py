@@ -266,7 +266,7 @@ def sch_jobs_today():
         )
     #: create dispatch data
     deadline = 15
-    disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+    disps = create_dispatch(worker_summary, assigned_jobs, day_str, deadline)
     return dict(status='success',
                 data=dict(
                     assigned_jobs=assigned_jobs.to_dict('records'),
@@ -277,7 +277,7 @@ def sch_jobs_today():
                 )
 
 
-def create_dispatch(worker_summary, assigned_jobs, deadline):
+def create_dispatch(worker_summary, assigned_jobs, dispatch_date, deadline):
     city = "上海市"
     ws = worker_summary.reset_index()
     disps = []
@@ -288,8 +288,15 @@ def create_dispatch(worker_summary, assigned_jobs, deadline):
         orders = assigned_jobs[assigned_jobs.worker_id == row['worker_id']].loc[:, (
             'order_id', 'plan_start', 'plan_end')].sort_values('plan_start')
         first_job_time = orders.iloc[0].plan_start
-        dispatch_date_t = first_job_time - dt.timedelta(seconds=1800)
-        dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M:%S')
+        #: 派单日期和deadline 设置
+        if dispatch_date != dt.datetime.today().isoformat():
+            disp_deadline = max(dt.datetime.strptime(
+                dispatch_date + ' 20:00', "%Y-%m-%d %H:%M"), dt.datetime.today() + dt.timedelta(days=1)) + dt.timedelta(seconds=deadline)
+        else:
+            disp_deadline = first_job_time - dt.timedelta(seconds=1800)
+        # dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M:%S')
+        disp_deadline_str = dt.datetime.strftime(
+            disp_deadline, "%Y-%m-%d %H:%M")
         orders.columns = ['order_id', 'start_time', 'end_time']
         orders.start_time = orders.start_time.apply(
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
@@ -299,9 +306,9 @@ def create_dispatch(worker_summary, assigned_jobs, deadline):
         dispatch_info = dict(
             worker_id=row['worker_id'], orders=orders.to_dict('records'))
         disp_id = disp_sch.create(
-            dispatch_date, row['worker_id'], deadline, dispatch_info, order_list)
+            dispatch_date, row['worker_id'], disp_deadline_str, dispatch_info, order_list)
         disp_data = dict(dispatch_info=dict(data=[dispatch_info]),
-                         dispatch_date=dispatch_date, deadline=deadline)
+                         dispatch_date=dispatch_date, deadline=disp_deadline_str)
         r = dispatch_to_api(disp_data, disp_id, disp_sch)
         if r == "success":
             disp_data.update(dispatch_id=disp_id)
@@ -324,14 +331,14 @@ def sch_tomorrow():
     day_str = sch_datetime.isoformat()
     tm_datetime = dt.datetime.strptime(day_str, "%Y-%m-%d")
     sch_jobs = SchJobs(city)
-    jobs = sch_jobs.unscheduled_jobs(tm_datetime)
+    jobs = sch_jobs.unscheduled_jobs(tm_datetime)[:5]
     if jobs is None:
         return dict(status='error', msg='no jobs', data='')
     sch_workers = SchWorkers(city)
     workers = sch_workers.all_worker_by_date(day_str)
     if workers is None:
         return dict(status='error', msg='no workers', data='')
-    return "Done"
+    # return "Done"
     assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
         jobs, workers, day_str)
     assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
@@ -347,7 +354,7 @@ def sch_tomorrow():
         )
     #: create dispatch data
     deadline = 60
-    disps = create_dispatch(worker_summary, assigned_jobs, deadline)
+    disps = create_dispatch(worker_summary, assigned_jobs, day_str, deadline)
     return dict(status='success',
                 data=dict(
                     assigned_jobs=assigned_jobs.to_dict('records'),

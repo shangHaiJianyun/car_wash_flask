@@ -107,7 +107,7 @@ class SchDispatchM(db.Model):
     city = db.Column(db.String(32), index=True)
     sch_date = db.Column(db.String(20), index=True)
     dispatch_date = db.Column(db.String(20), index=True)
-    deadline = db.Column(db.Integer)
+    deadline = db.Column(db.String(20))
     dispatch_info = db.Column(JSON())
     worker_id = db.Column(db.Integer, index=True)
     status = db.Column(db.String(20), index=True, )
