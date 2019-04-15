@@ -261,8 +261,8 @@ class SchWorkers():
         if worker_info:
             w_start = worker_info['w_start']
             w_end = worker_info['w_end']
-            w_start = dt.datetime.strptime(w_start, "%Y-%m-%d %H:%M:%S")
-            w_end = dt.datetime.strptime(w_end, "%Y-%m-%d %H:%M:%S")
+            w_start = dt.datetime.strptime(w_start, "%Y-%m-%d %H:%M")
+            w_end = dt.datetime.strptime(w_end, "%Y-%m-%d %H:%M")
             worker_jobs = self.get_worker_jobs(worker_id, sch_date_str)
             if worker_jobs:
                 df_jobs = pd.DataFrame(worker_jobs).sort_values(['plan_start'])
