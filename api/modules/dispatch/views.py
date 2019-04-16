@@ -92,12 +92,12 @@ def dispatch():
 
     worker_id = data[0]['worker_id']
     erro = []
-    # dispatch_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(time.time())))
-    # 获取服务时间的时间戳
+
     for i in data[0]['orders']:
         service_date = i['start_time']
         timeArray = time.strptime(service_date, "%Y-%m-%d %H:%M")
 
+        dispatch_date = str(service_date.split(' ')[0])
         # timeD = 86400.0  # 隔天的时间戳差值
         tomorrow = datetime.date.today() + datetime.timedelta(days=1)
         tomorrow_start_time = int(time.mktime(tomorrow.timetuple()))
@@ -106,8 +106,17 @@ def dispatch():
             deadline = 15
         else:
             deadline = 60
+        if dispatch_date != datetime.datetime.today().isoformat():
+            disp_deadline = max(datetime.datetime.strptime(
+                dispatch_date + ' 20:00', "%Y-%m-%d %H:%M"),
+                datetime.datetime.today() + datetime.timedelta(days=1)) + datetime.timedelta(
+                seconds=deadline)
+        else:
+            disp_deadline = timeArray - datetime.timedelta(seconds=1800)
 
-        # print(deadline)
+        disp_deadline_str = datetime.datetime.strftime(
+            disp_deadline, "%Y-%m-%d %H:%M")
+        print(disp_deadline_str)
         dis_data = []
         order = []
         order.append(i)
@@ -116,12 +125,11 @@ def dispatch():
         s['orders'] = order
         dis_data.append(s)
         # print(dis_data)
-        dispatch_date = str(service_date.split(' ')[0])
         params = {
             "passwd": passwd,
             "dispatch_info": {"data": dis_data},
             "dispatch_date": dispatch_date,
-            "deadline": str(deadline)
+            "deadline": disp_deadline_str
         }
         res = requests.post(
             url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
