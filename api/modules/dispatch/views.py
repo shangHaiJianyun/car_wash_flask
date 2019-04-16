@@ -106,17 +106,7 @@ def dispatch():
             deadline = 15
         else:
             deadline = 60
-        if dispatch_date != datetime.datetime.today().isoformat():
-            disp_deadline = max(datetime.datetime.strptime(
-                dispatch_date + ' 20:00', "%Y-%m-%d %H:%M"),
-                datetime.datetime.today() + datetime.timedelta(days=1)) + datetime.timedelta(
-                seconds=deadline)
-        else:
-            disp_deadline = timeArray - datetime.timedelta(seconds=1800)
-
-        disp_deadline_str = datetime.datetime.strftime(
-            disp_deadline, "%Y-%m-%d %H:%M")
-        print(disp_deadline_str)
+        # print(deadline,dispatch_date)
         dis_data = []
         order = []
         order.append(i)
@@ -129,7 +119,7 @@ def dispatch():
             "passwd": passwd,
             "dispatch_info": {"data": dis_data},
             "dispatch_date": dispatch_date,
-            "deadline": disp_deadline_str
+            "deadline": deadline
         }
         res = requests.post(
             url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
