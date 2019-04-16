@@ -8,6 +8,7 @@ from api.common_func.area import AreaM, AreaRateM, NearbyM
 from api.common_func.city_code import level_code
 from api.common_func.nearby_area import set_nearby
 from api.modules.map import map_blu
+import numpy as np
 
 
 @map_blu.route('/get_rate', methods=['POST'])
@@ -93,3 +94,16 @@ def get_nearby():
     except Exception as e:
         raise e
     return jsonify(res)
+
+
+@map_blu.route('cluster_address', methods=['GET', 'POST'])
+def cluster_address():
+    from api.common_func.cluster_address import cluster
+    try:
+        loc = request.json.get('loc')
+        loc_data = np.array(loc)
+        data = cluster(loc_data)
+    except Exception as e:
+        return {'erro': e}
+
+    return jsonify({'data': data})
