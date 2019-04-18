@@ -1,18 +1,25 @@
 # Role_allocate
 car_sch
 
-1.POSTMAN接口Doc：https://documenter.getpostman.com/view/5990473/RznJmcEB
-
-2.celery的配置信息在config.py文件中，
-启动celery的命令：
+1.POSTMAN接口Doc：
    
-    celery worker -A api.celery_tasks.tasks --loglevel=info
-    
-    celery -A api.celery_tasks.tasks:celery worker -l info -B (包含定时任务时的终端命令)
+      https://documenter.getpostman.com/view/5990473/RznJmcEB
+
+2.celery的配置信息在config.py文件中
+
+   启动celery的命令：
+   
+       celery worker -A api.celery_tasks.tasks --loglevel=info
+
+       celery -A api.celery_tasks.tasks:celery worker -l info -B (包含定时任务时的终端命令)
     
     
 
-3.获取区域周边的信息接口为：dev.upctech.com.cn/api/map/get_nearby
+3.获取区域周边的信息接口为：
+     
+     dev.upctech.com.cn/api/map/get_nearby
+  
+  
   1>post参数：
         
         {"area_id":<int>}
