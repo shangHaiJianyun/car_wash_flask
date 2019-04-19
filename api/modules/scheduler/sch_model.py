@@ -92,7 +92,6 @@ class SchJobsM(db.Model):
     plan_end = db.Column(db.String(20))
     hrs = db.Column(db.Float)
     worker_id = db.Column(db.String(10), index=True, default='0')
-    sch_task_id = db.Column(db.Integer, index=True)
     status = db.Column(db.String(20), index=True, )
     dispatch_id = db.Column(db.Integer, index=True)
 
@@ -107,7 +106,7 @@ class SchDispatchM(db.Model):
     city = db.Column(db.String(32), index=True)
     sch_date = db.Column(db.String(20), index=True)
     dispatch_date = db.Column(db.String(20), index=True)
-    deadline = db.Column(db.String(20))
+    deadline = db.Column(db.Integer)
     dispatch_info = db.Column(JSON())
     worker_id = db.Column(db.Integer, index=True)
     status = db.Column(db.String(20), index=True, )

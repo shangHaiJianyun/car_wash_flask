@@ -288,15 +288,15 @@ def create_dispatch(worker_summary, assigned_jobs, dispatch_date, deadline):
         orders = assigned_jobs[assigned_jobs.worker_id == row['worker_id']].loc[:, (
             'order_id', 'plan_start', 'plan_end')].sort_values('plan_start')
         first_job_time = orders.iloc[0].plan_start
-        #: 派单日期和deadline 设置
-        if dispatch_date != dt.datetime.today().isoformat():
-            disp_deadline = max(dt.datetime.strptime(
-                dispatch_date + ' 20:00', "%Y-%m-%d %H:%M"), dt.datetime.today() + dt.timedelta(days=1)) + dt.timedelta(seconds=deadline)
-        else:
-            disp_deadline = first_job_time - dt.timedelta(seconds=1800)
-        # dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M:%S')
-        disp_deadline_str = dt.datetime.strftime(
-            disp_deadline, "%Y-%m-%d %H:%M")
+        # #: 派单日期和deadline 设置
+        # if dispatch_date != dt.datetime.today().isoformat():
+        #     disp_deadline = max(dt.datetime.strptime(
+        #         dispatch_date + ' 20:00', "%Y-%m-%d %H:%M"), dt.datetime.today() + dt.timedelta(days=1)) + dt.timedelta(seconds=deadline)
+        # else:
+        #     disp_deadline = first_job_time - dt.timedelta(seconds=1800)
+        # # dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M:%S')
+        # disp_deadline_str = dt.datetime.strftime(
+        #     disp_deadline, "%Y-%m-%d %H:%M")
         orders.columns = ['order_id', 'start_time', 'end_time']
         orders.start_time = orders.start_time.apply(
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
@@ -306,9 +306,9 @@ def create_dispatch(worker_summary, assigned_jobs, dispatch_date, deadline):
         dispatch_info = dict(
             worker_id=row['worker_id'], orders=orders.to_dict('records'))
         disp_id = disp_sch.create(
-            dispatch_date, row['worker_id'], disp_deadline_str, dispatch_info, order_list)
+            dispatch_date, row['worker_id'], deadline, dispatch_info, order_list)
         disp_data = dict(dispatch_info=dict(data=[dispatch_info]),
-                         dispatch_date=dispatch_date, deadline=disp_deadline_str)
+                         dispatch_date=dispatch_date, deadline=deadline)
         r = dispatch_to_api(disp_data, disp_id, disp_sch)
         if r == "success":
             disp_data.update(dispatch_id=disp_id)
