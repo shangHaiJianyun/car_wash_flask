@@ -349,10 +349,11 @@ class SchDispatch():
         db.session.commit()
         return new_d.id
 
-    def update_dispatched(self, id, status):
+    def update_dispatched(self, id, status, dispatch_num):
         r = SchDispatchM.query.filter(SchDispatchM.id == id).one_or_none()
         if r:
             r.status = status
+            r.dispatch_num = dispatch_num
             j = SchJobsM.query.filter(SchJobsM.dispatch_id == id).all()
             for x in j:
                 x.status = status

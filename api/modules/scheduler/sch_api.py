@@ -379,7 +379,8 @@ def dispatch_to_api(data, disp_id, disp_sch):
     if req.status_code == requests.codes.ok:
         res = req.json()
         if res[0]['errcode'] == 0:
-            disp_sch.update_dispatched(disp_id, 'dispatched')
+            dispatch_num = res[0]['dispatch_id']
+            disp_sch.update_dispatched(disp_id, 'dispatched',dispatch_num)
             return "success"
         else:
             slog = SchTestLog()

@@ -109,7 +109,8 @@ class SchDispatchM(db.Model):
     deadline = db.Column(db.Integer)
     dispatch_info = db.Column(JSON())
     worker_id = db.Column(db.Integer, index=True)
-    status = db.Column(db.String(20), index=True, )
+    status = db.Column(db.String(20), index=True)
+    dispatch_num = db.Column(db.String(20), index=True)
     created_on = db.Column(db.DateTime, default=db.func.current_timestamp())
 
 
