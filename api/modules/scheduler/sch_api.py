@@ -174,8 +174,7 @@ def process_unpaid_orders():
     access_key = 'xunjiepf'
     url = "https://banana.xunjiepf.cn/api/extend/getorderlist"
     data = {
-        'access_key': access_key,
-        'order_status': 1,
+        'access_key': access_key
     }
     res = requests.post(
         url,
@@ -185,8 +184,12 @@ def process_unpaid_orders():
         data=json.dumps(data)
     )
     result = res.json()['data']['data']
+    data = []
+    for i in result:
+        if int(i['order_status']) == 1:
+            data.append(i)
     paid_order = []
-    for x in result[:2]:
+    for x in data[:2]:
         order_ids = x["order_id"]
         res = set_order_paid(order_ids)
         if res:
@@ -253,25 +256,28 @@ def sch_jobs_today():
         return dict(status='error', msg='no workers', data='')
     assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
         jobs, workers, day_str)
-    assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
-    open_jobs = open_jobs.drop(['hrs_t'], 1)
+
+    if not open_jobs.empty:
+        open_jobs_dict = open_jobs.drop(['hrs_t'], 1).to_dict('records')
+    else:
+        open_jobs_dict = {}
 
     if assigned_jobs.empty:
-        dict(status='success', data=dict(
-            assigned_jobs=assigned_jobs.to_dict('records'),
+        return dict(status='success', data=dict(
             workers=arranged_workers.to_dict('records'),
-            open_jobs=open_jobs.to_dict('records'),
-            worker_summary=worker_summary.to_dict('records'),
-            dispatch_data=[])
+            open_jobs=open_jobs_dict
         )
-    #: create dispatch data
-    deadline = 15
+                    )
+    else:
+        assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
+        #: create dispatch data
+    deadline = 60
     disps = create_dispatch(worker_summary, assigned_jobs, day_str, deadline)
     return dict(status='success',
                 data=dict(
                     assigned_jobs=assigned_jobs.to_dict('records'),
                     workers=arranged_workers.to_dict('records'),
-                    open_jobs=open_jobs.to_dict('records'),
+                    open_jobs=open_jobs.dict,
                     worker_summary=worker_summary.to_dict('records'),
                     dispatch_data=disps)
                 )
@@ -341,17 +347,19 @@ def sch_tomorrow():
     # return "Done"
     assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
         jobs, workers, day_str)
-    assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
-    open_jobs = open_jobs.drop(['hrs_t'], 1)
+    if not open_jobs.empty:
+        open_jobs_dict = open_jobs.drop(['hrs_t'], 1).to_dict('records')
+    else:
+        open_jobs_dict = {}
 
     if assigned_jobs.empty:
-        dict(status='success', data=dict(
-            assigned_jobs=assigned_jobs.to_dict('records'),
+        return dict(status='success', data=dict(
             workers=arranged_workers.to_dict('records'),
-            open_jobs=open_jobs.to_dict('records'),
-            worker_summary=worker_summary.to_dict('records'),
-            dispatch_data=[])
-        )
+            open_jobs=open_jobs_dict
+            )
+             )
+    else:
+        assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
     #: create dispatch data
     deadline = 60
     disps = create_dispatch(worker_summary, assigned_jobs, day_str, deadline)
@@ -359,7 +367,7 @@ def sch_tomorrow():
                 data=dict(
                     assigned_jobs=assigned_jobs.to_dict('records'),
                     workers=arranged_workers.to_dict('records'),
-                    open_jobs=open_jobs.to_dict('records'),
+                    open_jobs=open_jobs.dict,
                     worker_summary=worker_summary.to_dict('records'),
                     dispatch_data=disps)
                 )

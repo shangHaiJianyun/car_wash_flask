@@ -366,6 +366,7 @@ def dispatch_region_jobs(jobs, workers, day_str):
 
     print('完成分配...  %2d 个订单还未分配, %2d 个订单已分配..' %
           (len(jobs), len(assigned_jobs)))
+    worker_summary = pd.DataFrame()
     if not assigned_jobs.empty:
         worker_summary = assigned_jobs.groupby(['worker_id']).agg({
             'plan_start': 'first',
@@ -374,6 +375,7 @@ def dispatch_region_jobs(jobs, workers, day_str):
             'wait_hr': 'sum',
             'order_id': 'count'
         }).reset_index()
+        # print('type(worker_summary):',type(worker_summary))
     # print(' %2d worker done...' % len(worker_summary))
     #     print(worker_summary)
     # print('### 还剩下  %d 个订单未分配 ' % len(jobs))
