@@ -34,8 +34,11 @@ def gen_sim_data():
     new_task = s_task.create(workday)
     # print(new_task, type(new_task))
     jobs.loc[:, 'sch_task_id'] = new_task
-    jobs.loc[:, 'sch_status'] = 'pending'
+
+    jobs.loc[:, 'status'] = 'pending'
+    jobs.loc[:, 'sch_date'] = sch_date
     jobs = jobs.drop(['ts', 'hrs_t'], 1)
+
     s_jobs = SchJobs(city)
     s_jobs.df_insert(jobs)
     job_num = jobs.order_id.count()
@@ -46,7 +49,7 @@ def gen_sim_data():
     workers.loc[:, 'sch_date'] = sch_date
     sw.df_insert(workers)
     workers_db = sw.all_worker_by_date(workday)
-    # print(workers_db)
+    # print('-----workdb_type----',type(workers_db))
     job_info = dict(job_num=int(job_num),
                     job_hrs=float(job_hrs),
                     worker_num=int(worker_num),
@@ -56,10 +59,12 @@ def gen_sim_data():
 
     s_task.update(new_task, job_info)
     task_dtl = s_task.get(new_task)
+
     load_by_region = cal_city_loads_by_region(regions, jobs, workers)
+
     return jsonify(dict(
         status='success', jobs=jobs.to_dict('records'),
-        workers=workers_db,
+        workers=workers_db.to_dict('records'),
         load_by_region=load_by_region,
         sch_task=task_dtl
     ))

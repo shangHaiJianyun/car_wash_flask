@@ -140,8 +140,12 @@ class SchJobs():
         # try:
         for x in to_insert:
             today_job = SchJobsM.query.filter(and_(
-                SchJobsM.sch_date == x['sch_date'], SchJobsM.city == self.city, SchJobsM.order_id == x['order_id'])).one_or_none()
+                SchJobsM.sch_date == x['sch_date'], SchJobsM.city == self.city,
+                SchJobsM.order_id == x['order_id'])).one_or_none()
             if today_job is None:
+                x['end_time'] = str(x['end_time'])
+                x['start_time'] = str(x['start_time'])
+
                 new_job = SchJobsM(**x)
                 db.session.add(new_job)
                 db.session.flush()
@@ -185,11 +189,15 @@ class SchWorkers():
 
     def df_insert(self, df):
         to_insert = df.to_dict('records')
+
         try:
             for x in to_insert:
                 today_worker = self.get_worker_info_by_date(
                     int(x['worker_id']), x['sch_date'])
                 if today_worker is None:
+                    x['w_end'] = str(x['w_end'])
+                    x['w_start'] = str(x['w_start'])
+
                     new_wkr = SchWorkersM(**x)
                     db.session.add(new_wkr)
                     db.session.flush()
@@ -275,7 +283,7 @@ class SchWorkers():
                 df_jobs.plan_end = pd.to_datetime(
                     df_jobs.plan_end, format="%Y-%m-%d %H:%M")
                 df_jobs.loc[:, 'spare_time'] = (
-                    df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
+                                                       df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
                 j_start = df_jobs.iloc[0].plan_start
                 j_end = df_jobs.iloc[-1].plan_end
                 if (j_start - w_start) / np.timedelta64(1, 'm') >= 60:
@@ -323,7 +331,8 @@ class SchDispatch():
     def create(self, sch_date_str, worker_id, disp_deadline_str, dispatch_info, order_list, status="ready"):
         # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d")
         new_d = SchDispatchM(city=self.city, sch_date=sch_date_str,
-                             worker_id=worker_id, deadline=disp_deadline_str, dispatch_info=dispatch_info, status=status)
+                             worker_id=worker_id, deadline=disp_deadline_str, dispatch_info=dispatch_info,
+                             status=status)
         db.session.add(new_d)
         # update jobs
         j = SchJobsM.query.filter(SchJobsM.order_id.in_(order_list)).all()
