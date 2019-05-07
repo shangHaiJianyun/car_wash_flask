@@ -78,10 +78,10 @@ def change_order_status():
     for i in result:
         if int(i['order_status']) == 1:
             data.append(i)
-    paid_order = []
+    paid_id = []
     for x in data:
         order_ids = x["order_id"]
         res = set_order_paid(order_ids)
         if res:
-            paid_order.append(x)
-    return paid_order
+            paid_id.append(order_ids)
+    return paid_id
