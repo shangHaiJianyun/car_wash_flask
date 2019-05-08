@@ -1,11 +1,10 @@
-# Role_allocate
-car_sch
+# Car_wash
 
-1.POSTMAN接口Doc：
+##### 1.POSTMAN接口Doc：
    
       https://documenter.getpostman.com/view/5990473/RznJmcEB
 
-2.celery的配置信息在config.py文件中
+##### 2.celery的配置信息在config.py文件中
 
    启动celery的命令：
    
@@ -15,7 +14,7 @@ car_sch
     
     
 
-3.获取区域周边的信息接口为：
+##### 3.获取区域周边的信息接口为：
      
      dev.upctech.com.cn/api/map/get_nearby
   
@@ -45,3 +44,13 @@ car_sch
             "ur": {},
             "uu": {}
         }
+
+
+##### 4.启动supervisor：
+	supervisord -c supervisord.conf
+
+##### 5.关闭supervisord需要通过supervisor的控制器：
+	supervisorctl -c supervisord.conf shutdown
+
+##### 6.重启supervisord也是通过supervisor的控制器
+	supervisorctl -c supervisord.conf reload
