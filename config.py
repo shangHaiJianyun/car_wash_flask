@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import logging
-import sys
 import os
 from datetime import timedelta
 
@@ -9,7 +8,7 @@ from redis import StrictRedis
 
 class Config:
     DEBUG = True
-    if sys.path[0] == '/home/chendebo/Desktop/start_project':
+    if 'chendebo' in os.getcwd():
         # 本地测试用例数据库
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_wash'
     elif "DanielJiang" in os.getcwd():
