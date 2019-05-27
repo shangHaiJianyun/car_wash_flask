@@ -116,6 +116,9 @@ class AreaM(object):
         for i in areas:
             lng, lat = i.locations['cen']['lng'], i.locations['cen']['lat']
             loc = '{0},{1}'.format(lng, lat)
+            # location_url = "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location=35.658651,139.745415" \
+            #       "&output=json&pois=1&latest_admin=1&ak=您的ak //GET请求"
+
             res = requests.get(
                 url="https://restapi.amap.com/v3/geocode/regeo",
                 params={

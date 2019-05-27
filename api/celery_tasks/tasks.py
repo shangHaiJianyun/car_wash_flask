@@ -13,7 +13,7 @@ import requests
 
 from api.celery_tasks import celery
 # from api.modules.scheduler.sch_lib import *
-# from api.modules.scheduler.sch_api import *
+from api.modules.scheduler.sch_api import sch_jobs_today
 from api.modules.scheduler.sch_api import set_order_paid
 
 
@@ -25,9 +25,9 @@ from api.modules.scheduler.sch_api import set_order_paid
 #     res = process_unpaid_orders()
 #     return res
 #
-# @celery.task
-# def sch_order():
-#     sch_jobs_today()
+@celery.task
+def sch_order():
+    sch_jobs_today()
 #
 # @celery.task
 # def get_order():
