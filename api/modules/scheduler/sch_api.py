@@ -271,7 +271,7 @@ def sch_jobs_today():
     else:
         assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
         #: create dispatch data
-    deadline = 60
+    deadline = 15
     disps = create_dispatch(worker_summary, assigned_jobs, day_str, deadline)
     return dict(status='success',
                 data=dict(
