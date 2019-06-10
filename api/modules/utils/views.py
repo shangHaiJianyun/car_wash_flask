@@ -61,15 +61,3 @@ def helps():
     func_list = sorted(func_list, key=lambda k: k['route'])
     # print func_list
     return jsonify(func_list)
-
-
-# # celery测试接口
-@utils_blu.route('/get_order', methods=['GET', 'POST'])
-def task():
-    from api.celery_tasks.tasks import get_order
-
-    result = get_order.delay()
-    res = result.get()
-    print(type(res))
-    print(res)
-    return jsonify(res)

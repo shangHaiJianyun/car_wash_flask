@@ -7,6 +7,7 @@ from api import db
 from api.common_func.area import AreaM, AreaRateM, NearbyM
 from api.common_func.city_code import level_code
 from api.common_func.nearby_area import set_nearby
+from api.common_func.tx_to_bd import convert
 from api.modules.map import map_blu
 import numpy as np
 
@@ -15,8 +16,10 @@ import numpy as np
 def get_rate():
     # 获取指定坐标后根据中心点坐标确定其所属的区域及价格系数
     # lng:经度  lat:纬度
-    lng = float(request.json.get('lng'))
-    lat = float(request.json.get('lat'))
+    tx_lng = float(request.json.get('lng'))
+    tx_lat = float(request.json.get('lat'))
+    lat, lng = convert(tx_lat, tx_lng)
+
     # print(lng, lat)
     # 从数据库中获取所有的坐标数据
     for j in AreaM().get_all():
