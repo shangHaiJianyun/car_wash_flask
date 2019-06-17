@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import JSON
 from api.models.models import db
 
+
 # db = SQLAlchemy()
 
 
@@ -15,7 +16,7 @@ class SchTaskM(db.Model):
     # __bind_key__ = 'sch'
     __tablename__ = 'sch_tasks'
     id = db.Column(db.Integer, primary_key=True)
-    city = db.Column(db.String(32), index=True,)
+    city = db.Column(db.String(32), index=True)
     name = db.Column(db.String(32))
     sch_date = db.Column(db.Date, index=True)
     sch_regions = db.Column(JSON())
@@ -24,7 +25,7 @@ class SchTaskM(db.Model):
     worker_num = db.Column(db.Integer)
     worker_hrs = db.Column(db.Float)
     created_on = db.Column(db.DateTime, default=db.func.current_timestamp())
-    status = db.Column(db.String(10), index=True, )
+    status = db.Column(db.String(10), index=True)
 
 
 class SubTaskM(db.Model):
@@ -35,8 +36,8 @@ class SubTaskM(db.Model):
     __tablename__ = 'sub_tasks'
     id = db.Column(db.Integer, primary_key=True)
     city = db.Column(db.String(32))
-    sch_task_id = db.Column(db.Integer, index=True,)
-    sub_task_uid = db.Column(db.String(32), index=True,)
+    sch_task_id = db.Column(db.Integer, index=True)
+    sub_task_uid = db.Column(db.String(32), index=True)
     sch_date = db.Column(db.DateTime)
     status = db.Column(db.String(10))
     region_id = db.Column(db.String(10))
@@ -92,8 +93,10 @@ class SchJobsM(db.Model):
     plan_end = db.Column(db.String(20))
     hrs = db.Column(db.Float)
     worker_id = db.Column(db.String(10), index=True, default='0')
-    status = db.Column(db.String(20), index=True, )
+    status = db.Column(db.String(20), index=True)
     dispatch_id = db.Column(db.Integer, index=True)
+    addr_lon = db.Column(db.Float)
+    addr_lat = db.Column(db.Float)
 
 
 class SchDispatchM(db.Model):
@@ -112,6 +115,7 @@ class SchDispatchM(db.Model):
     status = db.Column(db.String(20), index=True)
     dispatch_num = db.Column(db.String(20), index=True)
     created_on = db.Column(db.DateTime, default=db.func.current_timestamp())
+    addr = db.Column(db.String(20))
 
 
 class Sch_Test_Log(db.Model):
