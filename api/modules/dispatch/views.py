@@ -256,3 +256,27 @@ def getParentOrderList():
         })
     )
     return jsonify(res.json()['data']['data'])
+
+
+@dis_blu.route('/getDispatchOrderList', methods=['GET', 'POST'])
+def getDispatchOrderList():
+    """
+    获取技师派单列表
+    :return:
+    """
+    access_key = 'xunjiepf'
+    uid = request.json.get('uid')
+    dispatch_type = request.json.get('dispatch_type', 1)
+    res = requests.post(
+        url='https://banana.xunjiepf.cn/api/extend/getDispatchOrderList',
+        headers={
+            "Content-Type": "application/json"
+        },
+        data=json.dumps({
+            'access_key': access_key,
+            'uid': uid,
+            'dispatch_type': dispatch_type
+        })
+    )
+    return jsonify(res.json())
+
