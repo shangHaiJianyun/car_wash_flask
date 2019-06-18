@@ -311,7 +311,7 @@ def create_dispatch(worker_summary, assigned_jobs, dispatch_date, deadline):
         # # dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M:%S')
         # disp_deadline_str = dt.datetime.strftime(
         #     disp_deadline, "%Y-%m-%d %H:%M")
-        orders.columns = ['order_id', 'start_time', 'end_time', 'addr']
+        orders.columns = ['addr', 'order_id', 'start_time', 'end_time']
         orders.start_time = orders.start_time.apply(
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
         orders.end_time = orders.end_time.apply(
