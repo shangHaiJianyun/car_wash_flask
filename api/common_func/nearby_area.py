@@ -48,7 +48,8 @@ class GetLocation(object):
         sigma1 = atan2(tanU1, cosAlpha1)
         sinAlpha = cosU1 * sinAlpha1
         cosSqAlpha = 1 - sinAlpha * sinAlpha
-        uSq = cosSqAlpha * (self._a * self._a - self._b * self._b) / (self._b * self._b)
+        uSq = cosSqAlpha * (self._a * self._a - self._b *
+                            self._b) / (self._b * self._b)
         A = 1 + uSq / 16384 * (4096 + uSq * (-768 + uSq * (320 - 175 * uSq)))
         B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq)))
 
@@ -61,19 +62,19 @@ class GetLocation(object):
             cos2SigmaM = cos(2 * sigma1 + sigma)
             sinSigma = sin(sigma)
             cosSigma = cos(sigma)
-            deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)
-                                                               - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (
-                                                                       -3 + 4 * cos2SigmaM * cos2SigmaM)))
+            deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (
+                -3 + 4 * cos2SigmaM * cos2SigmaM)))
             sigmaP = sigma
             sigma = self.dis / (self._b * A) + deltaSigma
 
         tmp = sinU1 * sinSigma - cosU1 * cosSigma * cosAlpha1
         lat2 = atan2(sinU1 * cosSigma + cosU1 * sinSigma * cosAlpha1,
                      (1 - self._f) * sqrt(sinAlpha * sinAlpha + tmp * tmp))
-        amb = atan2(sinSigma * sinAlpha1, cosU1 * cosSigma - sinU1 * sinSigma * cosAlpha1)
+        amb = atan2(sinSigma * sinAlpha1, cosU1 *
+                    cosSigma - sinU1 * sinSigma * cosAlpha1)
         C = self._f / 16 * cosSqAlpha * (4 + self._f * (4 - 3 * cosSqAlpha))
         L = amb - (1 - C) * self._f * sinAlpha * (
-                sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)))
+            sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)))
         # revAz = atan2(sinAlpha, -tmp)
         # print(revAz)
 

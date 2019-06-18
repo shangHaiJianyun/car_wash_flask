@@ -83,7 +83,7 @@ class SchJobsM(db.Model):
     sch_task_id = db.Column(db.Integer, index=True)
     city = db.Column(db.String(32), index=True)
     region_id = db.Column(db.String(10), index=True)
-    addr = db.Column(db.String(10))
+    addr = db.Column(db.String(30))
     sch_date = db.Column(db.String(20), index=True)
     order_id = db.Column(db.String(20))
     job_type = db.Column(db.String(10))

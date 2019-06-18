@@ -13,6 +13,7 @@ import requests
 import datetime as dt
 from .sch_lib import *
 from .sch import *
+from api.common_func.cluster_address import cluster
 
 
 def get_orders_from_api(days=2, city="上海市"):
@@ -63,6 +64,8 @@ def save_order_from_api(sch_task_id, order_list, city="上海市"):
         convert datetime to string format
     """
     df = pd.DataFrame(order_list)
+    df.loc[:, 'addr_lat'] = df.address_latitude.astype(float)
+    df.loc[:, 'addr_lon'] = df.address_longitude.astype(float)
     df.loc[:, 'region_id'] = '0'
     df.loc[:, 'city'] = city
     df.loc[:, 'worker_id'] = '0'
@@ -77,26 +80,31 @@ def save_order_from_api(sch_task_id, order_list, city="上海市"):
     df.loc[:, 'sch_date'] = df.service_date
     df.loc[:, 'hrs'] = pd.to_numeric(df.item_duration)
     df = df.rename(columns={
-        'item_id': 'job_type',
-        # 'address_id': 'addr'
+        'item_id': 'job_type'
     })
-
-    df_addr = df.groupby('address_detail').agg({"order_id": 'count'})
-    df_addr = df_addr.reset_index().reset_index()
-    df_addr = df_addr.rename(columns={"index": "addr"})
-    # df_addr.to_dict('records')
-
-    df = pd.merge(df, df_addr, how='inner',  left_on='address_detail', right_on='address_detail',
-                  left_index=False, right_index=False, sort=True,
+    #: get unique address_id
+    df_addr = df.groupby('address_id').agg(
+        {"addr_lat": 'last', 'addr_lon': 'last'})
+    X = np.array(df_addr)
+    #: Cluster Addr
+    addr_labels = cluster_addr(X)
+    df_addr.loc[:, 'addr'] = addr_labels
+    df = pd.merge(df, df_addr, how='left',  left_on='address_id',
+                  left_index=False, right_index=True, sort=True,
                   suffixes=('', '_y'), copy=True, indicator=False,
                   validate=None)
-
     df = df.loc[:, (u'addr', u'end_time', u'hrs', u'job_type', u'order_id', u'region_id', u'sch_task_id',
-                    'status', u'city', 'sch_date',  u'start_time',  u'worker_id')]
-    # return df
+                    'status', u'city', 'sch_date',  u'start_time',  u'worker_id', u'addr_lat', u'addr_lon')]
     Sch_J = SchJobs(city)
     res = Sch_J.df_insert(df)
     return res['status']
+
+
+def cluster_addr(addr_list):
+    print(addr_list)
+    print(addr_list.shape)
+    addr_labels, lat_label = cluster(addr_list)
+    return lat_label
 
 
 def save_workers_from_api(day_str, city="上海市"):
@@ -224,7 +232,7 @@ def save_data_from_api():
          从 php 获取 技师 和 订单数据，保存到 派单系统
     """
     joblist = get_orders_from_api()
-    job_res = save_order_from_api(100, joblist)
+    job_res = save_order_from_api(102, joblist)
     td = dt.datetime.today().date()
     tm = (dt.datetime.today() + dt.timedelta(days=1)).date()
     worker_res = []
@@ -267,7 +275,7 @@ def sch_jobs_today():
             workers=arranged_workers.to_dict('records'),
             open_jobs=open_jobs_dict
         )
-                    )
+        )
     else:
         assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
         #: create dispatch data
@@ -277,7 +285,7 @@ def sch_jobs_today():
                 data=dict(
                     assigned_jobs=assigned_jobs.to_dict('records'),
                     workers=arranged_workers.to_dict('records'),
-                    open_jobs=open_jobs.dict,
+                    open_jobs=open_jobs.to_dict('records'),
                     worker_summary=worker_summary.to_dict('records'),
                     dispatch_data=disps)
                 )
@@ -292,7 +300,7 @@ def create_dispatch(worker_summary, assigned_jobs, dispatch_date, deadline):
     for idx, row in ws.iterrows():
         #     print(row['worker_id'])
         orders = assigned_jobs[assigned_jobs.worker_id == row['worker_id']].loc[:, (
-            'order_id', 'plan_start', 'plan_end')].sort_values('plan_start')
+            'addr', 'order_id', 'plan_start', 'plan_end')].sort_values('plan_start')
         first_job_time = orders.iloc[0].plan_start
         # #: 派单日期和deadline 设置
         # if dispatch_date != dt.datetime.today().isoformat():
@@ -303,7 +311,7 @@ def create_dispatch(worker_summary, assigned_jobs, dispatch_date, deadline):
         # # dispatch_date = dispatch_date_t.strftime('%Y-%m-%d %H:%M:%S')
         # disp_deadline_str = dt.datetime.strftime(
         #     disp_deadline, "%Y-%m-%d %H:%M")
-        orders.columns = ['order_id', 'start_time', 'end_time']
+        orders.columns = ['order_id', 'start_time', 'end_time', 'addr']
         orders.start_time = orders.start_time.apply(
             lambda x: x.strftime('%Y-%m-%d %H:%M'))
         orders.end_time = orders.end_time.apply(
@@ -356,8 +364,8 @@ def sch_tomorrow():
         return dict(status='success', data=dict(
             workers=arranged_workers.to_dict('records'),
             open_jobs=open_jobs_dict
-            )
-             )
+        )
+        )
     else:
         assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
     #: create dispatch data
@@ -367,7 +375,7 @@ def sch_tomorrow():
                 data=dict(
                     assigned_jobs=assigned_jobs.to_dict('records'),
                     workers=arranged_workers.to_dict('records'),
-                    open_jobs=open_jobs.dict,
+                    open_jobs=open_jobs.to_dict('records'),
                     worker_summary=worker_summary.to_dict('records'),
                     dispatch_data=disps)
                 )
@@ -388,7 +396,7 @@ def dispatch_to_api(data, disp_id, disp_sch):
         res = req.json()
         if res[0]['errcode'] == 0:
             dispatch_num = res[0]['dispatch_id']
-            disp_sch.update_dispatched(disp_id, 'dispatched',dispatch_num)
+            disp_sch.update_dispatched(disp_id, 'dispatched', dispatch_num)
             return "success"
         else:
             slog = SchTestLog()

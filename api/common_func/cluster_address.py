@@ -20,6 +20,10 @@ def cluster(X):
     af = AffinityPropagation().fit(X)
     # cluster_centers_indices = af.cluster_centers_indices_
     labels = af.labels_
+
+    lat_label = [str(round(af.cluster_centers_[i][0], 5)) + '-' +
+                 str(round(af.cluster_centers_[i][1], 5)) for i in af.labels_]
+
     # n_clusters_ = len(cluster_centers_indices)
     # data = {}
     # try:
@@ -33,7 +37,7 @@ def cluster(X):
     #         # lump_data.append(cen)
     #         data[str(k)] = lump_data
 
-    return labels
+    return labels, lat_label
 
 
 if __name__ == '__main__':

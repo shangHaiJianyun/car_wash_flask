@@ -21,9 +21,9 @@ class SchTask():
     def __init__(self, city):
         self.city = city
 
-    def create(self, sch_date_str):
+    def create(self, sch_date_str, name):
         sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d")
-        new_sch = SchTaskM(city=self.city, sch_date=sch_date)
+        new_sch = SchTaskM(city=self.city, sch_date=sch_date, name=name)
         db.session.add(new_sch)
         db.session.commit()
         return new_sch.id
@@ -136,18 +136,28 @@ class SchJobs():
     def df_insert(self, df):
 
         to_insert = df.to_dict('records')
-
         # try:
         for x in to_insert:
-            today_job = SchJobsM.query.filter(and_(
-                SchJobsM.sch_date == x['sch_date'], SchJobsM.city == self.city,
-                SchJobsM.order_id == x['order_id'])).one_or_none()
+            job_query = SchJobsM.query.filter(and_(
+                SchJobsM.city == self.city,
+                SchJobsM.order_id == x['order_id']))
+            today_job = job_query.one_or_none()
             if today_job is None:
                 x['end_time'] = str(x['end_time'])
                 x['start_time'] = str(x['start_time'])
-
                 new_job = SchJobsM(**x)
                 db.session.add(new_job)
+                db.session.flush()
+            else:
+                x['end_time'] = str(x['end_time'])
+                x['start_time'] = str(x['start_time'])
+                x.update({
+                    'dispatch_id': None,
+                    'plan_end': None,
+                    'plan_start': None,
+                    'worker_id': 0
+                })
+                job_query.update(x)
                 db.session.flush()
         db.session.commit()
         # df.to_sql('sch_workers', self.engine, if_exists='append',
@@ -192,14 +202,22 @@ class SchWorkers():
 
         try:
             for x in to_insert:
-                today_worker = self.get_worker_info_by_date(
-                    int(x['worker_id']), x['sch_date'])
+                w_query = SchWorkersM.query.filter(
+                    and_(SchWorkersM.worker_id == int(x['worker_id']), SchWorkersM.sch_date == x['sch_date']))
+                today_worker = w_query.one_or_none()
                 if today_worker is None:
                     x['w_end'] = str(x['w_end'])
                     x['w_start'] = str(x['w_start'])
+                    x['w_type'] = x['worker_type']
 
                     new_wkr = SchWorkersM(**x)
                     db.session.add(new_wkr)
+                    db.session.flush()
+                else:
+                    x['w_end'] = str(x['w_end'])
+                    x['w_start'] = str(x['w_start'])
+                    x['w_type'] = x['worker_type']
+                    w_query.update(x)
                     db.session.flush()
             db.session.commit()
             # df.to_sql('sch_workers', self.engine, if_exists='append',
@@ -283,7 +301,7 @@ class SchWorkers():
                 df_jobs.plan_end = pd.to_datetime(
                     df_jobs.plan_end, format="%Y-%m-%d %H:%M")
                 df_jobs.loc[:, 'spare_time'] = (
-                                                       df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
+                    df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
                 j_start = df_jobs.iloc[0].plan_start
                 j_end = df_jobs.iloc[-1].plan_end
                 if (j_start - w_start) / np.timedelta64(1, 'm') >= 60:

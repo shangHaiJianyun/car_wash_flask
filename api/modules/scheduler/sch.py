@@ -194,7 +194,7 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
                     job3 = job3.drop([t])
             k = k + 1
     job_sorted = job_sorted.astype(
-        {'addr': int, 'grp': int, 'job_type': int, 'order_id': str})
+        {'addr': str, 'grp': int, 'job_type': int, 'order_id': str})
     # print(job_sorted)
     job_sorted = job_sorted.loc[job_sorted.plan_start.notnull(), ('addr', 'grp', 'job_type', 'order_id',
                                                                   'start_time', 'plan_start', 'plan_end', 'end_time',

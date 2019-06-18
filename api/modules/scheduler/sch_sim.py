@@ -58,11 +58,11 @@ def gen_client_orders(regions, workday, n_order, n_address):
             'end_time': end_time,
             'job_type': job_type,
             'hrs': hrs,
-            'ts': end_time - start_time,
+            # 'ts': end_time - start_time,
         })
     jobs = pd.DataFrame([x for x in orders])
-    jobs.loc[:, 'hrs_t'] = jobs.hrs.apply(
-        lambda x: dt.timedelta(seconds=x * 3600))
+    # jobs.loc[:, 'hrs_t'] = jobs.hrs.apply(
+    #     lambda x: dt.timedelta(seconds=x * 3600))
     return jobs
 
 
@@ -85,7 +85,7 @@ def gen_worker(regions, day_str, n_worker):
         else:
             region_id = regions[random.randint(0, len(regions) - 1)]
         if tp % 4 == 1:
-            worker_type = 2
+            worker_type = 3
             w_type = u'兼职'
             s1 = random.randint(0, 8)
             w_start = dt.datetime.strptime(
