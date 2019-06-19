@@ -29,7 +29,7 @@ def get_orders_from_api(days=2, city="上海市"):
     order_status = 2
     yd = dt.datetime.today() - dt.timedelta(days=2)
     start_service_date = yd.date().isoformat()
-    tm = dt.datetime.today() + dt.timedelta(days=days+1)
+    tm = dt.datetime.today() + dt.timedelta(days=days + 1)
     end_service_date = tm.date().isoformat()
     data = {
         'access_key': access_key,
@@ -89,12 +89,12 @@ def save_order_from_api(sch_task_id, order_list, city="上海市"):
     #: Cluster Addr
     addr_labels = cluster_addr(X)
     df_addr.loc[:, 'addr'] = addr_labels
-    df = pd.merge(df, df_addr, how='left',  left_on='address_id',
+    df = pd.merge(df, df_addr, how='left', left_on='address_id',
                   left_index=False, right_index=True, sort=True,
                   suffixes=('', '_y'), copy=True, indicator=False,
                   validate=None)
     df = df.loc[:, (u'addr', u'end_time', u'hrs', u'job_type', u'order_id', u'region_id', u'sch_task_id',
-                    'status', u'city', 'sch_date',  u'start_time',  u'worker_id', u'addr_lat', u'addr_lon')]
+                    'status', u'city', 'sch_date', u'start_time', u'worker_id', u'addr_lat', u'addr_lon')]
     Sch_J = SchJobs(city)
     res = Sch_J.df_insert(df)
     return res['status']
@@ -142,7 +142,7 @@ def save_workers_from_api(day_str, city="上海市"):
     #: prepare dataframe
     df = pd.DataFrame(workers)
     df = df.loc[(df.auth_state == "3") & (df.is_holiday == "1") & (
-        df.service_start_time != "") & (df.service_end_time != "")]
+            df.service_start_time != "") & (df.service_end_time != "")]
     df = df.loc[:, ('uid', 'service_start_time',
                     'service_end_time', 'worker_type')]
     df.loc[:, 'worker_id'] = df.uid
@@ -156,7 +156,7 @@ def save_workers_from_api(day_str, city="上海市"):
         day_str + ' ' + df.service_start_time, format="%Y-%m-%d %H:%M")
     df.loc[:, 'w_end_t'] = pd.to_datetime(
         day_str + ' ' + df.service_end_time, format="%Y-%m-%d %H:%M")
-    df.loc[:, 'w_hrs'] = (df.w_end_t - df.w_start_t)/np.timedelta64(60, 'm')
+    df.loc[:, 'w_hrs'] = (df.w_end_t - df.w_start_t) / np.timedelta64(60, 'm')
     df.loc[:, 'w_rank'] = 100
     df.loc[:, 'w_type'] = df.worker_type
     df.loc[:, 'worker_type'] = 1
@@ -169,8 +169,9 @@ def save_workers_from_api(day_str, city="上海市"):
         df.max_star_t < df.w_hrs, df.max_star_t, df.w_hrs)
     df.loc[:, 'bdt_hrs'] = np.where(
         df.mdt < df.min_hrs, df.mdt, df.min_hrs)
-    df = df.loc[:, (u'hrs_assigned', u'hrs_to_assign', u'max_star_t', u'mdt', u'w_end', u'w_hrs', 'sch_date', 'worker_id',
-                    u'w_rank', 'city', u'w_region', u'w_start', u'w_type', u'worker_type', u'min_hrs', u'bdt_hrs', 'adt_hrs')]
+    df = df.loc[:,
+         (u'hrs_assigned', u'hrs_to_assign', u'max_star_t', u'mdt', u'w_end', u'w_hrs', 'sch_date', 'worker_id',
+          u'w_rank', 'city', u'w_region', u'w_start', u'w_type', u'worker_type', u'min_hrs', u'bdt_hrs', 'adt_hrs')]
     # return df
     # print(df.loc[:, ('city', 'worker_id')])
     Sch_W = SchWorkers(city)
@@ -275,7 +276,7 @@ def sch_jobs_today():
             workers=arranged_workers.to_dict('records'),
             open_jobs=open_jobs_dict
         )
-        )
+                    )
     else:
         assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
         #: create dispatch data
@@ -300,7 +301,9 @@ def create_dispatch(worker_summary, assigned_jobs, dispatch_date, deadline):
     for idx, row in ws.iterrows():
         #     print(row['worker_id'])
         orders = assigned_jobs[assigned_jobs.worker_id == row['worker_id']].loc[:, (
-            'addr', 'order_id', 'plan_start', 'plan_end')].sort_values('plan_start')
+                                                                                       'addr', 'order_id', 'plan_start',
+                                                                                       'plan_end')].sort_values(
+            'plan_start')
         first_job_time = orders.iloc[0].plan_start
         # #: 派单日期和deadline 设置
         # if dispatch_date != dt.datetime.today().isoformat():
@@ -365,7 +368,7 @@ def sch_tomorrow():
             workers=arranged_workers.to_dict('records'),
             open_jobs=open_jobs_dict
         )
-        )
+                    )
     else:
         assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
     #: create dispatch data
@@ -407,7 +410,6 @@ def dispatch_to_api(data, disp_id, disp_sch):
         slog = SchTestLog()
         slog.create('dispatch_err', 'request fail')
         return "error"
-
 
 # def dispatch_jobs(data, disp_id):
 #     """派单内容"""
