@@ -55,15 +55,10 @@ class Config:
     # 定时任务
     CELERYBEAT_SCHEDULE = {
         # 'task1': {
-        #     'task': 'api.celery_tasks.tasks.set_order_to_paid',
-        #     'schedule': timedelta(seconds=300),
+        #     'task': 'api.celery_tasks.tasks.sch_order',
+        #     'schedule': timedelta(seconds=6000),
         #     'args': ''
         # },
-        'task1': {
-            'task': 'api.celery_tasks.tasks.sch_order',
-            'schedule': timedelta(seconds=6000),
-            'args': ''
-        },
         'task2': {
             'task': 'api.celery_tasks.tasks.change_order_status',
             'schedule': timedelta(seconds=60),
