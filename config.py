@@ -50,12 +50,12 @@ class Config:
             'task': 'api.celery_tasks.tasks.change_order_status',
             'schedule': timedelta(seconds=30),
             'args': ''
+        },
+        'task2': {
+            'task': 'api.celery_tasks.tasks.sch_order',
+            'schedule': timedelta(seconds=3600),
+            'args': ''
         }
-        # ,'task2': {
-        #     'task': 'api.celery_tasks.tasks.sch_order',
-        #     'schedule': timedelta(seconds=6000),
-        #     'args': ''
-        # }
     }
 
 

@@ -12,11 +12,9 @@ from api.modules.scheduler.sch_api import sch_jobs_today
 from api.modules.scheduler.sch_api import set_order_paid
 
 
-#
-# @celery.task
-# def sch_order():
-#     sch_jobs_today()
-#
+@celery.task
+def sch_order():
+    sch_jobs_today()
 
 
 @celery.task
