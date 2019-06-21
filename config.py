@@ -33,37 +33,29 @@ class Config:
     PROPAGATE_EXCEPTIONS = True
     JWT_ACCESS_TOKEN_EXPIRES = False
 
-    # SECURITY_TOKEN_AUTHENTICATION_KEY = 'auth_token'
-    # SECURITY_TOKEN_AUTHENTICATION_HEADER = 'auth_token'
     LOGGING_LEVEL = logging.DEBUG
     SECURITY_PASSWORD_HASH = 'pbkdf2_sha512'
     SECURITY_TRACKABLE = False
     SECURITY_PASSWORD_SALT = 'upctech'
     SECURITY_USER_IDENTITY_ATTRIBUTES = 'username'
-    # SECURITY_LOGIN_URL = '/user/login'  # 默认登陆模板
     SECURITY_TOKEN_MAX_AGE = 'None'  # never expired
-    # REDIS_HOST = "127.0.0.1"  # redis的ip
-    # REDIS_PORT = 6379  # redis的端口
-    # SESSION_TYPE = "redis"  # session存储的数据库类型
-    # SESSION_REDIS = StrictRedis(host=REDIS_HOST, port=REDIS_PORT)  # 设置session存储使用的redis连接对象
-    # SESSION_USE_SIGNER = True  # 对cookie中保存的sessionid进行加密(需要使用app的秘钥)
-    # PERMANENT_SESSION_LIFETIME = timedelta(days=7)  # 设置session存储时间(session默认会进行持久化)
 
     CELERY_BROKER_URL = 'redis://localhost:6379/0'
     CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
     CELERY_TASK_SERIALIZER = 'json'
     # 定时任务
     CELERYBEAT_SCHEDULE = {
-        # 'task1': {
+
+        'task1': {
+            'task': 'api.celery_tasks.tasks.change_order_status',
+            'schedule': timedelta(seconds=30),
+            'args': ''
+        }
+        # ,'task2': {
         #     'task': 'api.celery_tasks.tasks.sch_order',
         #     'schedule': timedelta(seconds=6000),
         #     'args': ''
-        # },
-        'task2': {
-            'task': 'api.celery_tasks.tasks.change_order_status',
-            'schedule': timedelta(seconds=60),
-            'args': ''
-        }
+        # }
     }
 
 

@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
 # # @Time    : 19-1-24 上午10:14
-#
-# import random
-# import time
-#
-# from flask import current_app
 import json
 import time
 import datetime as dt
@@ -17,13 +12,6 @@ from api.modules.scheduler.sch_api import sch_jobs_today
 from api.modules.scheduler.sch_api import set_order_paid
 
 
-# @celery.task
-# def set_order_to_paid():
-#     """
-#         定时将 新订单设置为付款，每次将 page 1 的订单设为 已付款
-#     """
-#     res = process_unpaid_orders()
-#     return res
 #
 # @celery.task
 # def sch_order():
