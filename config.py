@@ -48,7 +48,7 @@ class Config:
 
         'task1': {
             'task': 'api.celery_tasks.tasks.change_order_status',
-            'schedule': timedelta(seconds=30),
+            'schedule': timedelta(seconds=60),
             'args': ''
         },
         'task2': {
