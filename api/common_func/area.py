@@ -180,6 +180,10 @@ class NearbyM(object):
 
 
 def gen_loc(area_id):
+    """
+    根据区域id随机生成该区域的坐标，并获取地址名称
+    :param area_id: 区域id
+    """
     res = AreaM().get(area_id)
     if res:
         lt_lat = res.locations['lt']['lat']
@@ -196,6 +200,10 @@ def gen_loc(area_id):
 
 
 def gen_locname(loc):
+    """
+    根据百度地图api获取地址名称
+    :param loc: (lat,lng)
+    """
     ak = '1mGq6bdr1Ys05haNBw755UGc4tAEDsEe'
     res = requests.get(
         url="https://api.map.baidu.com/reverse_geocoding/v3/?ak=" + ak,
