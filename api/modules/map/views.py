@@ -4,7 +4,7 @@ import json
 from flask import request, jsonify
 
 from api import db
-from api.common_func.area import AreaM, AreaRateM, NearbyM
+from api.common_func.area import AreaM, AreaRateM, NearbyM, gen_loc
 from api.common_func.city_code import level_code
 from api.common_func.nearby_area import set_nearby
 from api.common_func.tx_to_bd import convert
@@ -110,3 +110,12 @@ def cluster_address():
         return {'erro': e}
 
     return jsonify({'data': data})
+
+
+@map_blu.route('test_gen', methods=['GET', 'POST'])
+def gen_location():
+    id = request.args.get("id")
+    # lat, lng = gen_loc(id)
+    # return jsonify(dict(lat=lat, lng=lng))
+    loc,loc_name = gen_loc(id)
+    return jsonify(dict(loc=loc,loc_name=loc_name))

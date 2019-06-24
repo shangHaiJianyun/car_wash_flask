@@ -4,7 +4,9 @@
 
 # 与Area模型相关的数据库操作存储位置
 import json
+import random
 import sys
+from urllib import request
 
 import requests
 
@@ -175,3 +177,32 @@ class NearbyM(object):
         db.session.add(new_co)
         db.session.commit()
         return self.get(new_co.id)
+
+
+def gen_loc(area_id):
+    res = AreaM().get(area_id)
+    if res:
+        lt_lat = res.locations['lt']['lat']
+        ld_lat = res.locations['ld']['lat']
+        ld_lng = res.locations['ld']['lng']
+        rd_lng = res.locations['rd']['lng']
+        gen_lat = round(random.uniform(ld_lat, lt_lat), 6)
+        gen_lng = round(random.uniform(ld_lng, rd_lng), 6)
+        loc = '{0},{1}'.format(gen_lat, gen_lng)
+        loc_name = gen_locname(loc)
+        return loc, loc_name
+    else:
+        return None
+
+
+def gen_locname(loc):
+    ak = '1mGq6bdr1Ys05haNBw755UGc4tAEDsEe'
+    res = requests.get(
+        url="https://api.map.baidu.com/reverse_geocoding/v3/?ak=" + ak,
+        params={
+            "output": "json",
+            "location": loc,
+            "coordtype": "wgs84ll"
+        }
+    ).json()
+    return res.get('result')['formatted_address']
