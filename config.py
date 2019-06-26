@@ -46,18 +46,18 @@ class Config:
     # 定时任务
     CELERYBEAT_SCHEDULE = {
 
-        'task1': {
+        'change_order_status': {
             'task': 'api.celery_tasks.tasks.change_order_status',
             'schedule': timedelta(seconds=60),
             'args': ''
         },
-        'task2': {
-            'task': 'api.celery_tasks.tasks.sch_order',
+        'sch_today': {
+            'task': 'api.celery_tasks.tasks.sch_today_orders',
             'schedule': timedelta(seconds=3600),
             'args': ''
         },
-        'task3': {
-            'task': 'api.celery_tasks.tasks.sch_today',
+        'sch_tomorrow': {
+            'task': 'api.celery_tasks.tasks.sch_tomorrow_orders',
             'schedule': timedelta(seconds=3600),
             'args': ''
         }

@@ -13,12 +13,12 @@ from api.modules.scheduler.sch_api import set_order_paid
 
 
 @celery.task
-def sch_order():
+def sch_tomorrow_orders():
     sch_tomorrow()
 
 
 @celery.task
-def sch_today():
+def sch_today_orders():
     sch_jobs_today()
 
 
