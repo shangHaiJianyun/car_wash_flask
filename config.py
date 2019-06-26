@@ -55,6 +55,11 @@ class Config:
             'task': 'api.celery_tasks.tasks.sch_order',
             'schedule': timedelta(seconds=3600),
             'args': ''
+        },
+        'task3': {
+            'task': 'api.celery_tasks.tasks.sch_today',
+            'schedule': timedelta(seconds=3600),
+            'args': ''
         }
     }
 

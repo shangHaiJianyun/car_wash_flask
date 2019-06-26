@@ -18,6 +18,11 @@ def sch_order():
 
 
 @celery.task
+def sch_today():
+    sch_jobs_today()
+
+
+@celery.task
 def change_order_status():
     access_key = 'xunjiepf'
     url = "https://banana.xunjiepf.cn/api/extend/getorderlist"
