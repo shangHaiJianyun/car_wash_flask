@@ -4,6 +4,7 @@
 
 # 与Area模型相关的数据库操作存储位置
 import json
+import os
 import random
 import sys
 from urllib import request
@@ -73,8 +74,8 @@ class AreaM(object):
 
     @staticmethod
     def set_area():
-        temp = sys.path[0]
-        with open(temp + '/mapAll.json', encoding='utf-8') as f:
+        temp = os.getcwd()
+        with open(temp + '/models/mapAll.json', encoding='utf-8') as f:
             res = json.load(f)
             # print(res)
             f.close()
