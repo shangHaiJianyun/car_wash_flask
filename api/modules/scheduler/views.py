@@ -123,6 +123,7 @@ def reset_job_task():
     res = q.all()
     for x in res:
         x.sch_task_id = None
+        x.worker_id = '0'
         db.session.flush()
         # order_list.append(row2dict(x))
     db.session.commit()
