@@ -28,51 +28,68 @@ def gen_sim_data():
     workers = gen_worker(regions, workday, n_order)
     jobs = gen_client_orders(regions, workday, n_order, n_address)
 
-    # arranged_workers = calculate_radt(jobs, workers)
-
     #: save to db
-    s_task = SchTask(city)
-    new_task = s_task.create(workday, task_name)
-    # print(new_task, type(new_task))
-    jobs.loc[:, 'sch_task_id'] = new_task
-
     jobs.loc[:, 'status'] = 'open'
     jobs.loc[:, 'sch_date'] = sch_date
     # jobs = jobs.drop(['ts', 'hrs_t'], 1)
 
     s_jobs = SchJobs(city)
-    s_jobs.df_insert(jobs)
+    j = s_jobs.df_insert(jobs)
     job_num = jobs.order_id.count()
     job_hrs = jobs.hrs.sum()
     sw = SchWorkers(city)
     worker_num = workers.worker_id.count()
     worker_hrs = np.sum(workers.w_hrs) - np.sum(workers.hrs_assigned)
     workers.loc[:, 'sch_date'] = sch_date
+
     sw.df_insert(workers)
     workers_db = sw.all_worker_by_date(workday)
-    # print('-----workdb_type----',type(workers_db))
-    job_info = dict(job_num=int(job_num),
-                    job_hrs=float(job_hrs),
-                    worker_num=int(worker_num),
-                    worker_hrs=float(worker_hrs),
-                    sch_regions=regions
-                    )
 
-    s_task.update(new_task, job_info)
-    task_dtl = s_task.get(new_task)
-
+    job_info = dict(
+        job_num=int(job_num),
+        job_hrs=float(job_hrs),
+        worker_num=int(worker_num),
+        worker_hrs=float(worker_hrs),
+        sch_regions=regions
+    )
+    # s_task.update(new_task, job_info)
+    # task_dtl = s_task.get(new_task)
     load_by_region = cal_city_loads_by_region(regions, jobs, workers)
-
     return jsonify(dict(
         status='success',
+        job_info=job_info,
         # jobs=jobs.to_dict('records'),
-        # workers=workers_db.to_dict('records'),
-        # load_by_region=load_by_region,
-        sch_task=task_dtl
+        workers=workers_db.to_dict('records'),
+        load_by_region=load_by_region,
     ))
 
 
-@sch_blu.route('/show_schedule_task', methods=['POST'])
+@sch_blu.route('/sch_simulate', methods=['POST'])
+def sch_simulate():
+    """
+        派单模拟
+         1. simulate auto schedules
+
+    """
+    city = "上海市"
+    sch_date = request.json.get('sch_date')
+    res = start_multi_region_sch(city, sch_date)
+    return jsonify(dict(status='ok'))
+
+
+@sch_blu.route('/sch_simulate_step2', methods=['POST'])
+def sch_simulate_s2():
+    """
+        对未派单继续派单
+         2. schedule_step2
+    """
+    # city = "上海市"
+    sch_task = request.json.get('sch_task_id')
+    res = schedule_step2(sch_task)
+    return jsonify(dict(status='ok'))
+
+
+@sch_blu.route('/show_schedule_task', methods=['GET'])
 def show_schedule_tasks():
     """
         Show open schedule tasks and subtasks
@@ -80,14 +97,37 @@ def show_schedule_tasks():
             city:
 
     """
-    city = request.json.get('city')
-    sch_task = SchTask(city)
-    task_list = sch_task.list_all()
+    r = db.session.query(SchJobsM.sch_task_id, SchJobsM.sch_date, SchTaskM.sch_regions,  SchJobsM.status,  func.count(
+        '*').label('job_counts')).group_by(SchJobsM.sch_task_id, SchJobsM.sch_date, SchTaskM.sch_regions,  SchJobsM.status).all()
+    tasks_l = [x._asdict() for x in r]
     tasks = []
-    for x in task_list:
-        sub_task = sch_task.get_sub(x['id'])
-        tasks.append(dict(task=x, sub_task=sub_task))
+    for t in tasks_l:
+        if t['sch_task_id']:
+            sub_task = SubTaskM.find(sch_task_id=t['sch_task_id']).all()
+            t.update({'sub_task': [row2dict(x) for x in sub_task]})
+        tasks.append(t)
     return jsonify(tasks)
+
+
+@sch_blu.route('/reset_schedule_task', methods=['GET'])
+def reset_job_task():
+    """
+        重置 job task， 在 schjobs table 里， 把 jobs 的 sch_task_id 设为 NUll， 以便重新测试派单
+        input: 
+            sch_task_id
+        output:
+
+    """
+    sch_task_id = request.args.get('sch_task_id')
+    q = SchJobsM.find(sch_task_id=sch_task_id)
+    res = q.all()
+    for x in res:
+        x.sch_task_id = None
+        db.session.flush()
+        # order_list.append(row2dict(x))
+    db.session.commit()
+    q = SchJobsM.find(sch_task_id=sch_task_id).all()
+    return jsonify('sch_task_id: %2d job resetted..' % len(res))
 
 
 @sch_blu.route('/auto_schedule', methods=['GET', 'POST'])
@@ -96,29 +136,8 @@ def schedule_main():
         start schedule
 
     '''
-    city = request.json.get('city')
-    task_id = request.json.get('task_id')
-    sch_task = SchTask(city)
-    task_info = sch_task.get(task_id)
-    sub_task = SubTask(city)
-    sub_task_list = []
-    for x in task_info['sch_regions']:
-        # print(x)
-        sub_id = sub_task.create(task_id, x + task_id * 10000)
-        sub_task_list.append(sch_task.get_sub(task_id))
-
-    # create scheule job
-
-    # get all jobs
-
-    # get all availabe works
-
-    # schedule step 1, 1st schedule by region
-
-    # asign free worker with nearby open jobs
-
-    # assign open jobs for swot team
-    return jsonify(dict(task_info=task_info, sub_task_list=sub_task_list))
+    pass
+    return jsonify(dict(task_info=''))
 
 
 @sch_blu.route('/sch_result', methods=['GET', 'POST'])
@@ -191,53 +210,3 @@ def get_schedule_data_today():
             open_jobs=open_jobs_dict,
             worker_summary=worker_summary.to_dict('records'))
     ))
-
-
-@sch_blu.route('/sch_test', methods=['GET', 'POST'])
-def schedule_test():
-    '''
-        test multi region schedule
-    '''
-    #: get simulate data
-    city = u'上海市'
-    sch_task_id = request.json.get('sch_task_id')
-    st = SchTask(city)
-    task_info = st.get(sch_task_id)
-    day_str = task_info['sch_date'].isoformat()
-    # n_order = request.json.get('n_order')
-    # n_worker = request.json.get('n_worker')
-    # n_worker = request.json.get('n_address')
-    # workday = request.json.get('workday')
-    # jobs = gen_client_orders(regions, workday, n_order, n_address)
-    # workers = gen_worker(regions, day_str, n_worker)
-
-    #: get data from  db
-    job_ = SchJobs(city)
-    jobs_list = job_.jobs_by_sch_task(sch_task_id)
-    jobs = pd.DataFrame(jobs_list)
-
-    work_ = SchWorkers(city)
-    workers = work_.all_worker_by_date(day_str)
-
-    regions = task_info['sch_regions']
-    #: 1st step schedule job by region
-    for r in regions:
-        r_jobs = jobs.loc[jobs.region_id == r]
-        r_workers = workers
-        if len(r_workers):
-            assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
-                r_jobs, r_workers, day_str)
-            print('r', r)
-            print(assigned_jobs)
-
-    #: save result
-
-    #: get all openjobs
-
-    #: iter openjobs by region
-    #:find nearby region
-    #: asign job to nearby worker
-
-    #: get remain jobs
-    #: assign to sowt worker
-    return

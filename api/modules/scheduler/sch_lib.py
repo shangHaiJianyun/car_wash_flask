@@ -57,56 +57,89 @@ class SchTask():
             return None
 
 
-class SubTask():
-    def __init__(self, city):
-        self.city = city
-
-    def get(self, id):
-        res = SubTaskM.query.filter(SubTaskM.id == id).one_or_none()
-        return row2dict(res)
-
-    def create(self, task_id, sub_task_uid):
-        sub_id = SubTaskM.query.filter(
-            and_(sub_task_uid == sub_task_uid)).one_or_none()
-        if sub_id:
-            return self.get(sub_id.id)
-        else:
-            new_sub = SubTaskM(sch_task_id=task_id,
-                               sub_task_uid=sub_task_uid, city=self.city)
-            db.session.add(new_sub)
-            db.session.commit()
-            return self.get(new_sub.id)
-
-    def update(self, id, **args):
-        sub_task = SubTaskM.query.filter(SubTaskM.id == id).update(args)
-        return self.get(sub_task.id)
-
-    def get_by_date(self, sch_date_str):
-        sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
-        res = SubTaskM.query.filter(
-            and_(SubTaskM.sch_date == sch_date, SubTaskM.city == self.city)).all()
-
-    def get_by_uid(self, uid):
-        sub_task = SubTaskM.query.filter(and_(
-            SubTaskM.sub_task_uid == uid, SubTaskM.city == self.city)).one_or_none()
-        return row2dict(sub_task)
-
-
 class SchJobs():
     def __init__(self, city):
         self.city = city
         self.engine = engine
+
+    def mark_unsch_jobs(self, sch_datetime, task_id):
+        """
+           获取未派单 jobs from sch_jobs 标记 task_id
+           return {
+            'region_count': [
+                {'region_id': '440', 'region_jobs': 2}, 
+                {'region_id': '438', 'region_jobs': 4}, 
+                {'region_id': '439', 'region_jobs': 2}
+                ]
+           }
+
+        """
+        q = SchJobsM.query.filter(
+            and_(
+                cast(SchJobsM.start_time, DateTime) >= sch_datetime,
+                cast(SchJobsM.start_time, Date) == sch_datetime.date(),
+                SchJobsM.worker_id == '0',
+                SchJobsM.sch_task_id == None,
+                SchJobsM.city == self.city)
+        )
+        if len(q.all()) == 0:
+            return None
+        else:
+            # q.sch_task_id = task_id
+            res = q.all()
+            # order_list = []
+            for x in res:
+                x.sch_task_id = task_id
+                db.session.flush()
+                # order_list.append(row2dict(x))
+            db.session.commit()
+            regions = db.session.query(SchJobsM.region_id, func.count('*').label('region_jobs')).filter(
+                and_(
+                    cast(SchJobsM.start_time, DateTime) >= sch_datetime,
+                    cast(SchJobsM.start_time, Date) == sch_datetime.date(),
+                    SchJobsM.worker_id == '0',
+                    SchJobsM.sch_task_id == task_id,
+                    SchJobsM.city == self.city)
+            ).group_by(SchJobsM.region_id)
+            region_c = [x._asdict() for x in regions.all()]
+            return region_c
+
+    def get_open_job_by_task_region(self, task_id, region_id=None):
+        """
+        """
+        jobs = SchJobsM.query.filter(and_(
+            SchJobsM.sch_task_id == task_id,
+            SchJobsM.worker_id == '0'
+        ))
+
+        if region_id:
+            jobs = jobs.filter(SchJobsM.region_id == region_id)
+
+        if len(jobs.all()) == 0:
+            return None
+        else:
+            order_list = [row2dict(x) for x in jobs.all()]
+            df = pd.DataFrame(order_list)
+            df.loc[:, 'start_time'] = pd.to_datetime(
+                df.start_time, format="%Y-%m-%d %H:%M")
+            df.loc[:, 'end_time'] = pd.to_datetime(
+                df.end_time, format="%Y-%m-%d %H:%M")
+            df.loc[:, 'hrs_t'] = df.hrs.apply(
+                lambda x: dt.timedelta(seconds=x * 3600))
+            # df.loc[:, 'ts']
+            return df
 
     def unscheduled_jobs(self, sch_datetime):
         '''
             get un_scheduled jobs from sch_jobs
             return dataframe
         '''
-        res = SchJobsM.query.filter(and_(
-            cast(SchJobsM.start_time, DateTime) >= sch_datetime,
-            cast(SchJobsM.start_time, Date) == sch_datetime.date(),
-            SchJobsM.worker_id == '0',
-            SchJobsM.city == self.city)).order_by(SchJobsM.start_time.asc()).all()
+        res = SchJobsM.query.filter(
+            and_(
+                cast(SchJobsM.start_time, DateTime) >= sch_datetime,
+                cast(SchJobsM.start_time, Date) == sch_datetime.date(),
+                SchJobsM.worker_id == '0',
+                SchJobsM.city == self.city)).order_by(SchJobsM.start_time.asc()).all()
         if len(res) == 0:
             return None
         order_list = [row2dict(x) for x in res]
@@ -238,11 +271,15 @@ class SchWorkers():
         except Exception as e:
             return dict(status=False, error=e)
 
-    def all_worker_by_date(self, sch_date_str):
+    def all_worker_by_date(self, sch_date_str, region_id=None):
         # sch_date = dt.datetime.strptime(sch_date_str, "%Y-%m-%d").date()
 
-        workers = SchWorkersM.query.filter(
-            and_(SchWorkersM.city == self.city, SchWorkersM.sch_date == sch_date_str)).all()
+        q = SchWorkersM.query.filter(
+            and_(SchWorkersM.city == self.city, SchWorkersM.sch_date == sch_date_str))
+        if region_id:
+            workers = q.filter(SchWorkersM.w_region == region_id).all()
+        else:
+            workers = q.all()
         if workers:
             worker_list = [row2dict(x) for x in workers]
             df = pd.DataFrame(worker_list)
@@ -285,8 +322,8 @@ class SchWorkers():
         free_time = []
         # print('get_worker_free_time... work_info ...', worker_info)
         if worker_info:
-            w_start = worker_info['w_start']
-            w_end = worker_info['w_end']
+            w_start = worker_info['w_start'][:16]
+            w_end = worker_info['w_end'][:16]
             w_start = dt.datetime.strptime(w_start, "%Y-%m-%d %H:%M")
             w_end = dt.datetime.strptime(w_end, "%Y-%m-%d %H:%M")
             worker_jobs = self.get_worker_jobs(worker_id, sch_date_str)

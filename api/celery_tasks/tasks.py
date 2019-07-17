@@ -10,6 +10,7 @@ from api.celery_tasks import celery
 # from api.modules.scheduler.sch_lib import *
 from api.modules.scheduler.sch_api import sch_jobs_today, sch_tomorrow
 from api.modules.scheduler.sch_api import set_order_paid
+# from api.modules.scheduler.sch_api import sch_tomorrow_by_region
 
 
 @celery.task
@@ -48,3 +49,11 @@ def change_order_status():
         if res:
             paid_id.append(order_ids)
     return paid_id
+
+
+#: region_job arrange
+@celery.task(name="region_job_sch", bind=True)
+def region_job_sch(self, task_id, region_id, city="上海市"):
+    celery_uid = self.request.id
+    # sch_tomorrow_by_region(task_id, region_id, celery_uid, city="上海市")
+    return celery_uid

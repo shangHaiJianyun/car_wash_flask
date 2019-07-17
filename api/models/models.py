@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+from .QMixin import QueryMixin
 """
 models.py
 - Data classes for the surveyapi application
@@ -91,7 +92,7 @@ class Role(Base, db.Model, RoleMixin):
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 
 
-class Area(db.Model):
+class Area(db.Model, QueryMixin):
     """
     Area 包括：City 城市, City Code (考虑用城市的邮编）, 坐标（ 4个角，经纬度），区域中心点坐标（经纬度），区域代码，区域名称，区域说明，区域价格表（多个区域可以对应 一个价格表）
     """
@@ -109,7 +110,7 @@ class Area(db.Model):
     address = db.Column(db.String(80))
 
 
-class Area_rate(Base, db.Model):
+class Area_rate(Base, db.Model, QueryMixin):
     __tablename__ = 'area_rates'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
@@ -117,7 +118,7 @@ class Area_rate(Base, db.Model):
     area = db.relationship('Area', backref='area_rates', lazy='dynamic')
 
 
-class NearbyArea(Base, db.Model):
+class NearbyArea(Base, db.Model, QueryMixin):
     """获取中心点附近五公里的区域信息,以json格式存储在数据库中,包括八个点所属的区域id/中心点坐标/距离中心点的骑行时间/"""
     __tablename__ = 'nearby_area'
     id = db.Column(db.Integer, primary_key=True)

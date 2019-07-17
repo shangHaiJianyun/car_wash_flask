@@ -7,12 +7,12 @@ from flask_sqlalchemy import SQLAlchemy
 # from flask import current_app
 from sqlalchemy import JSON
 from api.models.models import db
-
+from api.models.QMixin import QueryMixin
 
 # db = SQLAlchemy()
 
 
-class SchTaskM(db.Model):
+class SchTaskM(db.Model, QueryMixin):
     # __bind_key__ = 'sch'
     __tablename__ = 'sch_tasks'
     id = db.Column(db.Integer, primary_key=True)
@@ -28,7 +28,7 @@ class SchTaskM(db.Model):
     status = db.Column(db.String(10), index=True)
 
 
-class SubTaskM(db.Model):
+class SubTaskM(db.Model, QueryMixin):
     # __bind_key__ = 'sch'
     """
         区域派单子任务
@@ -37,9 +37,10 @@ class SubTaskM(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     city = db.Column(db.String(32))
     sch_task_id = db.Column(db.Integer, index=True)
-    sub_task_uid = db.Column(db.String(32), index=True)
+    sub_task_uid = db.Column(db.String(64), index=True)
     sch_date = db.Column(db.DateTime)
     status = db.Column(db.String(10))
+    sub_task_message = db.Column(JSON)
     region_id = db.Column(db.String(10))
     job_num = db.Column(db.Integer)
     job_hrs = db.Column(db.Float)
@@ -54,7 +55,7 @@ class SubTaskM(db.Model):
                             onupdate=db.func.current_timestamp())
 
 
-class SchWorkersM(db.Model):
+class SchWorkersM(db.Model, QueryMixin):
     __tablename__ = 'sch_workers'
     id = db.Column(db.Integer, primary_key=True)
     # sch_task_id = db.Column(db.Integer)
@@ -77,13 +78,14 @@ class SchWorkersM(db.Model):
     w_end = db.Column(db.String(20))
 
 
-class SchJobsM(db.Model):
+class SchJobsM(db.Model, QueryMixin):
     __tablename__ = 'sch_jobs'
     id = db.Column(db.Integer, primary_key=True)
     sch_task_id = db.Column(db.Integer, index=True)
     city = db.Column(db.String(32), index=True)
     region_id = db.Column(db.String(10), index=True)
     addr = db.Column(db.String(30))
+    address = db.Column(db.String(50))
     sch_date = db.Column(db.String(20), index=True)
     order_id = db.Column(db.String(20))
     job_type = db.Column(db.String(10))
@@ -92,14 +94,14 @@ class SchJobsM(db.Model):
     plan_start = db.Column(db.String(20))
     plan_end = db.Column(db.String(20))
     hrs = db.Column(db.Float)
-    worker_id = db.Column(db.String(10), index=True, default='0')
+    worker_id = db.Column(db.String(20), index=True, default='0')
     status = db.Column(db.String(20), index=True)
     dispatch_id = db.Column(db.Integer, index=True)
     addr_lon = db.Column(db.Float)
     addr_lat = db.Column(db.Float)
 
 
-class SchDispatchM(db.Model):
+class SchDispatchM(db.Model, QueryMixin):
     """
         Dispatch by Worker
     """
@@ -118,7 +120,7 @@ class SchDispatchM(db.Model):
     addr = db.Column(db.String(20))
 
 
-class Sch_Test_Log(db.Model):
+class Sch_Test_Log(db.Model, QueryMixin):
     __tablename__ = 'sch_test_log'
     id = db.Column(db.Integer, primary_key=True)
     log_type = db.Column(db.String(50), index=True)

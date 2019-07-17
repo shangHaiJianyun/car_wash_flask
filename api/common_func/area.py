@@ -46,7 +46,7 @@ class AreaM(object):
         res = Area.query.get(id)
 
         if res:
-            return res
+            return row2dict(res.one())
         else:
             return None
 
@@ -76,6 +76,7 @@ class AreaM(object):
     def set_area():
         temp = os.getcwd()
         with open(temp + '/models/mapAll.json', encoding='utf-8') as f:
+            # with open(temp + '/api/models/mapAll.json', encoding='utf-8') as f:
             res = json.load(f)
             # print(res)
             f.close()
@@ -156,7 +157,8 @@ class AreaRateM(object):
         return self.get(new_co.id)
 
     def get_obj(self, level):
-        res = Area_rate.query.filter(Area_rate.rate_level == level).one_or_none()
+        res = Area_rate.query.filter(
+            Area_rate.rate_level == level).one_or_none()
         return row2dict(res)
 
 
@@ -170,7 +172,8 @@ class NearbyM(object):
         return row2dict(res)
 
     def get_nearby(self, area_id):
-        res = NearbyArea.query.filter(NearbyArea.area_id == area_id).one_or_none()
+        res = NearbyArea.query.filter(
+            NearbyArea.area_id == area_id).one_or_none()
         return row2dict(res)
 
     def add_new(self, **args):

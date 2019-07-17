@@ -196,9 +196,10 @@ def sort_jobs(jobs, order_interval, w_start, w_end):
     job_sorted = job_sorted.astype(
         {'addr': str, 'grp': int, 'job_type': int, 'order_id': str})
     # print(job_sorted)
-    job_sorted = job_sorted.loc[job_sorted.plan_start.notnull(), ('addr', 'grp', 'job_type', 'order_id',
-                                                                  'start_time', 'plan_start', 'plan_end', 'end_time',
-                                                                  'hrs', 'hrs_t', 'trans_hr')]
+    job_sorted = job_sorted.loc[job_sorted.plan_start.notnull(),
+                                ('addr', 'grp', 'job_type', 'order_id',
+                                 'start_time', 'plan_start', 'plan_end', 'end_time',
+                                 'hrs', 'hrs_t', 'trans_hr')]
     job_sorted = job_sorted.loc[job_sorted.plan_end <= w_end]
     job_sorted = job_sorted.loc[job_sorted.plan_start.notnull()]
     job_sorted = job_sorted.sort_values(['grp', 'plan_start', 'addr'])
