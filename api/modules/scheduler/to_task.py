@@ -6,6 +6,7 @@ import requests
 
 from api.celery_tasks import celery
 
+
 # from api.celery_tasks.dispatch import region_job_sch
 @celery.task(name="region_job_sch", bind=True)
 def region_job_sch(self, task_id, region_id, city="上海市"):
