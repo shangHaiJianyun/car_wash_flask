@@ -51,17 +51,22 @@ class Config:
     CELERYBEAT_SCHEDULE = {
 
         'change_order_status': {
-            'task': 'api.celery_tasks.tasks.change_order_status',
+            'task': 'api.new_task.change_order_status',
             'schedule': timedelta(seconds=60),
             'args': ''
         },
-        'sch_today': {
-            'task': 'api.celery_tasks.tasks.sch_today_orders',
-            'schedule': timedelta(seconds=3600),
-            'args': ''
-        },
+        # 'sch_today': {
+        #     'task': 'api.celery_tasks.tasks.sch_today_orders',
+        #     'schedule': timedelta(seconds=3600),
+        #     'args': ''
+        # },
+        # 'sch_tomorrow': {
+        #     'task': 'api.celery_tasks.tasks.sch_tomorrow_orders',
+        #     'schedule': timedelta(seconds=3600),
+        #     'args': ''
+        # }
         'sch_tomorrow': {
-            'task': 'api.celery_tasks.tasks.sch_tomorrow_orders',
+            'task': 'api.new_task.region_job_sch',
             'schedule': timedelta(seconds=3600),
             'args': ''
         }
