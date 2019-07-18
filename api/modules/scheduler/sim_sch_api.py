@@ -10,6 +10,8 @@ process_unpaid_orders：
 """
 import requests
 import datetime as dt
+
+from api.modules.scheduler import create_dispatch, process_unpaid_orders, save_data_from_api
 from .sch_lib import *
 from .sch import *
 from api.common_func.cluster_address import cluster
@@ -55,7 +57,7 @@ def sch_jobs_today():
             workers=arranged_workers.to_dict('records'),
             open_jobs=open_jobs_dict
         )
-        )
+                    )
     else:
         assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
         #: create dispatch data
@@ -76,11 +78,11 @@ def sch_tomorrow_by_region(task_id, region_id, day_str, city="上海市"):
         temp: 派明天订单， 
     """
     # 获取数据，region Jobs
-    region_jobs = SchJobsM.find(sch_task_id = task_id, region_id=region_id)
+    region_jobs = SchJobsM.find(sch_task_id=task_id, region_id=region_id)
 
-    region_worker = SchWorkersM.find(w_region=region_id,sch_date=sch_daystr, city=city).all()
-    
-    if jobs is None:
+    region_worker = SchWorkersM.find(w_region=region_id, sch_date=day_str, city=city).all()
+
+    if region_jobs is None:
         return dict(status='error', msg='no jobs', data='')
     sch_workers = SchWorkers(city)
     workers = sch_workers.all_worker_by_date(day_str)
@@ -88,7 +90,7 @@ def sch_tomorrow_by_region(task_id, region_id, day_str, city="上海市"):
         return dict(status='error', msg='no workers', data='')
     # return "Done"
     assigned_jobs, open_jobs, worker_summary, arranged_workers = dispatch_region_jobs(
-        jobs, workers, day_str)
+        region_jobs, workers, day_str)
     if not open_jobs.empty:
         open_jobs_dict = open_jobs.drop(['hrs_t'], 1).to_dict('records')
     else:
@@ -99,7 +101,7 @@ def sch_tomorrow_by_region(task_id, region_id, day_str, city="上海市"):
             workers=arranged_workers.to_dict('records'),
             open_jobs=open_jobs_dict
         )
-        )
+                    )
     else:
         assigned_jobs = assigned_jobs.drop(['hrs_t'], 1)
     #: create dispatch data

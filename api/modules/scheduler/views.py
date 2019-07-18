@@ -97,8 +97,9 @@ def show_schedule_tasks():
             city:
 
     """
-    r = db.session.query(SchJobsM.sch_task_id, SchJobsM.sch_date, SchTaskM.sch_regions,  SchJobsM.status,  func.count(
-        '*').label('job_counts')).group_by(SchJobsM.sch_task_id, SchJobsM.sch_date, SchTaskM.sch_regions,  SchJobsM.status).all()
+    r = db.session.query(SchJobsM.sch_task_id, SchJobsM.sch_date, SchTaskM.sch_regions, SchJobsM.status, func.count(
+        '*').label('job_counts')).group_by(SchJobsM.sch_task_id, SchJobsM.sch_date, SchTaskM.sch_regions,
+                                           SchJobsM.status).all()
     tasks_l = [x._asdict() for x in r]
     tasks = []
     for t in tasks_l:
