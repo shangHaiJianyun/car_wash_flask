@@ -46,7 +46,7 @@ class AreaM(object):
         res = Area.query.get(id)
 
         if res:
-            return row2dict(res.one())
+            return row2dict(res)
         else:
             return None
 
@@ -190,10 +190,10 @@ def gen_loc(area_id):
     """
     res = AreaM().get(area_id)
     if res:
-        lt_lat = res.locations['lt']['lat']
-        ld_lat = res.locations['ld']['lat']
-        ld_lng = res.locations['ld']['lng']
-        rd_lng = res.locations['rd']['lng']
+        lt_lat = res['locations']['lt']['lat']
+        ld_lat = res['locations']['ld']['lat']
+        ld_lng = res['locations']['ld']['lng']
+        rd_lng = res['locations']['rd']['lng']
         gen_lat = round(random.uniform(ld_lat, lt_lat), 6)
         gen_lng = round(random.uniform(ld_lng, rd_lng), 6)
         loc = '{0},{1}'.format(gen_lat, gen_lng)

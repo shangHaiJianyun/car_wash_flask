@@ -74,7 +74,7 @@ def sch_simulate():
     city = "上海市"
     sch_date = request.json.get('sch_date')
     res = start_multi_region_sch(city, sch_date)
-    return jsonify(dict(status='ok'))
+    return jsonify(dict(status='ok',res=res))
 
 
 @sch_blu.route('/sch_simulate_step2', methods=['POST'])
@@ -86,7 +86,7 @@ def sch_simulate_s2():
     # city = "上海市"
     sch_task = request.json.get('sch_task_id')
     res = schedule_step2(sch_task)
-    return jsonify(dict(status='ok'))
+    return jsonify(dict(status='ok',res=res))
 
 
 @sch_blu.route('/show_schedule_task', methods=['GET'])

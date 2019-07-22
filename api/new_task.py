@@ -4,7 +4,7 @@ import requests
 from celery.utils.log import get_task_logger
 
 from api import make_celery, create_app
-from api.modules.scheduler import set_order_paid
+from api.modules.scheduler.sch_api import set_order_paid
 from api.modules.scheduler.sim_sch_api import sch_tomorrow_by_region
 
 logger = get_task_logger(__name__)
