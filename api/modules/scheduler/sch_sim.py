@@ -374,7 +374,9 @@ def near_area_data(region_id):
     _nears = n_area.get_nearby(region_id)['nearby']
     nearby_list = []
     for (k, v) in _nears.items():
-        nearby_list.append(
-            dict(area_id=v['area_id'], ridding_time=v['ridding_time']))
-    nearby_list = sorted(nearby_list, key=lambda k: k['ridding_time'])
+        if bool(v):
+            nearby_list.append(
+                dict(area_id=v['area_id'], ridding_time=v['ridding_time']))
+    print(nearby_list)
+    nearby_list = sorted(nearby_list, key=lambda x: x['ridding_time'])
     return nearby_list
