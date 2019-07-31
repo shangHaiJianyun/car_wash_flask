@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # from datetime import datetime
+from statistics import _sum
 
 from flask import jsonify, request
 
@@ -74,7 +75,7 @@ def sch_simulate():
     city = "上海市"
     sch_date = request.json.get('sch_date')
     res = start_multi_region_sch(city, sch_date)
-    return jsonify(dict(status='ok',res=res))
+    return jsonify(dict(status='ok', res=res))
 
 
 @sch_blu.route('/sch_simulate_step2', methods=['POST'])
@@ -86,7 +87,7 @@ def sch_simulate_s2():
     # city = "上海市"
     sch_task = request.json.get('sch_task_id')
     res = schedule_step2(sch_task)
-    return jsonify(dict(status='ok',res=res))
+    return jsonify(dict(status='ok', res=res))
 
 
 @sch_blu.route('/show_schedule_task', methods=['GET'])
@@ -212,3 +213,17 @@ def get_schedule_data_today():
             open_jobs=open_jobs_dict,
             worker_summary=worker_summary.to_dict('records'))
     ))
+
+
+@sch_blu.route('/sch_worker', methods=['GET', 'POST'])
+def get_schedule_worker():
+    r = db.session.query(SchWorkersM.worker_id, SchWorkersM.w_start, SchWorkersM.w_hrs, SchWorkersM.bdt_hrs,
+                         SchWorkersM.sch_date).all()
+    workers_l = [x._asdict() for x in r]
+    workers = []
+    for t in workers_l:
+        if t['sch_date']:
+            sch_jobs = SchJobsM.find(sch_date=t['sch_date']).all()
+            t.update({'sch_job_hrs': [row2dict(x)['hrs'] for x in sch_jobs]})
+        workers.append(t)
+    return jsonify(workers)

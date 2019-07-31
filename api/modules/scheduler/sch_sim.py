@@ -14,7 +14,6 @@ from api.models.models import *
 import api.common_func.area as my_area
 from .sch_api import *
 # from .to_task import *
-from api.new_task import *
 from api.common_func.cluster_address import cluster
 
 
