@@ -218,16 +218,48 @@ def get_schedule_data_today():
 
 @sch_blu.route('/compare_worker_job', methods=['GET', 'POST'])
 def compare_worker_job():
-    r = db.session.query(SchWorkersM.worker_id, SchWorkersM.w_start, SchWorkersM.w_hrs, SchWorkersM.bdt_hrs,
-                         SchWorkersM.sch_date).all()
-    workers_l = [x._asdict() for x in r]
-    workers = []
-    for t in workers_l:
-        if t['sch_date']:
-            sch_jobs = SchJobsM.find(sch_date=t['sch_date']).all()
-            t.update({'sch_job_hrs': [row2dict(x)['hrs'] for x in sch_jobs]})
-        workers.append(t)
-    return jsonify(workers)
+    """ 计算当天某一时间段订单数和技师数"""
+    # r = db.session.query(SchWorkersM.worker_id, SchWorkersM.w_start, SchWorkersM.w_hrs, SchWorkersM.bdt_hrs,
+    #                      SchWorkersM.sch_date).all()
+    # workers_l = [x._asdict() for x in r]
+    # workers = []
+    # for t in workers_l:
+    #     if t['sch_date']:
+    #         sch_jobs = SchJobsM.find(sch_date=t['sch_date']).all()
+    #         t.update({'sch_job_hrs': [row2dict(x)['hrs'] for x in sch_jobs]})
+    #     workers.append(t)
+    # return jsonify(workers)
+    today_time = datetime.date.today().isoformat()
+    start_time = today_time + ' 06:00'
+    end_time = today_time + ' 22:00'
+
+    job_date = [x.strftime('%Y-%m-%d %H:%M') for x in pd.date_range(start=start_time, end=end_time, freq='H')]
+    # print(job_date)
+    jobs = {}
+    for index, value in enumerate(job_date):
+        if index + 1 < len(job_date):
+            next = job_date[index + 1]
+        else:
+            next = value
+        q = SchJobsM.query.filter(and_(SchJobsM.start_time < str(next),
+                                       SchJobsM.end_time >= str(value))).group_by(SchJobsM.start_time)
+        jobs[value] = len(q.all())
+    w_start = today_time + ' 06:00:00'
+    w_end = today_time + ' 22:00:00'
+    worker_date = [x.strftime('%Y-%m-%d %H:%M:%S') for x in pd.date_range(start=w_start, end=w_end, freq='H')]
+    # print(worker_date)
+    workers = {}
+    for index, value in enumerate(worker_date):
+
+        if index + 1 < len(worker_date):
+            next = worker_date[index + 1]
+        else:
+            next = value
+        r = SchWorkersM.query.filter(and_(SchWorkersM.w_start < str(next),
+                                          SchWorkersM.w_end >= str(value))).group_by(SchWorkersM.w_start)
+        workers[value] = len(r.all())
+    # print(jobs, workers)
+    return jsonify(dict(jobs_hrs=jobs, workers_hrs=workers))
 
 
 @sch_blu.route('/load_by_region', methods=['GET', 'POST'])
