@@ -9,6 +9,7 @@ from api.modules.scheduler.sch import *
 from api.modules.scheduler.sch_lib import *
 from api.modules.scheduler.sch_sim import *
 from api.modules.scheduler.sch_api import *
+import datetime
 
 
 @sch_blu.route('/get_sim_data', methods=['POST'])
@@ -215,8 +216,8 @@ def get_schedule_data_today():
     ))
 
 
-@sch_blu.route('/sch_worker', methods=['GET', 'POST'])
-def get_schedule_worker():
+@sch_blu.route('/compare_worker_job', methods=['GET', 'POST'])
+def compare_worker_job():
     r = db.session.query(SchWorkersM.worker_id, SchWorkersM.w_start, SchWorkersM.w_hrs, SchWorkersM.bdt_hrs,
                          SchWorkersM.sch_date).all()
     workers_l = [x._asdict() for x in r]
@@ -227,3 +228,29 @@ def get_schedule_worker():
             t.update({'sch_job_hrs': [row2dict(x)['hrs'] for x in sch_jobs]})
         workers.append(t)
     return jsonify(workers)
+
+
+@sch_blu.route('/load_by_region', methods=['GET', 'POST'])
+def data_by_region():
+    work_day = request.json.get('workday')
+    city = '上海市'
+    q = SchWorkersM.query.filter(
+        and_(SchWorkersM.city == city, SchWorkersM.sch_date == work_day))
+
+    worker_list = q.all()
+    if worker_list:
+        workers = [row2dict(x) for x in worker_list]
+    else:
+        workers = None
+
+    # print(workers)
+    sj = SchJobs(city)
+    jobs = sj.jobs_by_date(work_day)
+    # jobs = pd.DataFrame([x for x in orders])
+    # print(jobs)
+    region_id = set([int(x['region_id']) for x in jobs])
+    regions = list(region_id)
+    # print(regions)
+    # load_by_region = cal_city_loads_by_region(regions, jobs, workers)
+    # print(load_by_region)
+    return jsonify(dict(workers=workers, jobs=jobs, regions=regions))
