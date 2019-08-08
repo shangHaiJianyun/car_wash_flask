@@ -230,8 +230,8 @@ def compare_worker_job():
     #     workers.append(t)
     # return jsonify(workers)
     today_time = datetime.date.today().isoformat()
-    start_time = today_time + ' 06:00'
-    end_time = today_time + ' 22:00'
+    start_time = today_time + ' 06:00:00'
+    end_time = today_time + ' 22:00:00'
 
     job_date = [x.strftime('%Y-%m-%d %H:%M') for x in pd.date_range(start=start_time, end=end_time, freq='H')]
     # print(job_date)
@@ -244,9 +244,9 @@ def compare_worker_job():
         q = SchJobsM.query.filter(and_(SchJobsM.start_time < str(next),
                                        SchJobsM.end_time >= str(value))).group_by(SchJobsM.start_time)
         jobs[value] = len(q.all())
-    w_start = today_time + ' 06:00:00'
-    w_end = today_time + ' 22:00:00'
-    worker_date = [x.strftime('%Y-%m-%d %H:%M:%S') for x in pd.date_range(start=w_start, end=w_end, freq='H')]
+    # w_start = today_time + ' 06:00:00'
+    # w_end = today_time + ' 22:00:00'
+    worker_date = [x.strftime('%Y-%m-%d %H:%M:%S') for x in pd.date_range(start=start_time, end=end_time, freq='H')]
     # print(worker_date)
     workers = {}
     for index, value in enumerate(worker_date):
