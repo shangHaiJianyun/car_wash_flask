@@ -233,12 +233,12 @@ def compare_worker_job():
     start_time = today_time + ' 06:00:00'
     end_time = today_time + ' 22:00:00'
 
-    job_date = [x.strftime('%Y-%m-%d %H:%M') for x in pd.date_range(start=start_time, end=end_time, freq='H')]
+    date_range = [x.strftime('%Y-%m-%d %H:%M:%S') for x in pd.date_range(start=start_time, end=end_time, freq='H')]
     # print(job_date)
     jobs = {}
-    for index, value in enumerate(job_date):
-        if index + 1 < len(job_date):
-            next = job_date[index + 1]
+    for index, value in enumerate(date_range):
+        if index + 1 < len(date_range):
+            next = date_range[index + 1]
         else:
             next = value
         q = SchJobsM.query.filter(and_(SchJobsM.start_time < str(next),
@@ -246,13 +246,13 @@ def compare_worker_job():
         jobs[value] = len(q.all())
     # w_start = today_time + ' 06:00:00'
     # w_end = today_time + ' 22:00:00'
-    worker_date = [x.strftime('%Y-%m-%d %H:%M:%S') for x in pd.date_range(start=start_time, end=end_time, freq='H')]
+    # worker_date = [x.strftime('%Y-%m-%d %H:%M:%S') for x in pd.date_range(start=start_time, end=end_time, freq='H')]
     # print(worker_date)
     workers = {}
-    for index, value in enumerate(worker_date):
+    for index, value in enumerate(date_range):
 
-        if index + 1 < len(worker_date):
-            next = worker_date[index + 1]
+        if index + 1 < len(date_range):
+            next = date_range[index + 1]
         else:
             next = value
         r = SchWorkersM.query.filter(and_(SchWorkersM.w_start < str(next),
