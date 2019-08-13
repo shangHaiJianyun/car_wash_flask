@@ -280,8 +280,11 @@ def data_by_region():
     jobs = sj.jobs_by_date(work_day)
     # jobs = pd.DataFrame([x for x in orders])
     # print(jobs)
-    region_id = set([int(x['region_id']) for x in jobs])
-    regions = list(region_id)
+    if jobs:
+        region_id = set([int(x['region_id']) for x in jobs])
+        regions = list(region_id)
+    else:
+        regions = []
     # print(regions)
     # load_by_region = cal_city_loads_by_region(regions, jobs, workers)
     # print(load_by_region)
