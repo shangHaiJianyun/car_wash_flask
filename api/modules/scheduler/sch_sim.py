@@ -175,8 +175,9 @@ def start_multi_region_sch(city, sch_date_str):
         sub_task_uid = str(sch_task_id) + '-' + region_id
 
     # issue region sch 使用 celery task
-        # celery_task = region_job_sch.delay(sch_task_id, sch_date_str, region_id)
-        # sub_task_uid = celery_task.id
+    #     from api.new_task import region_job_sch
+    #     celery_task = region_job_sch.delay(sch_task_id, region_id, sch_date_str)
+    #     sub_task_uid = celery_task.id
 
     #: create sub_task records
         st = SubTaskM(

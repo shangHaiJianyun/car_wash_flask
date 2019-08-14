@@ -7,7 +7,7 @@ from celery.utils.log import get_task_logger
 from api import make_celery, create_app
 from api.modules.scheduler.sch_sim import start_multi_region_sch
 from api.modules.scheduler.sch_api import set_order_paid
-from api.modules.scheduler.sim_sch_api import sch_tomorrow_by_region
+from api.modules.scheduler.sch_sim import sch_tomorrow_by_region
 
 logger = get_task_logger(__name__)
 
@@ -15,13 +15,13 @@ celery = make_celery(create_app('dev'))
 
 
 @celery.task(name="region_job_sch", bind=True)
-def region_job_sch(self, task_id, region_id):
+def region_job_sch(self, task_id, region_id, sch_date_str):
     celery_uid = self.request.id
-    sch_tomorrow_by_region(task_id, region_id, celery_uid, city="上海市")
+    sch_tomorrow_by_region(task_id, region_id, celery_uid, sch_date_str, city="上海市")
     return celery_uid
 
 
-@celery.task(name='sch_today_jobs', bind=True)
+@celery.task(name='sch_today_jobs')
 def sch_today_jobs():
     city = "上海市"
     sch_date = dt.datetime.today().date().isoformat()
@@ -29,7 +29,7 @@ def sch_today_jobs():
     return res
 
 
-@celery.task(name='sch_tomorrow_jobs', bind=True)
+@celery.task(name='sch_tomorrow_jobs')
 def sch_today_jobs():
     city = "上海市"
     sch_date = dt.date.today()
