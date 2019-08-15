@@ -65,11 +65,6 @@ class Config:
         #     'schedule': timedelta(seconds=3600),
         #     'args': ''
         # }
-        'sch_tomorrow': {
-            'task': 'api.new_task.region_job_sch',
-            'schedule': timedelta(seconds=3600),
-            'args': ''
-        }
     }
 
 
