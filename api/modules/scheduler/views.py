@@ -27,7 +27,7 @@ def gen_sim_data():
     sch_date = dt.datetime.strptime(workday, "%Y-%m-%d").date()
 
     #: gen simulate data
-    workers = gen_worker(regions, workday, n_order)
+    workers = gen_worker(regions, workday, n_worker)
     jobs = gen_client_orders(regions, workday, n_order, n_address)
 
     #: save to db
