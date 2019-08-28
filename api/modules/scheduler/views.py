@@ -218,7 +218,9 @@ def get_schedule_data_today():
 
 @sch_blu.route('/compare_worker_job', methods=['GET', 'POST'])
 def compare_worker_job():
-    """ 计算当天某一时间段订单数和技师数"""
+    """
+    计算当天某一时间段订单数和技师数
+    """
     # r = db.session.query(SchWorkersM.worker_id, SchWorkersM.w_start, SchWorkersM.w_hrs, SchWorkersM.bdt_hrs,
     #                      SchWorkersM.sch_date).all()
     # workers_l = [x._asdict() for x in r]
@@ -264,6 +266,9 @@ def compare_worker_job():
 
 @sch_blu.route('/load_by_region', methods=['GET', 'POST'])
 def data_by_region():
+    """
+    获取该时间点的技师订单和区域
+    """
     work_day = request.json.get('workday')
     city = '上海市'
     q = SchWorkersM.query.filter(
@@ -289,3 +294,29 @@ def data_by_region():
     # load_by_region = cal_city_loads_by_region(regions, jobs, workers)
     # print(load_by_region)
     return jsonify(dict(workers=workers, jobs=jobs, regions=regions))
+
+
+@sch_blu.route('/data_by_region_date', methods=['GET', 'POST'])
+def data_by_region_date():
+    """
+    根据指定的区域id和日期获取该时间点的技师和订单
+    """
+    work_day = request.json.get('workday')
+    region_id = request.json.get('region_id')
+    city = '上海市'
+    workers = SchWorkersM.query.filter(
+        and_(SchWorkersM.city == city, SchWorkersM.sch_date == work_day, SchWorkersM.w_region == region_id)).all()
+    if workers:
+        worker_list = [row2dict(x) for x in workers]
+    else:
+        worker_list = None
+
+    # print(workers)
+    jobs = SchJobsM.query.filter(
+        and_(SchJobsM.city == city, SchJobsM.sch_date == work_day, SchJobsM.region_id == region_id)).all()
+
+    if jobs:
+        job_list = [row2dict(x) for x in jobs]
+    else:
+        job_list = []
+    return jsonify(dict(worker_list=worker_list, job_list=job_list))
