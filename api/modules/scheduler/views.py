@@ -320,3 +320,14 @@ def data_by_region_date():
     else:
         job_list = []
     return jsonify(dict(worker_list=worker_list, job_list=job_list))
+
+
+@sch_blu.route('/jobs_count_today', methods=['GET', 'POST'])
+def jobs_count_today():
+    today = request.args.get('workday')
+    jobs_count = SchJobsM.query.filter(SchJobsM.sch_date == today).count()
+    pre_jobs_count = SchJobsM.query.filter(and_(SchJobsM.sch_date == today,SchJobsM.worker_id == 0)).count()
+    done_jobs_count = jobs_count - pre_jobs_count
+    return jsonify(dict(jobs_count=jobs_count,
+                        pre_jobs_count=pre_jobs_count,
+                        done_jobs_count=done_jobs_count))
