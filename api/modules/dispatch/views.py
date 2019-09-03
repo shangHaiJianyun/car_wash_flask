@@ -17,7 +17,7 @@ def get_worklist():
     city = request.json.get('city')
     date = request.json.get('date', None)
     results = requests.post(
-        url="https://banana.xunjiepf.cn/api/extend/getworkerlist",
+        url="https://xcx.upctech.com.cn/api/extend/getworkerlist",
         params={
             'access_key': access_key,
             'city': city
@@ -27,7 +27,7 @@ def get_worklist():
     # print(page_size)
 
     res = requests.post(
-        url="https://banana.xunjiepf.cn/api/extend/getworkerlist",
+        url="https://xcx.upctech.com.cn/api/extend/getworkerlist",
         headers={
             "Content-Type": "application/json"
         },
@@ -47,7 +47,7 @@ def get_orderlist():
     """获取订单列表"""
     access_key = 'xunjiepf'
     results = requests.post(
-        url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+        url="https://xcx.upctech.com.cn/api/extend/getorderlist",
         params={
             'access_key': access_key
         }
@@ -58,7 +58,7 @@ def get_orderlist():
         start_service_date = request.json.get('start_service_date')
         end_service_date = request.json.get('end_service_date')
         res = requests.post(
-            url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+            url="https://xcx.upctech.com.cn/api/extend/getorderlist",
             headers={
                 "Content-Type": "application/json"
             },
@@ -72,7 +72,7 @@ def get_orderlist():
         )
     else:
         res = requests.post(
-            url="https://banana.xunjiepf.cn/api/extend/getorderlist",
+            url="https://xcx.upctech.com.cn/api/extend/getorderlist",
             params={
                 'access_key': access_key,
                 'page_size': page_size,
@@ -122,7 +122,7 @@ def dispatch():
             "deadline": deadline
         }
         res = requests.post(
-            url='https://banana.xunjiepf.cn/api/dispatch/dispatchorder',
+            url='https://xcx.upctech.com.cn/api/dispatch/dispatchorder',
             headers={
                 "Content-Type": "application/json"
             },
@@ -147,7 +147,7 @@ def updateStatus():
         "order_status": order_status
     }
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/updateOrderStatus',
+        url='https://xcx.upctech.com.cn/api/extend/updateOrderStatus',
         headers={
             "Content-Type": "application/json"
         },
@@ -167,7 +167,7 @@ def getItemlist():
         "city": city
     }
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/getItemlist',
+        url='https://xcx.upctech.com.cn/api/extend/getItemlist',
         headers={
             "Content-Type": "application/json"
         },
@@ -186,7 +186,7 @@ def getOrderDetail():
         "order_no": order_no
     }
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/orderDetail',
+        url='https://xcx.upctech.com.cn/api/extend/orderDetail',
         headers={
             "Content-Type": "application/json"
         },
@@ -202,7 +202,7 @@ def getMemberList():
     city = request.json.get('city')
 
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/getMemberList',
+        url='https://xcx.upctech.com.cn/api/extend/getMemberList',
         headers={
             "Content-Type": "application/json"
         },
@@ -213,7 +213,7 @@ def getMemberList():
     )
     page_size = res.json()['data']['total_count']
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/getMemberList',
+        url='https://xcx.upctech.com.cn/api/extend/getMemberList',
         headers={
             "Content-Type": "application/json"
         },
@@ -235,14 +235,14 @@ def getParentOrderList():
     end_date = request.json.get('end_date', '')
     order_status = request.json.get('order_status', 1)
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/getParentOrderList',
+        url='https://xcx.upctech.com.cn/api/extend/getParentOrderList',
         params={
             'access_key': access_key,
             'city': city
         })
     page_size = res.json()['data']['total_count']
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/getParentOrderList',
+        url='https://xcx.upctech.com.cn/api/extend/getParentOrderList',
         headers={
             "Content-Type": "application/json"
         },
@@ -268,7 +268,7 @@ def getDispatchOrderList():
     uid = request.json.get('uid')
     dispatch_type = request.json.get('dispatch_type', 1)
     res = requests.post(
-        url='https://banana.xunjiepf.cn/api/extend/getDispatchOrderList',
+        url='https://xcx.upctech.com.cn/api/extend/getDispatchOrderList',
         headers={
             "Content-Type": "application/json"
         },

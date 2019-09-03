@@ -42,7 +42,7 @@ def sch_today_jobs():
 @celery.task(name='change_status')
 def change_order_status():
     access_key = 'xunjiepf'
-    url = "https://banana.xunjiepf.cn/api/extend/getorderlist"
+    url = "https://xcx.upctech.com.cn/api/extend/getorderlist"
     data = {
         'access_key': access_key
     }
