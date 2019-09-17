@@ -64,8 +64,8 @@ def logout():
 
 # 添加新用户，只有Admin角色才可进行操作
 @user_blu.route('/add_user', methods=['POST'])
-@login_required
-@admin_required
+# @login_required
+# @admin_required
 def add_user():
     # 定义装饰器admin_required管理操作权限
     username = request.json.get('username')
@@ -130,3 +130,40 @@ def token_protected():
     this_user = get_jwt_identity()
     return jsonify(logged_in_as=this_user), 200
     # return 'you\'re logged in by Token!'
+
+
+
+def weixin_url(client_id, redirect_url):
+    """
+    WEIXIN URL
+    :param client_id: your weixin appID
+    :param redirect_url: your weixin redirect_url
+    :return: WEIXIN URL
+    """
+    weixin = "https://open.weixin.qq.com/connect/qrconnect?appid={client_id}&redirect_uri={redirect_uri}\
+    &response_type=code&scope=SCOPE&state=STATE#wechat_redirect".format(
+        client_id=client_id, redirect_uri=redirect_url
+    )
+    return weixin
+
+
+def weixin(client_id, client_secret, code):
+    """
+    weixin登录
+    :param client_id: appID
+    :param client_secret: appSecret
+    :param code: 从WEIXIN服务器得到code
+    :return: 返回所用信息
+    """
+    get_access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token"
+    # 请求得到access_token
+
+    response = requests.get(url=get_access_token_url, params={
+        'appid': client_id,
+        'secret': client_secret,
+        'code': code
+    }).text
+    # 获取openid
+    response_open_id = json.loads(response)
+    open_id = response_open_id['openid']
+    return open_id
