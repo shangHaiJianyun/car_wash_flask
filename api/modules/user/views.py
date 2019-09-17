@@ -70,9 +70,10 @@ def add_user():
     # 定义装饰器admin_required管理操作权限
     username = request.json.get('username')
     password = request.json.get('password')
+    role = request.json.get('user_role')
     user = user_datastore.create_user(username=username, password=password)
     user.set_password()
-    user_role = get_user_role('User')
+    user_role = get_user_role(role)
     user_datastore.add_role_to_user(user, user_role)
     user.mobile = username
     db.session.commit()
