@@ -10,7 +10,6 @@ from flask_migrate import Migrate, MigrateCommand
 from api.common_func.area import AreaRateM, AreaM
 from api.common_func.nearby_area import set_nearby
 from api.models.models import User, user_datastore
-from api.common_func.get_role import get_user_role
 
 from api import create_app, db
 
@@ -41,36 +40,6 @@ def initrole():
         name='Operate', description='Generic operate role')
     db.session.commit()
     # print('insert success')
-
-
-@manager.command
-def add_user():
-    user = user_datastore.create_user(username='1', password='123')
-    user.set_password()
-    user_role = get_user_role('User')
-    user_datastore.add_role_to_user(user, user_role)
-    db.session.commit()
-    # print('user generate')
-
-
-@manager.command
-def add_operate():
-    user = user_datastore.create_user(username='2', password='123')
-    user.set_password()
-    user_role = get_user_role('Operate')
-    user_datastore.add_role_to_user(user, user_role)
-    db.session.commit()
-    # print('operate generate')
-
-
-@manager.command
-def add_admin():
-    user = user_datastore.create_user(username='admin', password='123')
-    user.set_password()
-    admin_role = get_user_role('Admin')
-    user_datastore.add_role_to_user(user, admin_role)
-    db.session.commit()
-    # print('map generate')
 
 
 @manager.command

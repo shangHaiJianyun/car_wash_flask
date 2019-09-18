@@ -8,7 +8,7 @@ from flask_security import current_user, forms, auth_token_required, login_requi
 from flask_security.utils import login_user, logout_user
 
 from api.common_func.decorators import admin_required, roles_required
-from api.common_func.get_role import get_user_role
+from api.common_func.user import UserM
 from api.models.models import *
 from api.modules.user import user_blu
 
@@ -71,14 +71,17 @@ def add_user():
     username = request.json.get('username')
     password = request.json.get('password')
     role = request.json.get('user_role')
+    user = UserM().get_user_by_name(username)
+    if user:
+        return jsonify(new_user=False)
     user = user_datastore.create_user(username=username, password=password)
     user.set_password()
-    user_role = get_user_role(role)
+    user_role = UserM().get_user_role(role)
     user_datastore.add_role_to_user(user, user_role)
     user.mobile = username
     db.session.commit()
 
-    return jsonify(msg='add success')
+    return jsonify(new_user=True)
 
 
 # 修改并更新用户资料
