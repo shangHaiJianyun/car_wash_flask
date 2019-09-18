@@ -100,19 +100,6 @@ def get_users():
     return jsonify(users=users)
 
 
-@user_blu.route('/add_role', methods=['POST'])
-def add_role():
-    """
-        为用户添加角色
-    """
-    username = request.json.get('username')
-    role = request.json.get('user_role')
-    user_role = UserM().get_user_role(role)
-    user = user_datastore.find_user(username=username)
-    user_datastore.add_role_to_user(user, user_role)
-    return
-
-
 @user_blu.route('/update_info', methods=['POST'])
 @login_required
 def update_info():
