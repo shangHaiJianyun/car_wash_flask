@@ -62,12 +62,11 @@ def logout():
     return jsonify(msg='user logout')
 
 
-# 添加新用户，只有Admin角色才可进行操作
 @user_blu.route('/add_user', methods=['POST'])
-# @login_required
-# @admin_required
 def add_user():
-    # 定义装饰器admin_required管理操作权限
+    """
+        添加新用户
+    """
     username = request.json.get('username')
     password = request.json.get('password')
     role = request.json.get('user_role')
@@ -84,10 +83,42 @@ def add_user():
     return jsonify(new_user=True)
 
 
-# 修改并更新用户资料
+@user_blu.route('/all_users', methods=['GET'])
+def get_users():
+    """
+        获取用户列表
+    """
+    all_users = UserM().get_all_user()
+    print(all_users)
+    users = []
+    for i in all_users:
+        user = {}
+        user['id'] = i.username
+        user['username'] = i.username
+        user['mobile'] = i.mobile
+        users.append(user)
+    return jsonify(users=users)
+
+
+@user_blu.route('/add_role', methods=['POST'])
+def add_role():
+    """
+        为用户添加角色
+    """
+    username = request.json.get('username')
+    role = request.json.get('user_role')
+    user_role = UserM().get_user_role(role)
+    user = user_datastore.find_user(username=username)
+    user_datastore.add_role_to_user(user, user_role)
+    return
+
+
 @user_blu.route('/update_info', methods=['POST'])
 @login_required
 def update_info():
+    """
+        修改并更新用户资料
+    """
     # 获取需要的参数
     name = request.json.get('name')
     email = request.json.get('email')
@@ -96,7 +127,7 @@ def update_info():
     if not all([mobile, name, email]):
         return jsonify(msg='please check your parameters')
     # 校验邮箱格式
-    if not re.match('[0-9a-zA-Z_]{0,19}@[0-9a-zA-Z]{1,13}\.[com,cn,net]{1,3}$',email):
+    if not re.match('[0-9a-zA-Z_]{0,19}@[0-9a-zA-Z]{1,13}\.[com,cn,net]{1,3}$', email):
         return jsonify(msg='wrong email')
     # 校验手机号格式
     if not re.match(r"1[35678]\d{9}$", mobile):
