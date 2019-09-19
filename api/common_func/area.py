@@ -50,6 +50,13 @@ class AreaM(object):
         else:
             return None
 
+    def get_obj(self, id):
+        res = Area.query.get(id)
+        if res:
+            return res
+        else:
+            return None
+
     def add_new(self, **args):
         new_co = Area(**args)
         db.session.add(new_co)
