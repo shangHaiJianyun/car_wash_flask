@@ -63,7 +63,7 @@ def map_data():
             rate_res = AreaRateM().get_obj(level)
             # print(rate_res['id'])
             rate_id = rate_res['id']
-            res = AreaM().get(id)
+            res = AreaM().get_obj(id)
             res.rate_id = rate_id
             db.session.commit()
             # print(res)
