@@ -108,6 +108,7 @@ class Area(db.Model, QueryMixin):
     business = db.Column(db.String(80))
     sur_count = db.Column(db.Integer)
     address = db.Column(db.String(80))
+    active = db.Column(db.Boolean, default=True)
 
 
 class Area_rate(Base, db.Model, QueryMixin):
