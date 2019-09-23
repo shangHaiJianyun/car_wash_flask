@@ -62,6 +62,11 @@ class SchJobs():
         self.city = city
         self.engine = engine
 
+    def get_j_count_by_region(self, region_id):
+        jobs_count = db.session.query(func.count(SchJobsM.id)).filter(SchJobsM.region_id == region_id).scalar()
+        # jobs_count = SchJobsM.query.filter(SchJobsM.region_id == region_id).count()
+        return jobs_count
+
     def mark_unsch_jobs(self, sch_datetime, task_id):
         """
            获取未派单 jobs from sch_jobs 标记 task_id
@@ -338,7 +343,7 @@ class SchWorkers():
                 df_jobs.plan_end = pd.to_datetime(
                     df_jobs.plan_end, format="%Y-%m-%d %H:%M")
                 df_jobs.loc[:, 'spare_time'] = (
-                    df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
+                                                       df_jobs.plan_start - df_jobs.last_end) / np.timedelta64(1, 'm')
                 j_start = df_jobs.iloc[0].plan_start
                 j_end = df_jobs.iloc[-1].plan_end
                 if (j_start - w_start) / np.timedelta64(1, 'm') >= 60:
@@ -371,6 +376,11 @@ class SchWorkers():
             return self.get_worker_info_by_date(worker_id, sch_date_str)
         except:
             return None
+
+    def get_w_count_by_region(self, region_id):
+        w_count = db.session.query(func.count(SchWorkersM.id)).filter(SchWorkersM.w_region == region_id).scalar()
+        # w_count = SchWorkersM.query.filter(SchWorkersM.w_region == region_id).count()
+        return w_count
 
 
 class SchDispatch():

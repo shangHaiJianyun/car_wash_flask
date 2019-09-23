@@ -11,6 +11,8 @@ from api.common_func.tx_to_bd import convert
 from api.modules.map import map_blu
 import numpy as np
 
+from api.modules.scheduler import SchJobs, SchWorkers
+
 
 @map_blu.route('/get_rate', methods=['POST'])
 def get_rate():
@@ -89,6 +91,17 @@ def change_status():
         return jsonify(dict(erro=e))
 
 
+@map_blu.route('/get_w_j_count', methods=['POST'])
+def get_w_j_count():
+    region_id = request.json.get('region_id')
+    try:
+        j_count = SchJobs('上海市').get_j_count_by_region(region_id)
+        w_count = SchWorkers('上海市').get_w_count_by_region(region_id)
+        return jsonify(dict(j_count=j_count, w_count=w_count))
+    except Exception as e:
+        return jsonify(dict(erro=e))
+
+
 @map_blu.route('/rate', methods=['GET', 'POST'])
 def return_rate():
     area_id = request.json.get('area_id')
@@ -130,5 +143,5 @@ def gen_location():
     id = request.args.get("id")
     # lat, lng = gen_loc(id)
     # return jsonify(dict(lat=lat, lng=lng))
-    loc,loc_name = gen_loc(id)
-    return jsonify(dict(loc=loc,loc_name=loc_name))
+    loc, loc_name = gen_loc(id)
+    return jsonify(dict(loc=loc, loc_name=loc_name))
