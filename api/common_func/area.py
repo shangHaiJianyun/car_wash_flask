@@ -38,6 +38,7 @@ class AreaM(object):
             json_dict["area_rate"] = rate_level
             json_dict["business"] = i.business
             json_dict["address"] = i.address
+            json_dict['active'] = i.active
             json_list.append(json_dict)
 
         return json_list
