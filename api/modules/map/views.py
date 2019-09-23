@@ -67,13 +67,26 @@ def map_data():
             res.rate_id = rate_id
             db.session.commit()
             # print(res)
-            return jsonify({"area_rate": level_code[str(level)] if level else " "})
-        except Exception:
-            return jsonify({"msg": "please give right data"})
+            return jsonify(dict(area_rate=level_code[str(level)] if level else " "))
+        except Exception as e:
+            return jsonify(dict(msg=e))
     else:
         # 地图上显示数据
         result = AreaM().list_all()
         return jsonify(result)
+
+
+@map_blu.route('/change_status', methods=['POST'])
+def change_status():
+    area_id = request.json.get('area_id')
+    active = request.json.get('active')
+    try:
+        res = AreaM().get_obj(area_id)
+        res.active = active
+        db.session.commit()
+        return jsonify(dict(AreaM().get(area_id)))
+    except Exception as e:
+        return jsonify(dict(erro=e))
 
 
 @map_blu.route('/rate', methods=['GET', 'POST'])
