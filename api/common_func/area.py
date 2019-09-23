@@ -58,6 +58,10 @@ class AreaM(object):
         else:
             return None
 
+    def get_active_obj(self):
+        res = Area.query.filter(Area.active==1)
+        return res
+
     def add_new(self, **args):
         new_co = Area(**args)
         db.session.add(new_co)

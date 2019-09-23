@@ -3,7 +3,7 @@ import json
 
 from flask import request, jsonify
 
-from api import db
+from api import db, row2dict
 from api.common_func.area import AreaM, AreaRateM, NearbyM, gen_loc
 from api.common_func.city_code import level_code
 from api.common_func.nearby_area import set_nearby
@@ -101,6 +101,18 @@ def get_w_j_count():
         return jsonify(dict(j_count=j_count, w_count=w_count, active=active))
     except Exception as e:
         return jsonify(dict(erro=e))
+
+
+@map_blu.route('/get_active_area', methods=['GET'])
+def get_active_area():
+    areas = AreaM().get_active_obj()
+    area = []
+    if areas:
+        for i in areas:
+            area.append(row2dict(i))
+        return jsonify(dict(active_area=area))
+    else:
+        return jsonify(dict(active_area=[]))
 
 
 @map_blu.route('/rate', methods=['GET', 'POST'])
