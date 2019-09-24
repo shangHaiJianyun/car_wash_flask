@@ -127,7 +127,7 @@ def get_w_j_count():
         j_count = SchJobs('上海市').get_j_count_by_region(region_id)
         w_count = SchWorkers('上海市').get_w_count_by_region(region_id)
         active = AreaM().get(region_id)['active']
-        return jsonify(dict(j_count=j_count, w_count=w_count, active=active))
+        return jsonify(dict(region_id=region_id, j_count=j_count, w_count=w_count, active=active))
     except Exception as e:
         return jsonify(dict(erro=e))
 
