@@ -125,3 +125,12 @@ class NearbyArea(Base, db.Model, QueryMixin):
     id = db.Column(db.Integer, primary_key=True)
     area_id = db.Column(db.Integer)
     nearby = db.Column(JSON())
+
+
+class SearchRecord(Base, db.Model, QueryMixin):
+    __tablename__ = 'search_record'
+    id = db.Column(db.Integer, primary_key=True)
+    openid = db.Column(db.String(80))
+    unionid = db.Column(db.String(80))
+    address = db.Column(db.String(80))
+    locations = db.Column(JSON())

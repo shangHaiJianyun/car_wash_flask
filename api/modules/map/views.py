@@ -16,6 +16,17 @@ from api.modules.scheduler import SchJobs, SchWorkers
 
 @map_blu.route('/get_rate', methods=['POST'])
 def get_rate():
+    """
+        根据经纬度获取该区域的价格系数
+    :return:
+        data = {
+                    'rate_name': rate['name'],
+                    'rate_level': rate_level,
+                    'area_id': j.id,
+                    'city': j.city_name,
+                    'city_code': j.city_code
+                }
+    """
     # 获取指定坐标后根据中心点坐标确定其所属的区域及价格系数
     # lng:经度  lat:纬度
     tx_lng = float(request.json.get('lng'))
@@ -48,6 +59,10 @@ def get_rate():
 
 @map_blu.route('/list_area', methods=['GET'])
 def list_area():
+    """
+        列出区域信息
+    :return:
+    """
     result = AreaM().list_all()
     # res = json.dumps(result)
     return jsonify(result)
@@ -55,6 +70,11 @@ def list_area():
 
 @map_blu.route('/map_data', methods=['GET', 'POST'])
 def map_data():
+    """
+        GET:列出区域地图信息
+        POST:更改区域系数
+    :return:
+    """
     # 判断操作的方式 若是修改数据
     if request.method == 'POST':
 
@@ -80,6 +100,10 @@ def map_data():
 
 @map_blu.route('/change_status', methods=['POST'])
 def change_status():
+    """
+        更改区域开通状态
+    :return:
+    """
     area_id = request.json.get('area_id')
     active = request.json.get('active')
     try:
@@ -93,6 +117,10 @@ def change_status():
 
 @map_blu.route('/get_w_j_count', methods=['POST'])
 def get_w_j_count():
+    """
+        获取该区域的技师和订单数量
+    :return:
+    """
     region_id = request.json.get('region_id')
     try:
         j_count = SchJobs('上海市').get_j_count_by_region(region_id)
@@ -105,6 +133,10 @@ def get_w_j_count():
 
 @map_blu.route('/get_active_area', methods=['GET'])
 def get_active_area():
+    """
+        获取已激活的区域
+    :return:
+    """
     areas = AreaM().get_active_obj()
     area = []
     if areas:
@@ -115,8 +147,30 @@ def get_active_area():
         return jsonify(dict(active_area=[]))
 
 
+@map_blu.route('/judge_active_area', methods=['POST'])
+def judge_active_area():
+    """
+        判断该地址所属区域是否已开通服务
+    :return:
+    """
+    lng = float(request.json.get('lng'))
+    lat = float(request.json.get('lat'))
+
+    for j in AreaM().get_all():
+        i = j.locations
+        if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
+            active = j.active
+            return jsonify(dict(active=active))
+        else:
+            return jsonify(dict(active=False))
+
+
 @map_blu.route('/rate', methods=['GET', 'POST'])
 def return_rate():
+    """
+        根据区域id获取系数
+    :return:
+    """
     area_id = request.json.get('area_id')
     try:
         area = AreaM().get(area_id)
