@@ -4,6 +4,7 @@ import json
 from flask import request, jsonify
 
 from api import db, row2dict
+from api.models.models import SearchRecord
 from api.common_func.area import AreaM, AreaRateM, NearbyM, gen_loc
 from api.common_func.city_code import level_code
 from api.common_func.nearby_area import set_nearby
@@ -155,7 +156,12 @@ def judge_active_area():
     """
     lng = float(request.json.get('lng'))
     lat = float(request.json.get('lat'))
-
+    unionid = request.json.get('unionid')
+    openid = request.json.get('openid')
+    address = request.json.get('address')
+    location = json.dumps(dict(lng=lng, lat=lat))
+    record = SearchRecord(openid=openid, unionid=unionid, locations=location, address=address)
+    record.save()
     for j in AreaM().get_all():
         i = j.locations
         if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
