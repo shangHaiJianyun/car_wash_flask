@@ -171,6 +171,50 @@ def judge_active_area():
             return jsonify(dict(active=False))
 
 
+@map_blu.route('/activate_region', methods=['POST'])
+def activate_region():
+    """
+        按照规则激活技师活动区域附近的区域
+    :return:
+    """
+    lng = float(request.json.get('lng'))
+    lat = float(request.json.get('lat'))
+    for j in AreaM().get_all():
+        i = j.locations
+        if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
+            area_id = j.id
+            nearby_info = NearbyM().get_nearby(area_id)
+            if nearby_info:
+                dd_region_id = nearby_info['dd']['area_id'] if nearby_info['dd'] else " "
+                dl_region_id = nearby_info['dl']['area_id'] if nearby_info['dl'] else " "
+                dr_region_id = nearby_info['dr']['area_id'] if nearby_info['dr'] else " "
+                ll_region_id = nearby_info['ll']['area_id'] if nearby_info['ll'] else " "
+                rr_region_id = nearby_info['rr']['area_id'] if nearby_info['rr'] else " "
+                ul_region_id = nearby_info['ul']['area_id'] if nearby_info['ul'] else " "
+                ur_region_id = nearby_info['ur']['area_id'] if nearby_info['ur'] else " "
+                uu_region_id = nearby_info['uu']['area_id'] if nearby_info['uu'] else " "
+                dd = AreaM().get_obj(dd_region_id)
+                dd.active = 1
+                dl = AreaM().get_obj(dl_region_id)
+                dl.active = 1
+                dr = AreaM().get_obj(dr_region_id)
+                dr.active = 1
+                ll = AreaM().get_obj(ll_region_id)
+                ll.active = 1
+                rr = AreaM().get_obj(rr_region_id)
+                rr.active = 1
+                ul = AreaM().get_obj(ul_region_id)
+                ul.active = 1
+                ur = AreaM().get_obj(ur_region_id)
+                ur.active = 1
+                uu = AreaM().get_obj(uu_region_id)
+                uu.active = 1
+                j.active = 1
+                db.session.commit()
+                return jsonify(dict(erro='activate success'))
+    return jsonify(dict(erro='invalid area'))
+
+
 @map_blu.route('/rate', methods=['GET', 'POST'])
 def return_rate():
     """
