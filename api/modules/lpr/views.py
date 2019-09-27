@@ -11,6 +11,10 @@ import cv2
 
 @lpr_blu.route('/lpr', methods=['POST'])
 def lprM():
+    """
+        识别车牌信息
+    :return:
+    """
     # 读入图片
     f = request.files['file']
     basepath = sys.path[0]  # 当前文件所在路径

@@ -233,7 +233,9 @@ def return_rate():
 
 @map_blu.route('get_nearby', methods=['GET', 'POST'])
 def get_nearby():
-    """获取某一区域id或者是中心点坐标 返回附近8个区域的信息"""
+    """
+        获取某一区域id或者是中心点坐标 返回附近8个区域的信息
+    """
     try:
         area_id = request.json.get('area_id')
         res = NearbyM().get_nearby(area_id)['nearby']
