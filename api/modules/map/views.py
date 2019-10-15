@@ -167,8 +167,7 @@ def judge_active_area():
         if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
             active = j.active
             return jsonify(dict(active=active))
-        else:
-            return jsonify(dict(active=False))
+    return jsonify(dict(active=False))
 
 
 @map_blu.route('/activate_region', methods=['POST'])
