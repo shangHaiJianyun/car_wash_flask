@@ -60,7 +60,7 @@ class AreaM(object):
             return None
 
     def get_active_obj(self):
-        res = Area.query.filter(Area.active==1)
+        res = Area.query.filter(Area.active == 1)
         return res
 
     def add_new(self, **args):
@@ -231,3 +231,64 @@ def gen_locname(loc):
         }
     ).json()
     return res.get('result')['formatted_address']
+
+
+class HandlePois(object):
+    """
+        运用高德地图api获取相关指标确定不同区域的定性
+    """
+
+    def __init__(self):
+        self.key = ''
+
+    def get_api(self, location, radius):
+
+        url = 'https://restapi.amap.com/v3/place/around?key=%s&types=010500' % self.key
+        res = requests.get(
+            url=url,
+            params={
+                "location": location,
+                "output": "json",
+                "radius": radius,
+                "page": 1,
+                "extensions": "all",
+                "offset": 20
+            }
+        ).json()
+        return res
+
+    def car_wash_pois(self, location, radius):
+        '''洗车店附近的poi'''
+
+        url = 'https://restapi.amap.com/v3/place/around?key=%s&types=010500' % self.key
+        res = requests.get(
+            url=url,
+            params={
+                "location": location,
+                "output": "json",
+                "radius": radius,
+                "page": 1,
+                "extensions": "all",
+                "offset": 20
+            }
+        ).json()
+        return res['pois']
+
+    def restaurant_pois(self, location, radius):
+        '''餐馆附近的poi'''
+        # url = 'https://restapi.amap.com/v3/place/around?key=%s' \
+        #            '&location=%s&keywords=&types=%s&radius=3000&offset=20&page=1&extensions=all' \
+        #            % (self.key, location, types)
+        url = 'https://restapi.amap.com/v3/place/around?key=%s&types=050100' % self.key
+        res = requests.get(
+            url=url,
+            params={
+                "location": location,
+                "output": "json",
+                "radius": radius,
+                "page": 1,
+                "extensions": "all",
+                "offset": 20
+            }
+        ).json()
+        return res['pois']
