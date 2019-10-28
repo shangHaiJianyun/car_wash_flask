@@ -241,22 +241,6 @@ class HandlePois(object):
     def __init__(self):
         self.key = ''
 
-    def get_api(self, location, radius):
-
-        url = 'https://restapi.amap.com/v3/place/around?key=%s&types=010500' % self.key
-        res = requests.get(
-            url=url,
-            params={
-                "location": location,
-                "output": "json",
-                "radius": radius,
-                "page": 1,
-                "extensions": "all",
-                "offset": 20
-            }
-        ).json()
-        return res
-
     def car_wash_pois(self, location, radius):
         '''洗车店附近的poi'''
 
