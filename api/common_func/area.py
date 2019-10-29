@@ -287,7 +287,7 @@ class HandlePois(object):
             for j in pois:
                 c = j['biz_ext']['cost']
                 cost.append(c)
-            car_cost[i] = cost
+            car_cost[i['area_id']] = cost
         return car_cost
 
     def area_restaurant_pois(self):
@@ -300,5 +300,5 @@ class HandlePois(object):
             for j in pois:
                 c = j['biz_ext']['cost']
                 cost.append(c)
-            restaurant_cost[i] = cost
+            restaurant_cost[i['area_id']] = cost
         return restaurant_cost
