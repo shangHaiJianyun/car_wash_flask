@@ -276,3 +276,29 @@ class HandlePois(object):
             }
         ).json()
         return res['pois']
+
+    def area_carwash_pois(self):
+        areas = AreaM().list_all()
+        car_cost = {}
+        for i in areas:
+            cen_loc = i['cen_loc']
+            pois = self.car_wash_pois(cen_loc, 3000)
+            cost = []
+            for j in pois:
+                c = j['biz_ext']['cost']
+                cost.append(c)
+            car_cost[i] = cost
+        return car_cost
+
+    def area_restaurant_pois(self):
+        areas = AreaM().list_all()
+        restaurant_cost = {}
+        for i in areas:
+            cen_loc = i['cen_loc']
+            pois = self.car_wash_pois(cen_loc, 3000)
+            cost = []
+            for j in pois:
+                c = j['biz_ext']['cost']
+                cost.append(c)
+            restaurant_cost[i] = cost
+        return restaurant_cost
