@@ -159,7 +159,8 @@ def judge_active_area():
     unionid = request.json.get('unionid')
     openid = request.json.get('openid')
     address = request.json.get('address')
-    location = json.dumps(dict(lng=lng, lat=lat))
+    bd_lat, bd_lng = convert(lat, lng)
+    location = json.dumps(dict(lng=bd_lng, lat=bd_lat))
     record = SearchRecord(openid=openid, unionid=unionid, locations=location, address=address)
     record.save()
     for j in AreaM().get_all():
