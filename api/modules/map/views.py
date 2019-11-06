@@ -19,6 +19,7 @@ from api.modules.scheduler import SchJobs, SchWorkers
 def get_rate():
     """
         根据经纬度获取该区域的价格系数
+        小程序后台使用
     :return:
         data = {
                     'rate_name': rate['name'],
@@ -53,9 +54,9 @@ def get_rate():
                 'city': j.city_name,
                 'city_code': j.city_code
             }
-            return jsonify(data)
+            return jsonify(data if j.active else None)
 
-    return jsonify({'error': 'please input right axis'})
+    return jsonify(None)
 
 
 @map_blu.route('/list_area', methods=['GET'])
