@@ -13,6 +13,7 @@ import cv2
 def lprM():
     """
         识别车牌信息
+        小程序后台使用
     :return:
     """
     # 读入图片
