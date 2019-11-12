@@ -161,8 +161,9 @@ def judge_active_area():
     openid = request.json.get('openid')
     address = request.json.get('address')
     location = json.dumps(dict(lng=lng, lat=lat))
-    record = SearchRecord(openid=openid, unionid=unionid, locations=location, address=address)
-    record.save()
+    if openid:
+        record = SearchRecord(openid=openid, unionid=unionid, locations=location, address=address)
+        record.save()
     for j in AreaM().get_all():
         i = j.locations
         if (i['lt']['lng'] <= lng <= i['rt']['lng']) and (i['rd']['lat'] <= lat <= i['rt']['lat']):
