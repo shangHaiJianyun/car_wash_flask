@@ -251,11 +251,12 @@ def cluster_address():
     try:
         loc = request.json.get('loc')
         loc_data = np.array(loc)
-        data = cluster(loc_data)
+        labels, lat_label = cluster(loc_data)
+        data = dict(labels=labels, lat_label=lat_label)
     except Exception as e:
         return {'erro': e}
 
-    return jsonify({'data': data.tolist()})
+    return jsonify({'data': data})
 
 
 @map_blu.route('test_gen', methods=['GET', 'POST'])
