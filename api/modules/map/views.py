@@ -252,6 +252,9 @@ def cluster_address():
         loc = request.json.get('loc')
         loc_data = np.array(loc)
         labels, lat_label = cluster(loc_data)
+        print(labels)
+        print("==========")
+        print(lat_label)
         data = dict(labels=labels, lat_label=lat_label)
     except Exception as e:
         return {'erro': e}
