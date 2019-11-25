@@ -255,7 +255,7 @@ def cluster_address():
         print(labels)
         print("==========")
         print(lat_label)
-        data = dict(labels=labels, lat_label=lat_label)
+        data = dict(labels=labels.tolist(), lat_label=lat_label.tolist())
     except Exception as e:
         return {'erro': e}
 
