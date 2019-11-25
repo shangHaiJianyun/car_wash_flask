@@ -255,7 +255,7 @@ def cluster_address():
     except Exception as e:
         return {'erro': e}
 
-    return jsonify({'data': data})
+    return jsonify({'data': data.tolist()})
 
 
 @map_blu.route('test_gen', methods=['GET', 'POST'])
