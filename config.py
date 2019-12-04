@@ -10,7 +10,9 @@ class Config:
     DEBUG = True
     if 'chendebo' in os.getcwd():
         # 本地测试用例数据库
-        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_wash'
+        # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_wash'
+        # 测试
+        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@upcnxdb.cifgk3opujie.rds.cn-northwest-1.amazonaws.com.cn/test_cw_backend?charset=utf8mb4'
     elif "DanielJiang" in os.getcwd():
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://jjh:jjhjjh100@localhost/car_wash?charset=utf8mb4'
         SQLALCHEMY_BINDS = {

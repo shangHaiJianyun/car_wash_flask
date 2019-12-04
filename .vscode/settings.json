@@ -4,9 +4,9 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.enabled": false,
-    "python.linting.pep8Enabled": true,
+    "python.linting.pycodestyleEnabled": true,
     "python.linting.mypyEnabled": false,
-    "python.linting.pep8Args": [
+    "python.linting.pycodestyleArgs": [
         "--ignore=E501"
     ],
     "workbench.colorTheme": "One Monokai",

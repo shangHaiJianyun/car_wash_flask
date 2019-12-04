@@ -1,9 +1,10 @@
 from __future__ import with_statement
+from flask import current_app
+
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 from logging.config import fileConfig
 import logging
-from flask import current_app
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -70,14 +71,10 @@ def run_migrations_online():
                                 poolclass=pool.NullPool)
 
     connection = engine.connect()
-    # context.configure(
-    #     compare_type=True,  # 检查字段类型
-    #     compare_server_default=True  # 比较默认值
-    # )
     context.configure(connection=connection,
                       target_metadata=target_metadata,
-                      compare_type=True,  # 检查字段类型
-                      compare_server_default=True,  # 比较默认值
+                      compare_type=True,
+                      compare_server_default=True,
                       process_revision_directives=process_revision_directives,
                       **current_app.extensions['migrate'].configure_args)
 
