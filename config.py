@@ -8,7 +8,7 @@ from redis import StrictRedis
 
 class Config:
     DEBUG = True
-    if 'chendebo' in os.getcwd():
+    if 'devproject' in os.getcwd():
         # 本地测试用例数据库
         # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:mysql@localhost/car_wash'
         # 测试
