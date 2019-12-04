@@ -78,6 +78,7 @@ class DevelopConfig(Config):  # 定义开发环境的配置
 class ProductConfig(Config):  # 定义生产环境的配置
     DEBUG = False
     LOGLEVEL = logging.ERROR
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@upcnxdb.cifgk3opujie.rds.cn-northwest-1.amazonaws.com.cn/cw_backend?charset=utf8mb4'
 
 
 # 设置配置字典
