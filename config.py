@@ -22,7 +22,7 @@ class Config:
         # 服务器端数据库链接
         # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@fueldev.c3qlqhbaxuou.rds.cn-north-1.amazonaws.com.cn/car_wash?charset=utf8mb4'
         # 测试
-        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@upcnxdb.cifgk3opujie.rds.cn-northwest-1.amazonaws.com.cn/test_cw_backend?charset=utf8mb4'
+        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@upcnxdb.cifgk3opujie.rds.cn-northwest-1.amazonaws.com.cn/cw_backend?charset=utf8mb4'
         # 上线
         # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dev2:UpcTech2018@upcnxdb.cifgk3opujie.rds.cn-northwest-1.amazonaws.com.cn/cw_backend?charset=utf8mb4'
 
